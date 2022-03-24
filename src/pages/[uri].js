@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { client } from "../lib/apolloClient";
-import Block, { BLOCKS_FIELD } from "../utils/Blocks";
+import { BLOCKS_FIELD } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
 
 export default function page({ page }) {
@@ -24,7 +24,6 @@ export const getStaticProps = async (context) => {
     props: {
       page: page?.data?.page,
     },
-    revalidate: 30,
   };
 };
 
