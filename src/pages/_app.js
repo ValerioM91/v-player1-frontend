@@ -22,11 +22,10 @@ export default function App({ Component, pageProps }) {
           <ReviewsProvider>
             <IntroAnimationProvider>
               <div
-                className="wrap"
-                style={{ visibility: `${loaded ? "visible" : "hidden"}` }}
-              >
-                <Component {...pageProps} />
-              </div>
+                className="starter"
+                style={{ visibility: `${loaded ? "hidden" : ""}` }}
+              ></div>
+              <Component {...pageProps} />
             </IntroAnimationProvider>
           </ReviewsProvider>
         </AssetsProvider>
