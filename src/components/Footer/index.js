@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Component from "./Footer";
-import { device } from "../../utils/theme/responsive";
 
 const Footer = styled(Component)`
   background: ${({ theme }) => theme.colors.darkBackground};
@@ -31,7 +30,7 @@ const Footer = styled(Component)`
     transition: var(--transition);
   }
 
-  @media ${device.mdUp} {
+  @media ${({ theme }) => theme.device.mdUp} {
     .wrapper {
       grid-template-columns: 1fr 1fr 1fr;
     }

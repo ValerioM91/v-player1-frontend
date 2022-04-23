@@ -2,15 +2,6 @@ import parse from "html-react-parser";
 
 import Heading from "../Heading";
 
-export const FinalCommentQuery = `
-... on AcfFinalComment1Block {
-    attributes: finalComment1 {
-      heading
-      headingType
-      content
-    }
-  }`;
-
 const Component = ({ className, heading, headingType, content, vote }) => {
   return (
     <div className={className}>

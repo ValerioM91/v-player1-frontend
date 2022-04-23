@@ -42,7 +42,7 @@ const TopMenu = styled(Component)`
     }
   }
 
-  @media ${device.mdUp} {
+  @media ${({ theme }) => theme.device.mdUp} {
     .links li {
       font-size: 1.8rem;
       padding: 1rem 2rem;

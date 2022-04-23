@@ -3,18 +3,6 @@ import Heading from "../Heading";
 import Container from "../Container";
 import TopMenu from "./child-components/TopMenu";
 
-export const HeroQuery = `
-... on AcfHeroImage001Block {
-  attributes: heroImage001 {
-    headingType
-    heading
-    backgroundImage {
-      sourceUrl
-      altText 
-    }
-  }
-}`;
-
 const Component = ({ className, backgroundImage, heading, headingType }) => {
   const sourceUrl = backgroundImage?.sourceUrl;
   const altText = backgroundImage?.altText;

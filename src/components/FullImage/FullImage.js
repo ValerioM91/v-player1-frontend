@@ -1,15 +1,5 @@
 import Image from "next/image";
 
-export const FullImageQuery = `
-... on AcfFullImage1Block {
-  attributes: fullImage {
-    image {
-      altText
-      sourceUrl
-    }
-  }
-}`;
-
 const Component = ({ className, image }) => {
   const url = image?.sourceUrl;
   const altText = image?.altText;

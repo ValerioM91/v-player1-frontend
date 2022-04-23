@@ -1,6 +1,18 @@
 import styled from "styled-components";
-import { device } from "../../utils/theme/responsive";
 import Component from "./About";
+
+export const AboutQuery = `
+... on AcfAbout001Block {
+  attributes: aboutMe {
+    content
+    heading
+    headingType
+    image {
+      sourceUrl
+      altText
+    }
+  }
+}`;
 
 const StyledAbout = styled(Component)`
   padding-top: 3rem;
@@ -20,7 +32,7 @@ const StyledAbout = styled(Component)`
     flex: 0 0 100%;
   }
 
-  @media ${device.mdUp} {
+  @media ${({ theme }) => theme.device.mdUp} {
     .image {
       max-width: calc(100% / 3);
       flex: 0 0 calc(100% / 3);

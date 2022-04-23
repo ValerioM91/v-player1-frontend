@@ -1,16 +1,12 @@
 import { gql } from "@apollo/client";
-import Hero from "../components/Hero";
-import { HeroQuery } from "../components/Hero/Hero";
-import Reviews from "../components/Reviews";
-import { ReviewsQuery } from "../components/Reviews/Reviews";
-import About from "../components/About";
-import { AboutQuery } from "../components/About/About";
-import { FullImageQuery } from "../components/FullImage/FullImage";
-import FullImage from "../components/FullImage";
-import { HeadingContentQuery } from "../components/HeadingContent/HeadingContent";
-import HeadingContent from "../components/HeadingContent";
-import { FinalCommentQuery } from "../components/FinalComment/FinalComment";
-import FinalComment from "../components/FinalComment";
+import Hero, { HeroQuery } from "../components/Hero";
+import Reviews, { ReviewsQuery } from "../components/Reviews";
+import About, { AboutQuery } from "../components/About";
+import FullImage, { FullImageQuery } from "../components/FullImage";
+import HeadingContent, {
+  HeadingContentQuery,
+} from "../components/HeadingContent";
+import FinalComment, { FinalCommentQuery } from "../components/FinalComment";
 
 const BlockQuery = `
   ${HeroQuery}

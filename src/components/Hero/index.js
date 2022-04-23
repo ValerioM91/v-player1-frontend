@@ -3,6 +3,18 @@ import Component from "./Hero";
 import Container from "../Container";
 import Heading from "../Heading";
 
+export const HeroQuery = `
+... on AcfHeroImage001Block {
+  attributes: heroImage001 {
+    headingType
+    heading
+    backgroundImage {
+      sourceUrl
+      altText 
+    }
+  }
+}`;
+
 const Hero = styled(Component)`
   position: relative;
   height: 100vh;

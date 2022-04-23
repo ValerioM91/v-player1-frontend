@@ -1,6 +1,21 @@
 import styled from "styled-components";
 import Component from "./HeadingContent";
 
+export const HeadingContentQuery = `
+... on AcfHeadingContent1Block {
+    attributes: headingContent1 {
+        heading
+        headingType
+        contents {
+            content
+            image {
+              altText
+              sourceUrl
+            }
+        }
+    }
+}`;
+
 const HeadingContent = styled(Component)`
   background-color: ${({ theme }) => theme.colors.white};
   padding: 3rem;

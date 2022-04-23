@@ -83,13 +83,13 @@ function IntroAnimation() {
               ></motion.path>
               <motion.path
                 stroke="#0071BC"
-                strokeWidth="2"
-                d="M128.7 257.3C199.6 257.3 257.3 199.6 257.3 128.7 257.3 57.7 199.6 0 128.7 0S0 57.7 0 128.7C0 161.9 12.6 193.4 35.5 217.4L55.3 198.6C37.3 179.6 27.3 154.8 27.3 128.7 27.3 72.8 72.8 27.3 128.7 27.3 184.5 27.3 230 72.8 230 128.7S184.5 230 128.7 230"
+                strokeWidth="3"
+                d="M128.5 257.3C199.6 257.3 257.3 199.6 257.3 128.5 257.3 57.7 199.6 0 128.5 0S0 57.7 0 128.5C0 161.9 12.6 193.4 35.5 217.4L55.3 198.6C37.3 179.6 27.3 154.8 27.3 128.5 27.3 72.8 72.8 27.3 128.5 27.3 184.5 27.3 230 72.8 230 128.5S184.5 230 128.5 230"
                 variants={externalPathVariants}
               />
               <motion.path
                 stroke="#0071BC"
-                strokeWidth="2"
+                strokeWidth="3"
                 d="M129 230C57.7 230 0 287.7 0 358.6 0 429.6 57.7 487.3 129 487.3S257.3 429.6 257.3 358.6C257.3 325.4 244.7 293.9 221.8 269.9L202 288.7C220 307.6 230 332.5 230 358.6 230 414.5 184.5 460 129 460S27.3 414.5 27.3 358.6C27.3 302.8 72.8 257.3 129 257.3"
                 variants={externalPathVariants}
               />
@@ -134,8 +134,14 @@ const Wrapper = styled.div`
   }
 
   svg {
-    transition: transform 0.4s;
-    transition-delay: 0.5s;
+    overflow: visible;
+    transition: transform 0.525s;
+    transition-delay: 0.475s;
+
+    @media ${({ theme }) => theme.device.xlUp} {
+      transition: transform 0.4s;
+      transition-delay: 0.6s;
+    }
   }
 
   ${({ hide }) =>

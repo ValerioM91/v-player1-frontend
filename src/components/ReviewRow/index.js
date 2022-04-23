@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Component from "./ReviewRow";
-import { device } from "../../utils/theme/responsive";
 
 const Review = styled(Component)`
   display: flex;
@@ -66,7 +65,7 @@ const Review = styled(Component)`
     justify-content: center;
   }
 
-  @media ${device.mdUp} {
+  @media ${({ theme }) => theme.device.mdUp} {
     &:not(:last-of-type):after {
       width: calc(10 / 12 * 100% - 4rem);
     }
@@ -92,7 +91,7 @@ const Review = styled(Component)`
     }
   }
 
-  @media ${device.xlUp} {
+  @media ${({ theme }) => theme.device.xlUp} {
     .col-left {
       flex: 0 0 35%;
       max-width: 35%;

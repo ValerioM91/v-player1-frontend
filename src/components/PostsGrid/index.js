@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../utils/theme/responsive";
 import Component from "./PostsGrid";
 
 const PostsGrid = styled(Component)`
@@ -7,7 +6,7 @@ const PostsGrid = styled(Component)`
   min-height: 100vh;
   padding-bottom: 5rem;
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};
-  @media ${device.mdUp} {
+  @media ${({ theme }) => theme.device.mdUp} {
     padding-top: ${({ first }) => (first ? "12rem" : "5rem")};
   }
 
@@ -19,7 +18,7 @@ const PostsGrid = styled(Component)`
   .post {
     flex: 0 0 100%;
     max-width: 100%;
-    @media ${device.mdUp} {
+    @media ${({ theme }) => theme.device.mdUp} {
       flex: 0 0 33.333%;
       max-width: 33.333%;
     }

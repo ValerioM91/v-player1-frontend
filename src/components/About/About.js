@@ -4,19 +4,6 @@ import Image from "next/image";
 import Heading from "../Heading";
 import Container from "../Container";
 
-export const AboutQuery = `
-... on AcfAbout001Block {
-  attributes: aboutMe {
-    content
-    heading
-    headingType
-    image {
-      sourceUrl
-      altText
-    }
-  }
-}`;
-
 const Component = ({ className, content, heading, headingType, image }) => {
   const sourceUrl = image?.sourceUrl;
   const altText = image?.altText;

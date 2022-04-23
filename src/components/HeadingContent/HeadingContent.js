@@ -3,21 +3,6 @@ import Image from "next/image";
 
 import Heading from "../Heading";
 
-export const HeadingContentQuery = `
-... on AcfHeadingContent1Block {
-    attributes: headingContent1 {
-        heading
-        headingType
-        contents {
-            content
-            image {
-              altText
-              sourceUrl
-            }
-        }
-    }
-}`;
-
 const Component = ({ className, heading, headingType, contents }) => {
   return (
     <div className={className}>
