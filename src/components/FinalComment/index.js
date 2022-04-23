@@ -17,7 +17,7 @@ const FinalComment = styled(Component)`
 
   .content p {
     line-height: 1.5;
-    ${({ theme }) => theme.fontSizes.contentLarge};
+    ${({ theme }) => theme.fontSizes.contentMedium};
   }
 
   .content:not(:last-child) {
@@ -32,14 +32,17 @@ const FinalComment = styled(Component)`
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
     text-align: center;
-    font-size: 4rem;
     font-family: "Electrolize";
+    font-size: 3.2rem;
+    @media ${({ theme }) => theme.device.mdUp} {
+      font-size: 4.6rem;
+    }
   }
   .score {
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.primaryBlue};
     border-radius: 0.5rem;
-    padding: 0.3rem 2rem 0;
+    padding: 0.2rem 2rem 0;
   }
 `;
 

@@ -5,6 +5,30 @@ const Sidebar = styled(Component)`
   position: sticky;
   top: 9rem;
 
+  .articles {
+    display: grid;
+    column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  @media ${({ theme }) => theme.device.smUp} {
+    .articles {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mdUp} {
+    .articles {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.lgUp} {
+    .articles {
+      display: block;
+    }
+  }
+
   article {
     display: flex;
     background-color: ${({ theme }) => theme.colors.white};

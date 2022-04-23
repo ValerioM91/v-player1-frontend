@@ -19,7 +19,6 @@ const Component = ({ className, blocks, title, excerpt, reviewFields }) => {
         <Container>
           <div className="col-left">
             <Heading
-              color="textColor"
               heading={title}
               headingType="h1"
               size="headingMedium"

@@ -23,26 +23,28 @@ const Component = ({ className, title }) => {
         borderBottom
         afterLine
       />
-      {latest.map((review, i) => {
-        const { title, slug, featuredImage } = review;
+      <div className="articles">
+        {latest.map((review, i) => {
+          const { title, slug, featuredImage } = review;
 
-        return (
-          <article key={i}>
-            <Link href={`/reviews/${slug}`}>
-              <a className="link">
-                {featuredImage?.node?.sourceUrl && (
-                  <img
-                    className="thumbnail"
-                    src={featuredImage.node.sourceUrl}
-                    alt={featuredImage.node.altText || "V-Player1"}
-                  />
-                )}
-                <div className="title heading-font">{title}</div>
-              </a>
-            </Link>
-          </article>
-        );
-      })}
+          return (
+            <article key={i}>
+              <Link href={`/reviews/${slug}`}>
+                <a className="link">
+                  {featuredImage?.node?.sourceUrl && (
+                    <img
+                      className="thumbnail"
+                      src={featuredImage.node.sourceUrl}
+                      alt={featuredImage.node.altText || "V-Player1"}
+                    />
+                  )}
+                  <div className="title heading-font">{title}</div>
+                </a>
+              </Link>
+            </article>
+          );
+        })}
+      </div>
     </div>
   );
 };

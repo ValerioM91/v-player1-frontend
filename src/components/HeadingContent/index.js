@@ -18,7 +18,7 @@ export const HeadingContentQuery = `
 
 const HeadingContent = styled(Component)`
   background-color: ${({ theme }) => theme.colors.white};
-  padding: 3rem;
+  padding: 2rem;
 
   .heading {
     padding-bottom: 1rem;
@@ -30,19 +30,34 @@ const HeadingContent = styled(Component)`
 
   .content p {
     line-height: 1.5;
-    ${({ theme }) => theme.fontSizes.contentLarge};
+    ${({ theme }) => theme.fontSizes.contentMedium};
   }
 
   .content:not(:last-child) {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
-  .image {
-    position: relative;
-    float: left;
-    width: 50%;
-    height: unset;
-    margin: 0.5rem 2rem 0.5rem 0;
+  @media ${({ theme }) => theme.device.mdDown} {
+    .image {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mdUp} {
+    padding: 3rem;
+
+    .content:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    .image {
+      position: relative;
+      float: left;
+      width: 50%;
+      height: unset;
+      margin: 0.5rem 2rem 0.5rem 0;
+    }
   }
 `;
 

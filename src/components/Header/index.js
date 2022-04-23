@@ -35,7 +35,7 @@ const Header = styled(Component)`
 
     .link {
       margin-left: 1rem;
-      ${({ theme }) => theme.fontSizes.contentLarge};
+      ${({ theme }) => theme.fontSizes.contentMedium};
       font-family: "Electrolize";
       color: ${({ theme }) => theme.colors.primaryBlue};
       cursor: pointer;

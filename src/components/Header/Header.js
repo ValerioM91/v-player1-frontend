@@ -35,18 +35,31 @@ const Component = ({ className }) => {
           <ul className="links">
             {mainMenu.map((link, index) => {
               const { label, path, cssClasses } = link;
-
               if (path === "/#contact") {
                 return (
                   <li key={index} onClick={() => setContactActive(true)}>
-                    <a className={`${cssClasses} link underline`}>{label}</a>
+                    <a
+                      className={`link underline${
+                        cssClasses && cssClasses.length ? ` ${cssClasses}` : ""
+                      }`}
+                    >
+                      {label}
+                    </a>
                   </li>
                 );
               } else
                 return (
                   <li key={index}>
                     <Link href={path}>
-                      <a className={`${cssClasses} link underline`}>{label}</a>
+                      <a
+                        className={`link underline${
+                          cssClasses && cssClasses.length
+                            ? ` ${cssClasses}`
+                            : ""
+                        }`}
+                      >
+                        {label}
+                      </a>
                     </Link>
                   </li>
                 );
