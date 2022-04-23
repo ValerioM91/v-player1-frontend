@@ -24,19 +24,19 @@ const Component = ({ className, title }) => {
         afterLine
       />
       {latest.map((review, i) => {
-        const { title, slug, reviewFields } = review;
+        const { title, slug, featuredImage } = review;
 
         return (
           <article key={i}>
             <Link href={`/reviews/${slug}`}>
               <a className="link">
-                <Image
-                  src={reviewFields?.hero?.sourceUrl}
-                  alt={reviewFields?.hero?.altText || "V-Player1"}
-                  width={80}
-                  height={80}
-                  objectFit="cover"
-                />
+                {featuredImage?.node?.sourceUrl && (
+                  <img
+                    className="thumbnail"
+                    src={featuredImage.node.sourceUrl}
+                    alt={featuredImage.node.altText || "V-Player1"}
+                  />
+                )}
                 <div className="title heading-font">{title}</div>
               </a>
             </Link>

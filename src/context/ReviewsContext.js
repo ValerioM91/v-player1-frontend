@@ -52,6 +52,12 @@ const GET_REVIEWS = gql`
             sourceUrl
           }
         }
+        featuredImage {
+          node {
+            altText
+            sourceUrl
+          }
+        }
       }
     }
   }

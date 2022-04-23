@@ -23,6 +23,12 @@ const Sidebar = styled(Component)`
       color: ${({ theme }) => theme.colors.primaryBlue};
       font-size: 1.8rem;
     }
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+    }
   }
 `;
 

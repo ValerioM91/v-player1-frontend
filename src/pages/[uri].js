@@ -14,7 +14,7 @@ export const getStaticProps = async (context) => {
     variables: { uri },
   });
 
-  if (!page.data.page) {
+  if (!page.data.page.slug) {
     return {
       notFound: true,
     };
