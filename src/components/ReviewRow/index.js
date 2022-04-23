@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Component from "./ReviewRow";
 import { device } from "../../utils/theme/responsive";
-import { getFontSize } from "../../utils/getFontSize";
 
 const Review = styled(Component)`
   display: flex;
@@ -43,12 +42,12 @@ const Review = styled(Component)`
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryBlue};
     margin-bottom: 2rem;
-    ${({ theme }) => getFontSize(theme.fontSizeOptions.headingSmall)}
+    ${({ theme }) => theme.fontSizes.headingSmall}
   }
 
   .content {
     line-height: 1.5;
-    ${getFontSize("contentMedium")}
+    ${({ theme }) => theme.fontSizes.contentMedium}
   }
 
   .vote {

@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { getFontSize } from "../../utils/getFontSize";
-import { device } from "../../utils/theme/responsive";
 import Component from "./PostCard";
 
 const PostCard = styled(Component)`
@@ -9,7 +7,7 @@ const PostCard = styled(Component)`
   border-radius: 1rem;
 
   .title {
-    ${getFontSize("headingExtraSmall")};
+    ${({ theme }) => theme.fontSizes.headingExtraSmall};
     margin-top: 1rem;
   }
 `;

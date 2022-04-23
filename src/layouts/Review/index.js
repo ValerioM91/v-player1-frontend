@@ -19,7 +19,13 @@ const Review = styled(Component)`
     max-width: 100%;
   }
 
-  @media ${device.mdUp} {
+  @media ${device.lgDown} {
+    .col-right {
+      margin-top: 3rem;
+    }
+  }
+
+  @media ${device.lgUp} {
     .col-left {
       flex: 0 0 75%;
       max-width: 75%;

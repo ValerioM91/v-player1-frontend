@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { getFontSize } from "../../utils/getFontSize";
 import Component from "./Heading";
 
 const Heading = styled(Component)`
@@ -9,7 +8,8 @@ const Heading = styled(Component)`
   text-transform: uppercase;
   font-family: "Electrolize";
   font-weight: 300;
-  ${({ size }) => size && getFontSize(size)}
+  ${({ theme, size }) =>
+    theme.fontSizes[size] || theme.fontSizes.headingMedium};
 
   ${({ borderBottom }) =>
     borderBottom &&
@@ -18,7 +18,7 @@ const Heading = styled(Component)`
       border-bottom: 3px solid ${({ theme }) => theme.colors.mediumGrey};
       margin-bottom: 2rem;
       letter-spacing: -1px;
-    `} 
+    `}
 
   ${({ afterLine }) =>
     afterLine &&

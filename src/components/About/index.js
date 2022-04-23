@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { device } from "../../utils/theme/responsive";
 import Component from "./About";
-import { getFontSize } from "../../utils/getFontSize";
 
 const StyledAbout = styled(Component)`
   padding-top: 3rem;
   padding-bottom: 5rem;
-  ${getFontSize("contentLarge")};
+  ${({ theme }) => theme.fontSizes.contentLarge};
 
   .row {
     display: flex;

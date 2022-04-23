@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Component from "./FinalComment";
-import { getFontSize } from "../../utils/getFontSize";
 
 const FinalComment = styled(Component)`
   background-color: ${({ theme }) => theme.colors.primaryBlue};
@@ -9,7 +8,7 @@ const FinalComment = styled(Component)`
 
   .content p {
     line-height: 1.5;
-    ${({ theme }) => getFontSize(theme.fontSizeOptions.contentLarge)};
+    ${({ theme }) => theme.fontSizes.contentLarge};
   }
 
   .content:not(:last-child) {
@@ -17,13 +16,18 @@ const FinalComment = styled(Component)`
   }
 
   .final-score {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
     text-align: center;
     font-size: 4rem;
     font-family: "Electrolize";
   }
   .score {
     background-color: ${({ theme }) => theme.colors.white};
-    margin-left: 2rem;
     color: ${({ theme }) => theme.colors.primaryBlue};
     border-radius: 0.5rem;
     padding: 0.3rem 2rem 0;

@@ -1,4 +1,6 @@
-const fontSizes = {
+import { getFontSize } from "../getFontSize";
+
+export const fontSizesMap = {
   headingExtraLarge: {
     null: "3rem",
     sm: "3rem",
@@ -49,13 +51,11 @@ const fontSizes = {
   },
 };
 
-export default fontSizes;
+const fontSizes = {};
 
-const fontSizeOptions = {};
-for (const key in fontSizes) {
-  if (fontSizes.hasOwnProperty(key)) {
-    fontSizeOptions[key] = key;
+for (const key in fontSizesMap) {
+  if (fontSizesMap.hasOwnProperty(key)) {
+    fontSizes[key] = getFontSize(key);
   }
 }
-
-export { fontSizeOptions };
+export default fontSizes;

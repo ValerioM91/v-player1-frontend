@@ -1,18 +1,20 @@
 import breakpoints from "./theme/breakpoints";
-import fontSizes from "./theme/fontSizes";
+import { fontSizesMap } from "./theme/fontSizes";
 import { css } from "styled-components";
 
 export const getFontSize = (size) => {
-  const fontSizeObject = fontSizes[size];
+  const fontSizeObject = fontSizesMap[size];
+
   if (!fontSizeObject) return;
+
   return Object.keys(fontSizeObject).map((breakpoint) => {
     if (breakpoint === "null") {
       return css`
-        font-size: ${fontSizeObject[breakpoint]};
+        font-size: ${fontSizeObject["null"]};
       `;
     } else {
       return css`
-        @media (min-width: ${breakpoints[breakpoint]}) {
+        @media (min-width: ${breakpoints[breakpoint]}px) {
           font-size: ${fontSizeObject[breakpoint]};
         } ;
       `;

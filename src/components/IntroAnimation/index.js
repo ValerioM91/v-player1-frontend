@@ -47,74 +47,66 @@ function IntroAnimation() {
 
   return (
     <Wrapper hide={!show && introCompleted}>
-      <motion.div
-        className="intro-animation"
+      <motion.svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="200"
+        height="108"
+        viewBox="0 0 488 258"
         initial="initial"
         animate="animate"
       >
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="200"
-          height="108"
-          viewBox="0 0 488 258"
-          style={{ overflow: "visible" }}
-        >
-          <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
-            <g transform="translate(-56 -283)">
-              <g transform="rotate(-90 298.446 242.428)">
-                <motion.path
-                  fill="#0071BC"
-                  variants={buttonVariants(2.1)}
-                  onAnimationComplete={() =>
-                    setTimeout(() => setIntroCompleted(true), 1000)
-                  }
-                  d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
-                ></motion.path>
-                <motion.path
-                  fill="#04A384"
-                  variants={buttonVariants(1.9)}
-                  d="M146.47 310.527c0-9.84-7.976-17.816-17.815-17.816-9.84 0-17.816 7.977-17.816 17.816 0 9.839 7.977 17.815 17.816 17.815 9.839 0 17.816-7.976 17.816-17.815"
-                ></motion.path>
-                <motion.path
-                  fill="#F3C400"
-                  variants={buttonVariants(1.5)}
-                  d="M80.545 340.822c-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.977 17.815 17.816 17.815 9.839 0 17.815-7.975 17.815-17.815 0-9.839-7.976-17.815-17.815-17.815"
-                ></motion.path>
-                <motion.path
-                  fill="#EB4B36"
-                  variants={buttonVariants(1.7)}
-                  d="M110.84 406.748c0 9.839 7.976 17.815 17.815 17.815 9.839 0 17.816-7.976 17.816-17.815 0-9.84-7.977-17.816-17.816-17.816-9.84 0-17.816 7.977-17.816 17.816"
-                ></motion.path>
-                <motion.path
-                  stroke="#0071BC"
-                  strokeWidth="2"
-                  strokeDashoffset="100"
-                  d="M128.7 257.3C199.6 257.3 257.3 199.6 257.3 128.7 257.3 57.7 199.6 0 128.7 0S0 57.7 0 128.7C0 161.9 12.6 193.4 35.5 217.4L55.3 198.6C37.3 179.6 27.3 154.8 27.3 128.7 27.3 72.8 72.8 27.3 128.7 27.3 184.5 27.3 230 72.8 230 128.7S184.5 230 128.7 230"
-                  variants={externalPathVariants}
-                />
-                <motion.path
-                  stroke="#0071BC"
-                  strokeWidth="2"
-                  strokeDashoffset="100"
-                  d="M128.85 230C57.7 230 0 287.7 0 358.6 0 429.6 57.7 487.3 128.7 487.3S257.3 429.6 257.3 358.6C257.3 325.4 244.7 293.9 221.8 269.9L202 288.7C220 307.6 230 332.5 230 358.6 230 414.5 184.5 460 128.7 460S27.3 414.5 27.3 358.6C27.3 302.8 72.8 257.3 128.85 257.3"
-                  variants={externalPathVariants}
-                />
-                <motion.path
-                  fill="#0071BC"
-                  d="M172.1866 80.7644L172.1866 103.581 106.0182 128.1435 172.1866 152.7049 172.1866 174.9838 77.5634 137.0007 77.5634 118.7474z"
-                  variants={buttonVariants(1.3)}
-                ></motion.path>
-              </g>
+        <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
+          <g transform="translate(-56 -283)">
+            <g transform="rotate(-90 298.446 242.428)">
+              <motion.path
+                fill="#0071BC"
+                variants={buttonVariants(2.1)}
+                onAnimationComplete={() =>
+                  setTimeout(() => setIntroCompleted(true), 1000)
+                }
+                d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
+              ></motion.path>
+              <motion.path
+                fill="#04A384"
+                variants={buttonVariants(1.9)}
+                d="M146.47 310.527c0-9.84-7.976-17.816-17.815-17.816-9.84 0-17.816 7.977-17.816 17.816 0 9.839 7.977 17.815 17.816 17.815 9.839 0 17.816-7.976 17.816-17.815"
+              ></motion.path>
+              <motion.path
+                fill="#F3C400"
+                variants={buttonVariants(1.5)}
+                d="M80.545 340.822c-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.977 17.815 17.816 17.815 9.839 0 17.815-7.975 17.815-17.815 0-9.839-7.976-17.815-17.815-17.815"
+              ></motion.path>
+              <motion.path
+                fill="#EB4B36"
+                variants={buttonVariants(1.7)}
+                d="M110.84 406.748c0 9.839 7.976 17.815 17.815 17.815 9.839 0 17.816-7.976 17.816-17.815 0-9.84-7.977-17.816-17.816-17.816-9.84 0-17.816 7.977-17.816 17.816"
+              ></motion.path>
+              <motion.path
+                stroke="#0071BC"
+                strokeWidth="2"
+                d="M128.7 257.3C199.6 257.3 257.3 199.6 257.3 128.7 257.3 57.7 199.6 0 128.7 0S0 57.7 0 128.7C0 161.9 12.6 193.4 35.5 217.4L55.3 198.6C37.3 179.6 27.3 154.8 27.3 128.7 27.3 72.8 72.8 27.3 128.7 27.3 184.5 27.3 230 72.8 230 128.7S184.5 230 128.7 230"
+                variants={externalPathVariants}
+              />
+              <motion.path
+                stroke="#0071BC"
+                strokeWidth="2"
+                d="M129 230C57.7 230 0 287.7 0 358.6 0 429.6 57.7 487.3 129 487.3S257.3 429.6 257.3 358.6C257.3 325.4 244.7 293.9 221.8 269.9L202 288.7C220 307.6 230 332.5 230 358.6 230 414.5 184.5 460 129 460S27.3 414.5 27.3 358.6C27.3 302.8 72.8 257.3 129 257.3"
+                variants={externalPathVariants}
+              />
+              <motion.path
+                fill="#0071BC"
+                d="M172.1866 80.7644L172.1866 103.581 106.0182 128.1435 172.1866 152.7049 172.1866 174.9838 77.5634 137.0007 77.5634 118.7474z"
+                variants={buttonVariants(1.3)}
+              ></motion.path>
             </g>
           </g>
-        </motion.svg>
-      </motion.div>
+        </g>
+      </motion.svg>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
@@ -124,24 +116,37 @@ const Wrapper = styled.div`
   justify-content: center;
   min-height: 100vh;
   z-index: 15;
-  transition: visibility 1s ease-in-out, opacity 1s ease-in-out;
+  transition: visibility 1s ease-in-out, transform 1s;
   opacity: 1;
   visibility: visible;
+  overflow: visible;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    min-width: 150%;
+    min-height: 150%;
+    aspect-ratio: 1 / 1;
+    transition: transform 1s;
+    z-index: -1;
+  }
 
   svg {
-    opacity: 1;
-    transition: opacity 0.8s ease-in-out;
+    transition: transform 0.4s;
+    transition-delay: 0.5s;
   }
 
   ${({ hide }) =>
     hide &&
     css`
       visibility: hidden;
-      opacity: 0;
-      /* transform: scale(0); */
-
+      &::before {
+        transform: scale(0);
+      }
       svg {
-        opacity: 0;
+        transform: scale(0);
       }
     `}
 `;

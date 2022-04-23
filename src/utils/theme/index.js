@@ -1,12 +1,12 @@
 import colors from "./colors";
 import { device } from "./responsive";
-import { fontSizeOptions } from "./fontSizes";
+import fontSizes from "./fontSizes";
 import animations from "./animations";
 
 const theme = {
   colors,
   device,
-  fontSizeOptions,
+  fontSizes,
   animations,
   maxWidth: "124rem",
 };

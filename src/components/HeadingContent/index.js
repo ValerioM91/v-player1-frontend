@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { getFontSize } from "../../utils/getFontSize";
 import Component from "./HeadingContent";
 
 const HeadingContent = styled(Component)`
@@ -16,7 +15,7 @@ const HeadingContent = styled(Component)`
 
   .content p {
     line-height: 1.5;
-    ${({ theme }) => getFontSize(theme.fontSizeOptions.contentLarge)};
+    ${({ theme }) => theme.fontSizes.contentLarge};
   }
 
   .content:not(:last-child) {

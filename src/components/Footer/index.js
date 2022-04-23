@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Component from "./Footer";
 import { device } from "../../utils/theme/responsive";
-import { getFontSize } from "../../utils/getFontSize";
 
 const Footer = styled(Component)`
   background: ${({ theme }) => theme.colors.darkBackground};
@@ -19,7 +18,7 @@ const Footer = styled(Component)`
   .copy {
     text-align: center;
     color: ${({ theme }) => theme.colors.white};
-    ${({ theme }) => getFontSize(theme.fontSizeOptions.contentMedium)};
+    ${({ theme }) => theme.fontSizes.contentMedium};
     grid-column: 1 / 3;
   }
   .socials {
