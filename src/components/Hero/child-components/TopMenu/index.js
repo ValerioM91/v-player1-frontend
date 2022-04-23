@@ -7,7 +7,6 @@ const TopMenu = styled(Component)`
   position: absolute;
   width: 100%;
   padding-top: 5rem;
-  animation: ${({ theme }) => theme.animations.fadeTop} 0.5s ease-in-out;
   .nav-center {
     z-index: 1;
     margin: 0 auto;

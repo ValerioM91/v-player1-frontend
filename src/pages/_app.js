@@ -5,6 +5,7 @@ import theme from "../utils/theme";
 import "../utils/global.css";
 import { ReviewsProvider } from "../context/ReviewsContext";
 import { AssetsProvider } from "../context/AssetsContext";
+import { IntroAnimationProvider } from "../context/LoadingContext";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <AssetsProvider>
           <ReviewsProvider>
-            <Component {...pageProps} />
+            <IntroAnimationProvider>
+              <Component {...pageProps} />
+            </IntroAnimationProvider>
           </ReviewsProvider>
         </AssetsProvider>
       </ThemeProvider>

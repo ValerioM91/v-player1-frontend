@@ -7,11 +7,13 @@ import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Head from "../../components/Head";
 import Heading from "../../components/Heading";
+import IntroAnimation from "../../components/IntroAnimation";
 
 const Component = ({ className, blocks, title, excerpt, reviewFields }) => {
   return (
     <>
       <Head title={title} description={excerpt ? parse(excerpt) : "Review"} />
+      <IntroAnimation />
       <Header />
       <main className={className}>
         <Container>

@@ -3,6 +3,7 @@ import { client } from "../lib/apolloClient";
 import Block, { BLOCKS_FIELD } from "../utils/Blocks";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
+import IntroAnimation from "../components/IntroAnimation";
 
 const HOMEPAGE_QUERY = gql`
   {
@@ -34,6 +35,7 @@ export default function Home({ page }) {
   return (
     <>
       <Head title={title} />
+      <IntroAnimation />
       {blocks &&
         blocks.map((block, index) => <Block block={block} key={index} />)}
       <Footer />
