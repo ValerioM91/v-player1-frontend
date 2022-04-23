@@ -126,17 +126,29 @@ const Wrapper = styled.div`
     position: absolute;
     background-color: white;
     border-radius: 50%;
-    min-width: 150%;
-    min-height: 150%;
-    aspect-ratio: 1 / 1;
     transition: transform 1s;
     z-index: -1;
+    width: 1000px;
+    height: 1000px;
+
+    @media ${({ theme }) => theme.device.md} {
+      width: 1700px;
+      height: 1700px;
+    }
+
+    @media ${({ theme }) => theme.device.xlUp} {
+      min-width: 150%;
+      min-height: 150%;
+      width: auto;
+      height: auto;
+      aspect-ratio: 1/1;
+    }
   }
 
   svg {
     overflow: visible;
-    transition: transform 0.525s;
-    transition-delay: 0.475s;
+    transition: transform 0.475s;
+    transition-delay: 0.525s;
 
     @media ${({ theme }) => theme.device.xlUp} {
       transition: transform 0.4s;
