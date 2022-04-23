@@ -1,4 +1,4 @@
-curl "https://v-player1-frontend-4vhlg6fel-valeriom91.vercel.app/api/revalidate" \
+curl "https://v-player1-frontend-dugrkji8y-valeriom91.vercel.app" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d "[\"/\"]"
+  -d "[\"/reviews/private-review\"]"
