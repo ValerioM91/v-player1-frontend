@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import useIntroAnimationContext from "../../context/LoadingContext";
@@ -28,8 +28,21 @@ const buttonVariants = (delay) => ({
   animate: {
     opacity: 1,
     scale: 1,
+    transition: { duration: 0.2, delay, ease: "easeInOut" },
+  },
+  bounceInitial: {
+    opacity: 1,
+    scale: 1,
+  },
+  bounceAnimate: {
+    opacity: 1,
+    scale: [1, 0.9, 1.02, 1],
     transition: {
-      default: { duration: 0.2, delay, ease: "easeInOut" },
+      duration: 0.2,
+      delay,
+      ease: "easeInOut",
+      repeat: Infinity,
+      repeatDelay: 1.5,
     },
   },
 });
@@ -67,6 +80,16 @@ function IntroAnimation() {
     };
   });
 
+  const buttonProps = useCallback((delay, increment) => {
+    return {
+      variants: introCompleted
+        ? buttonVariants(increment)
+        : buttonVariants(delay + increment),
+      initial: introCompleted ? "bounceInitial" : "initial",
+      animate: introCompleted ? "bounceAnimate" : "animate",
+    };
+  }, []);
+
   return (
     <Wrapper hide={!show && introCompleted}>
       <motion.svg
@@ -81,27 +104,27 @@ function IntroAnimation() {
           <g transform="translate(-56 -283)">
             <g transform="rotate(-90 298.446 242.428)">
               <motion.path
-                fill="#0071BC"
-                variants={buttonVariants(2.1)}
-                onAnimationComplete={() =>
-                  setTimeout(() => setIntroCompleted(true), 1000)
-                }
-                d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
-              ></motion.path>
-              <motion.path
-                fill="#04A384"
-                variants={buttonVariants(1.9)}
-                d="M146.47 310.527c0-9.84-7.976-17.816-17.815-17.816-9.84 0-17.816 7.977-17.816 17.816 0 9.839 7.977 17.815 17.816 17.815 9.839 0 17.816-7.976 17.816-17.815"
-              ></motion.path>
-              <motion.path
                 fill="#F3C400"
-                variants={buttonVariants(1.5)}
+                {...buttonProps(1.7, 0)}
                 d="M80.545 340.822c-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.977 17.815 17.816 17.815 9.839 0 17.815-7.975 17.815-17.815 0-9.839-7.976-17.815-17.815-17.815"
               ></motion.path>
               <motion.path
                 fill="#EB4B36"
-                variants={buttonVariants(1.7)}
+                {...buttonProps(1.7, 0.2)}
                 d="M110.84 406.748c0 9.839 7.976 17.815 17.815 17.815 9.839 0 17.816-7.976 17.816-17.815 0-9.84-7.977-17.816-17.816-17.816-9.84 0-17.816 7.977-17.816 17.816"
+              ></motion.path>
+              <motion.path
+                fill="#04A384"
+                {...buttonProps(1.7, 0.4)}
+                d="M146.47 310.527c0-9.84-7.976-17.816-17.815-17.816-9.84 0-17.816 7.977-17.816 17.816 0 9.839 7.977 17.815 17.816 17.815 9.839 0 17.816-7.976 17.816-17.815"
+              ></motion.path>
+              <motion.path
+                fill="#0071BC"
+                {...buttonProps(1.7, 0.6)}
+                onAnimationComplete={() =>
+                  setTimeout(() => setIntroCompleted(true), 1000)
+                }
+                d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
               ></motion.path>
               <motion.path
                 stroke="#0071BC"
