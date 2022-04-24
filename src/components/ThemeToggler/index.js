@@ -5,8 +5,9 @@ import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 const spring = {
   type: "spring",
-  stiffness: 700,
+  stiffness: 500,
   damping: 30,
+  duration: 0.2,
 };
 
 function ThemeToggler({ className }) {
@@ -61,15 +62,25 @@ const Wrapper = styled.div`
   @media ${({ theme }) => theme.device.mdDown} {
     width: 4.48rem;
     height: 2.4rem;
+    padding: 0.4rem;
 
     .icon {
-      height: 1.2rem;
-      width: 1.2rem;
+      top: 0.5rem;
+      height: 1.4rem;
+      width: 1.4rem;
+    }
+
+    .moon {
+      left: 0.5rem;
+    }
+
+    .sun {
+      right: 0.5rem;
     }
 
     .handle {
-      width: 1.4rem;
-      height: 1.4rem;
+      width: 1.6rem;
+      height: 1.6rem;
     }
   }
 `;

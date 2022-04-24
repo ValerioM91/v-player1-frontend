@@ -30,6 +30,7 @@ const Header = styled(Component)`
     height: 4rem;
     @media ${({ theme }) => theme.device.smDown} {
       height: 3rem;
+      width: 5.6rem;
       margin-right: 1rem;
     }
   }
