@@ -7,8 +7,9 @@ import "../utils/global.css";
 import { ReviewsProvider } from "../context/ReviewsContext";
 import { AssetsProvider } from "../context/AssetsContext";
 import { IntroAnimationProvider } from "../context/LoadingContext";
+import { motion } from "framer-motion";
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -23,9 +24,24 @@ export default function App({ Component, pageProps }) {
             <IntroAnimationProvider>
               <div
                 className="starter"
-                style={{ visibility: `${loaded ? "hidden" : ""}` }}
+                style={loaded ? { display: "none" } : {}}
               ></div>
-              <Component {...pageProps} />
+              <motion.div
+                key={router.route}
+                initial="pageInitial"
+                animate="pageAnimate"
+                variants={{
+                  pageInitial: {
+                    opacity: 0,
+                  },
+                  pageAnimate: {
+                    opacity: 1,
+                    transition: { duration: 0.2, ease: "easeIn" },
+                  },
+                }}
+              >
+                <Component {...pageProps} />
+              </motion.div>
             </IntroAnimationProvider>
           </ReviewsProvider>
         </AssetsProvider>
