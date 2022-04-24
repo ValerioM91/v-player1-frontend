@@ -20,6 +20,10 @@ const TopMenu = styled(Component)`
     margin-bottom: 3rem;
   }
 
+  .toggler {
+    margin: 2rem auto 0;
+  }
+
   .links {
     display: flex;
     align-items: center;

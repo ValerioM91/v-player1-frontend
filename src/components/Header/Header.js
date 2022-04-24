@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
-
 import useAssetsContext from "../../context/AssetsContext";
 import Container from "../Container";
+import ThemeToggler from "../ThemeToggler";
 
 const Component = ({ className }) => {
   const { mainMenu, isLoadingMainMenu, errorMainMenu, globals } =
@@ -22,16 +21,16 @@ const Component = ({ className }) => {
           <Link href="/">
             <a className="logo">
               {logo && (
-                <Image
+                <img
                   alt="V-Player1"
                   src={logo}
-                  width={70}
-                  height={40}
                   layout="fixed"
+                  className="logo-image"
                 />
               )}
             </a>
           </Link>
+          <ThemeToggler className="toggler" />
           <ul className="links">
             {mainMenu.map((link, index) => {
               const { label, path, cssClasses } = link;

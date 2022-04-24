@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import Component from "./Review";
 import Container from "../../components/Container";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const Review = styled(Component)`
-  background-color: ${({ theme }) => theme.colors.lightBackground};
+  background-color: ${({
+    theme,
+    darkTheme = useDarkThemeContext().darkTheme,
+  }) => (darkTheme ? theme.colors.grey700 : theme.colors.grey100)};
 
   ${Container} {
     padding-top: 9rem;

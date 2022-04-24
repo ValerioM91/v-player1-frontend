@@ -174,12 +174,12 @@ const Wrapper = styled.div`
     border-radius: 50%;
     transition: transform 1s;
     z-index: -1;
-    width: 1000px;
-    height: 1000px;
+    width: 100rem;
+    height: 100rem;
 
     @media ${({ theme }) => theme.device.md} {
-      width: 1700px;
-      height: 1700px;
+      width: 170rem;
+      height: 170rem;
     }
 
     @media ${({ theme }) => theme.device.xlUp} {

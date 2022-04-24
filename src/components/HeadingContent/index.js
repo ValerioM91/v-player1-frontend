@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Component from "./HeadingContent";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const HeadingContentQuery = `
 ... on AcfHeadingContent1Block {
@@ -17,8 +18,13 @@ export const HeadingContentQuery = `
 }`;
 
 const HeadingContent = styled(Component)`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({
+    theme,
+    darkTheme = useDarkThemeContext().darkTheme,
+  }) => (darkTheme ? theme.colors.grey600 : theme.colors.white)};
   padding: 2rem;
+  color: ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+    darkTheme && theme.colors.white};
 
   .heading {
     padding-bottom: 1rem;

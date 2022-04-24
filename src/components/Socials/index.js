@@ -17,7 +17,7 @@ const Socials = styled(Component)`
 
   .social {
     max-height: 3rem;
-    color: ${({ theme }) => theme.colors.lightBackground2};
+    color: ${({ theme }) => theme.colors.grey200};
     transition: color 0.2s;
   }
 

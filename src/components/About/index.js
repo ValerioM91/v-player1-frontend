@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Component from "./About";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const AboutQuery = `
 ... on AcfAbout001Block {
@@ -18,6 +19,12 @@ const StyledAbout = styled(Component)`
   padding-top: 3rem;
   padding-bottom: 5rem;
   ${({ theme }) => theme.fontSizes.contentLarge};
+  background-color: ${({
+    theme,
+    darkTheme = useDarkThemeContext().darkTheme,
+  }) => darkTheme && theme.colors.grey600};
+  color: ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+    darkTheme && theme.colors.white};
 
   .row {
     display: flex;

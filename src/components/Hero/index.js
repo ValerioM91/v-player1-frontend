@@ -18,6 +18,7 @@ export const HeroQuery = `
 const Hero = styled(Component)`
   position: relative;
   height: 100vh;
+  min-height: 60rem;
   background-color: ${({ theme }) => theme.colors.primaryBlue};
 
   .hero__image {

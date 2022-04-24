@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Component from "./Footer";
 
 const Footer = styled(Component)`
-  background: ${({ theme }) => theme.colors.darkBackground};
+  background: ${({ theme }) => theme.colors.grey500};
   .wrapper {
     display: grid;
     grid-template-columns: auto auto;

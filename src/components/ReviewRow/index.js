@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Component from "./ReviewRow";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const Review = styled(Component)`
   display: flex;
@@ -9,6 +10,8 @@ const Review = styled(Component)`
   padding-top: 4rem;
   padding-bottom: 4rem;
   position: relative;
+  color: ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+    darkTheme && theme.colors.white};
 
   .col-left,
   .col-right {
@@ -21,7 +24,7 @@ const Review = styled(Component)`
     position: absolute;
     height: 2px;
     width: calc(100% - 4rem);
-    background-color: #ddd;
+    background-color: ${({ theme }) => theme.colors.grey300};
     bottom: 0;
   }
   figure {
@@ -53,7 +56,7 @@ const Review = styled(Component)`
     position: absolute;
     top: 0;
     right: 0;
-    color: #fff;
+    color: ${({ theme }) => theme.colors.white};
     font-size: 1.2rem;
     font-weight: 400;
     background-color: ${({ theme }) => theme.colors.primaryBlue};

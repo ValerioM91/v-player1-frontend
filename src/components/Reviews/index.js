@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Component from "./Reviews";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const ReviewsQuery = `
 ... on AcfReviews001Block {
@@ -15,7 +16,8 @@ export const ReviewsQuery = `
 }`;
 
 const Reviews = styled(Component)`
-  background: ${({ theme }) => theme.colors.lightBackground};
+  background: ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+    darkTheme ? theme.colors.grey700 : theme.colors.grey100};
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};
   @media ${({ theme }) => theme.device.mdUp} {
     padding-top: ${({ first }) => (first ? "12rem" : "5rem")};

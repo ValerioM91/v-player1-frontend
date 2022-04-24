@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Component from "./PostsGrid";
 
 const PostsGrid = styled(Component)`
-  background: ${({ theme }) => theme.colors.lightBackground};
+  background: ${({ theme }) => theme.colors.grey100};
   min-height: 100vh;
   padding-bottom: 5rem;
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};

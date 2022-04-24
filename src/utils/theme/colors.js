@@ -5,10 +5,13 @@ const colors = {
   primaryYellow: "#f3c400",
   textColor: "#555555",
   white: "#ffffff",
-  darkBackground: "#414141",
-  lightBackground: "#f9f9f9",
-  lightBackground2: "#f3f3f3",
-  mediumGrey: "#dddddd",
+  grey100: "#f9f9f9",
+  grey200: "#f3f3f3",
+  grey300: "#dddddd",
+  grey400: "#999999",
+  grey500: "#414141",
+  grey600: "#393939",
+  grey700: "#333333",
 };
 
 export default colors;

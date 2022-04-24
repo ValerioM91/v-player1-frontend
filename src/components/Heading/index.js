@@ -1,9 +1,12 @@
 import styled, { css } from "styled-components";
 import Component from "./Heading";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const Heading = styled(Component)`
-  color: ${({ color, theme }) =>
-    theme.colors[color] || theme.colors.primaryBlue};
+  color: ${({ color, theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+    (darkTheme && color === "textColor"
+      ? theme.colors.white
+      : theme.colors[color]) || theme.colors.primaryBlue};
   text-align: ${({ alignment }) => alignment || "left"};
   text-transform: uppercase;
   font-family: "Electrolize";
@@ -15,7 +18,7 @@ const Heading = styled(Component)`
     borderBottom &&
     css`
       padding-bottom: 2rem;
-      border-bottom: 3px solid ${({ theme }) => theme.colors.mediumGrey};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.grey300};
       margin-bottom: 2rem;
       letter-spacing: -1px;
     `}

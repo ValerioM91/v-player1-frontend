@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Component from "./Sidebar";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const Sidebar = styled(Component)`
   position: sticky;
@@ -31,10 +32,15 @@ const Sidebar = styled(Component)`
 
   article {
     display: flex;
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({
+      theme,
+      darkTheme = useDarkThemeContext().darkTheme,
+    }) => (darkTheme ? theme.colors.grey600 : theme.colors.white)};
     padding: 0.5rem;
     &:not(:last-of-type) {
-      border-bottom: 2px solid ${({ theme }) => theme.colors.lightBackground2};
+      border-bottom: 2px solid
+        ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
+          darkTheme ? theme.colors.grey400 : theme.colors.grey200};
     }
 
     .link {
@@ -49,8 +55,8 @@ const Sidebar = styled(Component)`
     }
 
     .thumbnail {
-      width: 80px;
-      height: 80px;
+      width: 8rem;
+      height: 8rem;
       object-fit: cover;
     }
   }

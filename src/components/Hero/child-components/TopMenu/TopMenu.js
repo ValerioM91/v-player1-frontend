@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-
 import useAssetsContext from "../../../../context/AssetsContext";
+import ThemeToggler from "../../../ThemeToggler";
 
 const Component = ({ className }) => {
   const { mainMenu, isLoadingMainMenu, errorMainMenu, globals } =
@@ -71,6 +71,7 @@ const Component = ({ className }) => {
           })}
         </ul>
       </nav>
+      <ThemeToggler className="toggler" />
     </div>
   );
 };
