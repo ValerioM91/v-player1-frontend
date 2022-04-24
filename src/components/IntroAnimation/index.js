@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import useIntroAnimationContext from "../../context/LoadingContext";
@@ -44,6 +44,28 @@ function IntroAnimation() {
     () => isLoadingReviews || isLoadingGlobals || isLoadingMainMenu,
     [isLoadingReviews, isLoadingGlobals, isLoadingMainMenu]
   );
+
+  const [windowHeight, setWindowHeight] = useState(null);
+
+  useEffect(() => {
+    setWindowHeight(window.innerHeight);
+  }, []);
+
+  useEffect(() => {
+    if (!windowHeight) return;
+    const vh = windowHeight * 0.01;
+    document.documentElement.style.setProperty("--viewHeight", `${vh}px`);
+  }, [windowHeight]);
+
+  useEffect(() => {
+    const onResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  });
 
   return (
     <Wrapper hide={!show && introCompleted}>
@@ -114,7 +136,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
+  height: calc(var(--viewHeight, 1vh) * 100);
   z-index: 15;
   transition: visibility 1s ease-in-out, transform 1s;
   opacity: 1;
