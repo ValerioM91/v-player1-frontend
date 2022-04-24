@@ -50,6 +50,8 @@ const buttonVariants = (delay) => ({
 function IntroAnimation() {
   const { introCompleted, setIntroCompleted } = useIntroAnimationContext();
 
+  console.log(introCompleted);
+
   const { isLoadingReviews } = useReviewsContext();
   const { isLoadingGlobals, isLoadingMainMenu } = useAssetsContext();
 
@@ -80,15 +82,18 @@ function IntroAnimation() {
     };
   });
 
-  const buttonProps = useCallback((delay, increment) => {
-    return {
-      variants: introCompleted
-        ? buttonVariants(increment)
-        : buttonVariants(delay + increment),
-      initial: introCompleted ? "bounceInitial" : "initial",
-      animate: introCompleted ? "bounceAnimate" : "animate",
-    };
-  }, []);
+  const buttonProps = useCallback(
+    (delay, increment) => {
+      return {
+        variants: introCompleted
+          ? buttonVariants(increment)
+          : buttonVariants(delay + increment),
+        initial: introCompleted ? "bounceInitial" : "initial",
+        animate: introCompleted ? "bounceAnimate" : "animate",
+      };
+    },
+    [introCompleted]
+  );
 
   return (
     <Wrapper hide={!show && introCompleted}>
@@ -122,7 +127,7 @@ function IntroAnimation() {
                 fill="#0071BC"
                 {...buttonProps(1.7, 0.6)}
                 onAnimationComplete={() =>
-                  setTimeout(() => setIntroCompleted(true), 1000)
+                  setTimeout(() => setIntroCompleted(true), 600)
                 }
                 d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
               ></motion.path>
