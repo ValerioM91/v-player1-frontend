@@ -16,6 +16,10 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/images/favicon-32x32.png" />
+          <meta property="og:image" content="/images/preview.jpg" />
+          <meta property="og:image:type" content="image/jpg" />
+          <meta property="og:image:width" content="1184" />
+          <meta property="og:image:height" content="618" />
         </Head>
         <body>
           <Main />

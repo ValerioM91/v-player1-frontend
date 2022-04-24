@@ -1,5 +1,3 @@
-import parse from "html-react-parser";
-
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Block from "../../utils/Blocks";
@@ -13,7 +11,11 @@ import { motion } from "framer-motion";
 const Component = ({ className, blocks, title, excerpt, reviewFields }) => {
   return (
     <>
-      <Head title={title} description={excerpt ? parse(excerpt) : "Review"} />
+      <Head
+        title={title}
+        description={excerpt ? excerpt : "Review"}
+        image={reviewFields?.hero?.sourceUrl ? reviewFields.hero.sourceUrl : ""}
+      />
       <IntroAnimation />
       <motion.div
         key={title}

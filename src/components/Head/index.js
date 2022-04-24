@@ -1,6 +1,6 @@
 import { default as NextHead } from "next/head";
 
-const Head = ({ title, description }) => {
+const Head = ({ title, description, image }) => {
   return (
     <>
       <NextHead>
@@ -9,6 +9,7 @@ const Head = ({ title, description }) => {
           name="description"
           content={description || "Reviews about Video-Games"}
         />
+        {image && <meta property="og:image" content={image} />}
       </NextHead>
     </>
   );

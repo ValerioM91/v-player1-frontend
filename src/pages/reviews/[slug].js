@@ -51,6 +51,9 @@ const GET_REVIEW = gql`
       excerpt
       reviewFields {
         vote
+        hero {
+          sourceUrl
+        }
       }
       ...ReviewBlocksFields
     }
