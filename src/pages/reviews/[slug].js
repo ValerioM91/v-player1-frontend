@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { client } from "../../lib/apolloClient";
 import ReviewLayout from "../../layouts/Review";
-import { REVIEWS_BLOCKS_FIELD } from "../../utils/Blocks";
+import { REVIEWS_BLOCKS_FRAGMENT } from "../../utils/Blocks";
 
 const Review = ({ review }) => {
   return <ReviewLayout {...review} />;
@@ -58,7 +58,7 @@ const GET_REVIEW = gql`
       ...ReviewBlocksFields
     }
   }
-  ${REVIEWS_BLOCKS_FIELD}
+  ${REVIEWS_BLOCKS_FRAGMENT}
 `;
 
 const GET_REVIEWS = gql`

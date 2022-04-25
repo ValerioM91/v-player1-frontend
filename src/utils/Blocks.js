@@ -8,7 +8,7 @@ import HeadingContent, {
 } from "../components/HeadingContent";
 import FinalComment, { FinalCommentQuery } from "../components/FinalComment";
 
-const BlockQuery = `
+const BlocksQuery = `
   ${HeroQuery}
   ${AboutQuery}
   ${ReviewsQuery}
@@ -17,20 +17,20 @@ const BlockQuery = `
   ${FinalCommentQuery}
 `;
 
-export const BLOCKS_FIELD = gql`
-  fragment PageBlocksField on Page {
+export const BLOCKS_FRAGMENT = gql`
+  fragment PageBlocksFields on Page {
     blocks {
       name
-      ${BlockQuery}
+      ${BlocksQuery}
     }
   }
 `;
 
-export const REVIEWS_BLOCKS_FIELD = gql`
+export const REVIEWS_BLOCKS_FRAGMENT = gql`
   fragment ReviewBlocksFields on Review {
     blocks {
       name
-      ${BlockQuery}
+      ${BlocksQuery}
     }
   }
 `;

@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { client } from "../lib/apolloClient";
-import { BLOCKS_FIELD } from "../utils/Blocks";
+import { BLOCKS_FRAGMENT } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
 
 export default function page({ page }) {
@@ -60,8 +60,8 @@ const GET_PAGE = gql`
       pageFields {
         description
       }
-      ...PageBlocksField
+      ...PageBlocksFields
     }
   }
-  ${BLOCKS_FIELD}
+  ${BLOCKS_FRAGMENT}
 `;
