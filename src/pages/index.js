@@ -1,20 +1,11 @@
 import { gql } from "@apollo/client";
 import { client } from "../lib/apolloClient";
-import Block, { BLOCKS_FIELD } from "../utils/Blocks";
-import Footer from "../components/Footer";
-import Head from "../components/Head";
-import IntroAnimation from "../components/IntroAnimation";
+import { BLOCKS_FIELD } from "../utils/Blocks";
+import Dynamic from "../layouts/Dynamic";
 
-const HOMEPAGE_QUERY = gql`
-  {
-    page(id: "home", idType: URI) {
-      slug
-      title
-      ...PageBlocksField
-    }
-  }
-  ${BLOCKS_FIELD}
-`;
+export default function Home({ page }) {
+  return <Dynamic {...page} />;
+}
 
 export const getStaticProps = async () => {
   const homepage = await client.query({
@@ -28,17 +19,13 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Home({ page }) {
-  const blocks = page?.blocks;
-  const title = page?.title;
-
-  return (
-    <>
-      <Head title={title} />
-      <IntroAnimation />
-      {blocks &&
-        blocks.map((block, index) => <Block block={block} key={index} />)}
-      <Footer />
-    </>
-  );
-}
+const HOMEPAGE_QUERY = gql`
+  {
+    page(id: "home", idType: URI) {
+      slug
+      title
+      ...PageBlocksField
+    }
+  }
+  ${BLOCKS_FIELD}
+`;

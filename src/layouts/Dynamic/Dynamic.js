@@ -4,14 +4,14 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import IntroAnimation from "../../components/IntroAnimation";
 
-const Component = ({ className, blocks, title, pageFields }) => {
+const Component = ({ className, blocks, title, pageFields, header }) => {
   const description = pageFields?.description;
 
   return (
     <>
       <Head title={title} description={description} />
       <IntroAnimation />
-      <Header />
+      {header && <Header />}
       <main className={className}>
         {blocks &&
           blocks.map((block, index) => <Block block={block} key={index} />)}

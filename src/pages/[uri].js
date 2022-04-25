@@ -4,7 +4,7 @@ import { BLOCKS_FIELD } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
 
 export default function page({ page }) {
-  return <Dynamic {...page} />;
+  return <Dynamic {...page} header />;
 }
 
 export const getStaticProps = async (context) => {
