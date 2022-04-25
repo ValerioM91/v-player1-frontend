@@ -36,26 +36,26 @@ export const REVIEWS_BLOCKS_FRAGMENT = gql`
 `;
 
 const Block = ({ block, vote }) => {
-  const { attributes, name } = block;
+  const { fields, name } = block;
 
   switch (name) {
     case "acf/hero-image-001":
-      return <Hero {...attributes} />;
+      return <Hero {...fields} />;
 
     case "acf/reviews-001":
-      return <Reviews {...attributes} />;
+      return <Reviews {...fields} />;
 
     case "acf/about-001":
-      return <About {...attributes} />;
+      return <About {...fields} />;
 
     case "acf/full-image-1":
-      return <FullImage {...attributes} />;
+      return <FullImage {...fields} />;
 
     case "acf/heading-content-1":
-      return <HeadingContent {...attributes} />;
+      return <HeadingContent {...fields} />;
 
     case "acf/final-comment-1":
-      return <FinalComment {...attributes} vote={vote} />;
+      return <FinalComment {...fields} vote={vote} />;
 
     default:
       return null;

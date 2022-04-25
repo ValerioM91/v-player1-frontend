@@ -5,7 +5,7 @@ import Heading from "../Heading";
 
 export const HeroQuery = `
 ... on AcfHeroImage001Block {
-  attributes: heroImage001 {
+  fields: heroImage001 {
     headingType
     heading
     backgroundImage {

@@ -3,7 +3,7 @@ import Component from "./FinalComment";
 
 export const FinalCommentQuery = `
 ... on AcfFinalComment1Block {
-    attributes: finalComment1 {
+    fields: finalComment1 {
       heading
       headingType
       content

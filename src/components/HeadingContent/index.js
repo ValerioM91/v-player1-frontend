@@ -4,7 +4,7 @@ import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const HeadingContentQuery = `
 ... on AcfHeadingContent1Block {
-    attributes: headingContent1 {
+    fields: headingContent1 {
         heading
         headingType
         contents {

@@ -4,7 +4,7 @@ import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const AboutQuery = `
 ... on AcfAbout001Block {
-  attributes: aboutMe {
+  fields: aboutMe {
     content
     heading
     headingType

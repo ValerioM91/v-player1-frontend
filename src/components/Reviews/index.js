@@ -4,7 +4,7 @@ import useDarkThemeContext from "../../context/DarkThemeContext";
 
 export const ReviewsQuery = `
 ... on AcfReviews001Block {
-  attributes: reviews001 {
+  fields: reviews001 {
     first
     latest
     headingType

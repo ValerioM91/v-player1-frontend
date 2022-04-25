@@ -34,7 +34,7 @@ export const getStaticPaths = async () => {
 
   const pages = response?.data?.pages?.nodes;
 
-  const uris = pages.map((page) => page.uri.split("/"));
+  const uris = pages.map((page) => page.uri.split("/").filter(Boolean));
   const paths = uris.map((uri) => ({ params: { uri } }));
   return {
     paths,

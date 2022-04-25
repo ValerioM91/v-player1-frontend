@@ -3,7 +3,7 @@ import Component from "./FullImage";
 
 export const FullImageQuery = `
 ... on AcfFullImage1Block {
-  attributes: fullImage {
+  fields: fullImage {
     image {
       altText
       sourceUrl
