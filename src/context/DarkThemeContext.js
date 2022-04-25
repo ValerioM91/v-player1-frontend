@@ -6,6 +6,11 @@ export const DarkThemeProvider = ({ children }) => {
   const [darkTheme, setDarkTheme] = useState(false);
 
   const toggleTheme = () => {
+    if (darkTheme === false) {
+      document.body.style.backgroundColor = "#393939";
+    } else {
+      document.body.style.backgroundColor = "#fff";
+    }
     setDarkTheme((currentTheme) => !currentTheme);
   };
 
