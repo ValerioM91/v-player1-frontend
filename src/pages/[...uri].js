@@ -8,7 +8,7 @@ export default function page({ page }) {
 }
 
 export const getStaticProps = async (context) => {
-  const uri = context.params.uri;
+  const uri = context.params.uri.join("/");
   const page = await client.query({
     query: GET_PAGE,
     variables: { uri },
@@ -33,9 +33,9 @@ export const getStaticPaths = async () => {
   });
 
   const pages = response?.data?.pages?.nodes;
-  const uris = pages.map((page) => page.uri);
-  const paths = uris.map((uri) => ({ params: { uri: uri } }));
 
+  const uris = pages.map((page) => page.uri.split("/"));
+  const paths = uris.map((uri) => ({ params: { uri } }));
   return {
     paths,
     fallback: "blocking",
