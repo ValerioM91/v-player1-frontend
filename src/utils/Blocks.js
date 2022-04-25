@@ -35,15 +35,6 @@ export const REVIEWS_BLOCKS_FIELD = gql`
   }
 `;
 
-export const POSTS_BLOCKS_FIELD = gql`
-  fragment PostBlocksFields on Post {
-    blocks {
-      name
-      ${BlockQuery}
-    }
-  }
-`;
-
 const Block = ({ block, vote }) => {
   const { attributes, name } = block;
 

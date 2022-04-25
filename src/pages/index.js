@@ -21,8 +21,7 @@ export const getStaticProps = async () => {
 
 const HOMEPAGE_QUERY = gql`
   {
-    page(id: "home", idType: URI) {
-      slug
+    page(id: "/", idType: URI) {
       title
       ...PageBlocksField
     }
