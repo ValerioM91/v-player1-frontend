@@ -31,12 +31,6 @@ export const getStaticProps = async (context) => {
   });
   const review = response?.data?.review;
 
-  if (!review) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: {
       review,
