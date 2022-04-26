@@ -7,6 +7,24 @@ export default function page({ page }) {
   return <Dynamic {...page} header />;
 }
 
+export const getStaticPaths = async () => {
+  const response = await client.query({
+    query: GET_PAGES,
+  });
+
+  const pages = response?.data?.pages?.nodes;
+
+  const uris = pages
+    .map((page) => page.uri.split("/").filter(Boolean))
+    .filter((uri) => uri.length);
+  const paths = uris.map((uri) => ({ params: { uri } }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+};
+
 export const getStaticProps = async (context) => {
   const uri = context.params.uri.join("/");
   const page = await client.query({
@@ -24,24 +42,6 @@ export const getStaticProps = async (context) => {
     props: {
       page: page?.data?.page,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const response = await client.query({
-    query: GET_PAGES,
-  });
-
-  const pages = response?.data?.pages?.nodes;
-
-  const uris = pages
-    .map((page) => page.uri.split("/").filter(Boolean))
-    .filter((uri) => uri.length);
-  const paths = uris.map((uri) => ({ params: { uri } }));
-
-  return {
-    paths,
-    fallback: true,
   };
 };
 
