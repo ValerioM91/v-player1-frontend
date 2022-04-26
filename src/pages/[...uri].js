@@ -38,9 +38,10 @@ export const getStaticPaths = async () => {
     .map((page) => page.uri.split("/").filter(Boolean))
     .filter((uri) => uri.length);
   const paths = uris.map((uri) => ({ params: { uri } }));
+
   return {
     paths,
-    fallback: "blocking",
+    fallback: true,
   };
 };
 
