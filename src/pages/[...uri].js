@@ -14,6 +14,12 @@ export const getStaticProps = async (context) => {
     variables: { uri },
   });
 
+  if (!page.data.page.slug) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       page: page?.data?.page,
@@ -34,7 +40,7 @@ export const getStaticPaths = async () => {
   const paths = uris.map((uri) => ({ params: { uri } }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
