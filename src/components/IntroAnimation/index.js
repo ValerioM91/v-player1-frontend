@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
 import useIntroAnimationContext from "../../context/IntroAnimationContext";
+import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const externalPathVariants = {
   initial: {
@@ -45,6 +46,7 @@ const buttonVariants = (delay) => ({
 
 function IntroAnimation() {
   const { introCompleted, setIntroCompleted } = useIntroAnimationContext();
+  const { darkTheme } = useDarkThemeContext();
 
   const [firstAnimationCompleted, setFirstAnimationCompleted] = useState(false);
 
@@ -84,7 +86,7 @@ function IntroAnimation() {
   );
 
   return (
-    <Wrapper hide={introCompleted}>
+    <Wrapper hide={introCompleted} darkTheme={darkTheme}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="200"
@@ -164,7 +166,8 @@ const Wrapper = styled.div`
   &::before {
     content: "";
     position: absolute;
-    background-color: white;
+    background-color: ${({ darkTheme, theme }) =>
+      darkTheme ? theme.colors.grey600 : theme.colors.white};
     border-radius: 50%;
     transition: transform 1s;
     z-index: -1;
