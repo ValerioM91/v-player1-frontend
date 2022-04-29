@@ -5,10 +5,10 @@ import { BLOCKS_FRAGMENT } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
 import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests";
 import createMenuItemArray from "../utils/createMenuItemArray";
-import useAssetsContext from "../context/AssetsContext";
+import useStore from "../store/store";
 
 export default function Home(props) {
-  const { setGlobals, setMainMenu, setReviews } = useAssetsContext();
+  const { setReviews, setGlobals, setMainMenu } = useStore((state) => state);
 
   useEffect(() => {
     setGlobals(props.globals);

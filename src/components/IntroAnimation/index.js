@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
-import useIntroAnimationContext from "../../context/IntroAnimationContext";
+import useStore from "../../store/store";
 import useDarkThemeContext from "../../context/DarkThemeContext";
 
 const externalPathVariants = {
@@ -45,7 +45,7 @@ const buttonVariants = (delay) => ({
 });
 
 function IntroAnimation() {
-  const { introCompleted, setIntroCompleted } = useIntroAnimationContext();
+  const { introCompleted, setIntroCompleted } = useStore();
   const { darkTheme } = useDarkThemeContext();
 
   const [firstAnimationCompleted, setFirstAnimationCompleted] = useState(false);

@@ -5,10 +5,10 @@ import ReviewLayout from "../../layouts/Review";
 import { REVIEWS_BLOCKS_FRAGMENT } from "../../utils/Blocks";
 import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../../lib/requests";
 import createMenuItemArray from "../../utils/createMenuItemArray";
-import useAssetsContext from "../../context/AssetsContext";
+import useStore from "../../store/store";
 
 const Review = (props) => {
-  const { setGlobals, setMainMenu, setReviews } = useAssetsContext();
+  const { setGlobals, setMainMenu, setReviews } = useStore();
 
   useEffect(() => {
     setGlobals(props.globals);

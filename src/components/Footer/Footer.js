@@ -1,13 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-import useAssetsContext from "../../context/AssetsContext";
+import useStore from "../../store/store";
 import Container from "../Container";
 import Socials from "../Socials";
 
 const Component = ({ className }) => {
-  const { globals } = useAssetsContext();
+  const { globals } = useStore();
 
   const logo = globals?.logos?.logo;
 

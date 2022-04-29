@@ -1,8 +1,8 @@
-import useAssetsContext from "../../context/AssetsContext";
 import ReviewRow from "../ReviewRow";
 import Heading from "../Heading";
 import Container from "../Container";
 import Button from "../Button";
+import useStore from "../../store/store";
 
 const Component = ({
   className,
@@ -13,7 +13,7 @@ const Component = ({
   linkUrl,
   latest,
 }) => {
-  const { reviews } = useAssetsContext();
+  const { reviews } = useStore();
 
   if (!reviews) return null;
 

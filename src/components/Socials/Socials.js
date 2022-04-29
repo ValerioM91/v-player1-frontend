@@ -6,10 +6,10 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-import useAssetsContext from "../../context/AssetsContext";
+import useStore from "../../store/store";
 
 const Component = ({ className }) => {
-  const { globals } = useAssetsContext();
+  const { globals } = useStore();
   const socials = globals?.socials;
 
   const psn = socials?.psn;

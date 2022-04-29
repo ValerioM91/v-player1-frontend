@@ -1,10 +1,10 @@
 import Link from "next/link";
-import useAssetsContext from "../../context/AssetsContext";
+import useStore from "../../store/store";
 import Container from "../Container";
 import ThemeToggler from "../ThemeToggler";
 
 const Component = ({ className }) => {
-  const { mainMenu, globals } = useAssetsContext();
+  const { mainMenu, globals } = useStore();
 
   const logo = globals?.logos?.logoBlue;
 
