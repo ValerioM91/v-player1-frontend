@@ -4,17 +4,9 @@ import useAssetsContext from "../../../../context/AssetsContext";
 import ThemeToggler from "../../../ThemeToggler";
 
 const Component = ({ className }) => {
-  const { mainMenu, isLoadingMainMenu, errorMainMenu, globals } =
-    useAssetsContext();
+  const { globals, mainMenu } = useAssetsContext();
 
   const logo = globals?.logos?.logo;
-
-  if (isLoadingMainMenu) return null;
-
-  if (errorMainMenu) {
-    console.log("Error loading the menu");
-    return null;
-  }
 
   if (!logo && !mainMenu) {
     return null;

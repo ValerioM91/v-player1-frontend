@@ -1,9 +1,7 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
-import useIntroAnimationContext from "../../context/LoadingContext";
-import useReviewsContext from "../../context/ReviewsContext";
-import useAssetsContext from "../../context/AssetsContext";
+import useIntroAnimationContext from "../../context/IntroAnimationContext";
 
 const externalPathVariants = {
   initial: {
@@ -41,8 +39,6 @@ const buttonVariants = (delay) => ({
       duration: 0.2,
       delay,
       ease: "easeInOut",
-      repeat: 10,
-      repeatDelay: 1.5,
     },
   },
 });
@@ -50,13 +46,7 @@ const buttonVariants = (delay) => ({
 function IntroAnimation() {
   const { introCompleted, setIntroCompleted } = useIntroAnimationContext();
 
-  const { isLoadingReviews } = useReviewsContext();
-  const { isLoadingGlobals, isLoadingMainMenu } = useAssetsContext();
-
-  const show = useMemo(
-    () => isLoadingReviews || isLoadingGlobals || isLoadingMainMenu,
-    [isLoadingReviews, isLoadingGlobals, isLoadingMainMenu]
-  );
+  const [firstAnimationCompleted, setFirstAnimationCompleted] = useState(false);
 
   const [windowHeight, setWindowHeight] = useState(null);
 
@@ -83,18 +73,18 @@ function IntroAnimation() {
   const buttonProps = useCallback(
     (delay, increment) => {
       return {
-        variants: introCompleted
+        variants: firstAnimationCompleted
           ? buttonVariants(increment)
           : buttonVariants(delay + increment),
-        initial: introCompleted ? "bounceInitial" : "initial",
-        animate: introCompleted ? "bounceAnimate" : "animate",
+        initial: firstAnimationCompleted ? "bounceInitial" : "initial",
+        animate: firstAnimationCompleted ? "bounceAnimate" : "animate",
       };
     },
-    [introCompleted]
+    [firstAnimationCompleted]
   );
 
   return (
-    <Wrapper hide={!show && introCompleted}>
+    <Wrapper hide={introCompleted}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="200"
@@ -124,9 +114,10 @@ function IntroAnimation() {
               <motion.path
                 fill="#0071BC"
                 {...buttonProps(1.7, 0.6)}
-                onAnimationComplete={() =>
-                  setTimeout(() => setIntroCompleted(true), 1000)
-                }
+                onAnimationComplete={() => {
+                  if (firstAnimationCompleted) return setIntroCompleted(true);
+                  setTimeout(() => setFirstAnimationCompleted(true), 300);
+                }}
                 d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
               ></motion.path>
               <motion.path

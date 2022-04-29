@@ -1,8 +1,7 @@
-import useReviewsContext from "../../context/ReviewsContext";
+import useAssetsContext from "../../context/AssetsContext";
 import ReviewRow from "../ReviewRow";
 import Heading from "../Heading";
 import Container from "../Container";
-import Spinner from "../Spinner";
 import Button from "../Button";
 
 const Component = ({
@@ -14,18 +13,9 @@ const Component = ({
   linkUrl,
   latest,
 }) => {
-  const { reviews, isLoadingReviews } = useReviewsContext();
+  const { reviews } = useAssetsContext();
 
-  if (isLoadingReviews)
-    return (
-      <section className={className}>
-        <Container>
-          <div className="loading">
-            <Spinner />
-          </div>
-        </Container>
-      </section>
-    );
+  if (!reviews) return null;
 
   return (
     <section id="reviews" className={className}>

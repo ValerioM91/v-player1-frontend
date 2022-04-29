@@ -4,13 +4,9 @@ import Container from "../Container";
 import ThemeToggler from "../ThemeToggler";
 
 const Component = ({ className }) => {
-  const { mainMenu, isLoadingMainMenu, errorMainMenu, globals } =
-    useAssetsContext();
+  const { mainMenu, globals } = useAssetsContext();
 
   const logo = globals?.logos?.logoBlue;
-
-  if (isLoadingMainMenu) return null;
-  if (errorMainMenu) return console.error("Error loading the menu");
 
   if (!logo && !mainMenu) return null;
 

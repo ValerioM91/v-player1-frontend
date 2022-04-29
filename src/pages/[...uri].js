@@ -1,23 +1,43 @@
+import { useEffect } from "react";
 import { gql } from "@apollo/client";
 import { client } from "../lib/apolloClient";
 import { BLOCKS_FRAGMENT } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
+import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests";
+import createMenuItemArray from "../utils/createMenuItemArray";
+import useAssetsContext from "../context/AssetsContext";
 
-export default function page({ page }) {
-  return <Dynamic {...page} header />;
+export default function page(props) {
+  const { setGlobals, setReviews } = useAssetsContext();
+
+  useEffect(() => {
+    setGlobals(props.globals);
+    setReviews(props.reviews);
+  }, []);
+
+  return <Dynamic {...props} header />;
 }
 
 export const getStaticProps = async (context) => {
   const uri = context.params.uri.join("/");
-  const page = await client.query({
+  const response = await client.query({
     query: GET_PAGE,
     variables: { uri },
   });
 
+  const reviews = response?.data?.reviews?.nodes;
+  const menuItems = createMenuItemArray(response?.data?.menu?.menuItems?.nodes);
+  const globals = response?.data?.globals;
+
+  const props = {
+    ...response?.data?.page,
+    reviews,
+    menuItems,
+    globals,
+  };
+
   return {
-    props: {
-      page: page?.data?.page,
-    },
+    props,
   };
 };
 
@@ -58,6 +78,9 @@ const GET_PAGE = gql`
       }
       ...PageBlocksFields
     }
+    ${GET_REVIEWS}
+    ${GET_MAIN_MENU}
+    ${GET_GLOBALS}
   }
   ${BLOCKS_FRAGMENT}
 `;

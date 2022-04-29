@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
-import useReviewsContext from "../../context/ReviewsContext";
+import useAssetsContext from "../../context/AssetsContext";
 import Heading from "../Heading";
 
 const Component = ({ className, title }) => {
-  const { reviews } = useReviewsContext();
+  const { reviews } = useAssetsContext();
 
   const latest = reviews.filter((rev, i) => {
     if (i > 3) return;
