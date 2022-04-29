@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Component from "./Header";
 import Container from "../Container";
-import useDarkThemeContext from "../../context/DarkThemeContext";
+import { isDarkTheme } from "../../store/store";
 
 const Header = styled(Component)`
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
@@ -10,10 +10,8 @@ const Header = styled(Component)`
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${({
-    theme,
-    darkTheme = useDarkThemeContext().darkTheme,
-  }) => (darkTheme ? theme.colors.grey600 : theme.colors.white)};
+  background-color: ${({ theme }) =>
+    isDarkTheme() ? theme.colors.grey600 : theme.colors.white};
 
   ${Container} {
     padding-top: 1rem;

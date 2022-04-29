@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import useDarkThemeContext from "../../context/DarkThemeContext";
+import useStore from "../../store/store";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 const spring = {
@@ -11,7 +11,7 @@ const spring = {
 };
 
 function ThemeToggler({ className }) {
-  const { darkTheme, toggleTheme } = useDarkThemeContext();
+  const { darkTheme, toggleTheme } = useStore();
 
   return (
     <Wrapper darkTheme={darkTheme} onClick={toggleTheme} className={className}>

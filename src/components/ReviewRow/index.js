@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Component from "./ReviewRow";
-import useDarkThemeContext from "../../context/DarkThemeContext";
+import { isDarkTheme } from "../../store/store";
 
 const Review = styled(Component)`
   display: flex;
@@ -10,8 +10,7 @@ const Review = styled(Component)`
   padding-top: 4rem;
   padding-bottom: 4rem;
   position: relative;
-  color: ${({ theme, darkTheme = useDarkThemeContext().darkTheme }) =>
-    darkTheme && theme.colors.white};
+  color: ${({ theme }) => isDarkTheme() && theme.colors.white};
 
   .col-left,
   .col-right {
