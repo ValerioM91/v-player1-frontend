@@ -5,10 +5,7 @@ import Heading from "../Heading";
 const Component = ({ className, title }) => {
   const { reviews } = useStore();
 
-  const latest = reviews.filter((rev, i) => {
-    if (i > 3) return;
-    return rev.title !== title;
-  });
+  const latest = reviews.filter((rev) => rev.title !== title).slice(0, 3);
 
   return (
     <div className={className}>

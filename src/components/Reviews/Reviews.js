@@ -32,10 +32,13 @@ const Component = ({
         )}
         {reviews && (
           <div className="list">
-            {reviews.map((post, index) => {
-              if (latest && index > 2) return;
-              return <ReviewRow {...post} key={index} className="review-row" />;
-            })}
+            {reviews
+              .slice(0, latest ? 3 : reviews.length)
+              .map((post, index) => {
+                return (
+                  <ReviewRow {...post} key={index} className="review-row" />
+                );
+              })}
           </div>
         )}
         <div className="btn-container">
