@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import useStore from "../../store/store";
+import useStore from "../../store";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
 const spring = {

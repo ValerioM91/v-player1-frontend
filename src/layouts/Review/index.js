@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Component from "./Review";
 import Container from "../../components/Container";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 const Review = styled(Component)`
   background-color: ${({ theme }) =>

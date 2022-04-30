@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled, { css } from "styled-components";
-import useStore from "../../store/store";
+import useStore from "../../store";
 
 const externalPathVariants = {
   initial: {

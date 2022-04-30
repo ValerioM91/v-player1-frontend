@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Component from "./Header";
 import Container from "../Container";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 const Header = styled(Component)`
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);

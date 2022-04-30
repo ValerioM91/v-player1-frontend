@@ -2,7 +2,7 @@ import ReviewRow from "../ReviewRow";
 import Heading from "../Heading";
 import Container from "../Container";
 import Button from "../Button";
-import useStore from "../../store/store";
+import useStore from "../../store";
 
 const Component = ({
   className,

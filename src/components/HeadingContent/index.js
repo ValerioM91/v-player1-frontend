@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Component from "./HeadingContent";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 export const HeadingContentQuery = `
 ... on AcfHeadingContent1Block {

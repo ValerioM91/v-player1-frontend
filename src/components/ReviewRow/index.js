@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Component from "./ReviewRow";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 const Review = styled(Component)`
   display: flex;

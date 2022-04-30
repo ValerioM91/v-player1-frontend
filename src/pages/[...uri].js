@@ -5,13 +5,14 @@ import { BLOCKS_FRAGMENT } from "../utils/Blocks";
 import Dynamic from "../layouts/Dynamic";
 import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests";
 import createMenuItemArray from "../utils/createMenuItemArray";
-import useStore from "../store/store";
+import useStore from "../store";
 
 export default function page(props) {
-  const { setGlobals, setReviews } = useStore();
+  const { setReviews, setGlobals, setMainMenu } = useStore((state) => state);
 
   useEffect(() => {
     setGlobals(props.globals);
+    setMainMenu(props.menuItems);
     setReviews(props.reviews);
   }, []);
 

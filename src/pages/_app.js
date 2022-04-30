@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "../utils/theme";
 import "../utils/global.css";
 import { motion } from "framer-motion";
-import useStore from "../store/store";
+import useStore from "../store";
 
 export default function App({ Component, pageProps, router }) {
   const [loaded, setLoaded] = useState(false);

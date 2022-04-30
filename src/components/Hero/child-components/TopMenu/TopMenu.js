@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import useStore from "../../../../store/store";
+import useStore from "../../../../store";
 import ThemeToggler from "../../../ThemeToggler";
 
 const Component = ({ className }) => {

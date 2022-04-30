@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import Component from "./Heading";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 const Heading = styled(Component)`
   color: ${({ color, theme }) =>

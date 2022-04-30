@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Component from "./Sidebar";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 const Sidebar = styled(Component)`
   position: sticky;

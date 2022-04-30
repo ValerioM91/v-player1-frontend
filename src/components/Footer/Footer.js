@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useStore from "../../store/store";
+import useStore from "../../store";
 import Container from "../Container";
 import Socials from "../Socials";
 

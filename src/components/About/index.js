@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Component from "./About";
-import { isDarkTheme } from "../../store/store";
+import { isDarkTheme } from "../../store";
 
 export const AboutQuery = `
 ... on AcfAbout001Block {

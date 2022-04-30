@@ -1,5 +1,5 @@
 import Link from "next/link";
-import useStore from "../../store/store";
+import useStore from "../../store";
 import Container from "../Container";
 import ThemeToggler from "../ThemeToggler";
 

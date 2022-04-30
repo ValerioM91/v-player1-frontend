@@ -6,7 +6,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 
-import useStore from "../../store/store";
+import useStore from "../../store";
 
 const Component = ({ className }) => {
   const { globals } = useStore();

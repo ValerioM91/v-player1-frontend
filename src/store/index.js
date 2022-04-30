@@ -1,4 +1,7 @@
 import create from "zustand";
+import { client } from "../lib/apolloClient";
+
+import createMenuItemArray from "../utils/createMenuItemArray";
 
 const useStore = create((set) => ({
   reviews: [],
@@ -19,3 +22,25 @@ const useStore = create((set) => ({
 export default useStore;
 
 export const isDarkTheme = () => useStore().darkTheme;
+
+export const useGetStaticProps = async (query) => {
+  const response = await client.query({
+    query,
+  });
+
+  const page = response?.data?.page;
+  const reviews = response?.data?.reviews?.nodes;
+  const menuItems = createMenuItemArray(response?.data?.menu?.menuItems?.nodes);
+  const globals = response?.data?.globals;
+
+  const props = {
+    ...page,
+    reviews,
+    menuItems,
+    globals,
+  };
+
+  return {
+    props,
+  };
+};
