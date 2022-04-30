@@ -1,12 +1,24 @@
 import { gql } from "@apollo/client";
-import Hero, { HeroQuery } from "../components/Hero";
-import Reviews, { ReviewsQuery } from "../components/Reviews";
-import About, { AboutQuery } from "../components/About";
-import FullImage, { FullImageQuery } from "../components/FullImage";
-import HeadingContent, {
-  HeadingContentQuery,
-} from "../components/HeadingContent";
-import FinalComment, { FinalCommentQuery } from "../components/FinalComment";
+import { HeroQuery } from "../components/Hero";
+import { ReviewsQuery } from "../components/Reviews";
+import { AboutQuery } from "../components/About";
+import { FullImageQuery } from "../components/FullImage";
+import { HeadingContentQuery } from "../components/HeadingContent";
+import { FinalCommentQuery } from "../components/FinalComment";
+import dynamic from "next/dynamic";
+
+const Hero = dynamic(() => import("../components/Hero", { ssr: false }));
+const Reviews = dynamic(() => import("../components/Reviews", { ssr: false }));
+const About = dynamic(() => import("../components/About", { ssr: false }));
+const FullImage = dynamic(() =>
+  import("../components/FullImage", { ssr: false })
+);
+const HeadingContent = dynamic(() =>
+  import("../components/HeadingContent", { ssr: false })
+);
+const FinalComment = dynamic(() =>
+  import("../components/FinalComment", { ssr: false })
+);
 
 const BlocksQuery = `
   ${HeroQuery}

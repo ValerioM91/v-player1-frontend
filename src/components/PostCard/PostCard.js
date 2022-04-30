@@ -15,7 +15,7 @@ const Component = ({ className, title, uri, featuredImage }) => {
                 src={imageUrl}
                 alt={altText || "V-Player1"}
                 placeholder="blur"
-                blurDataURL={imageUrl}
+                blurDataURL="/images/shimmer.svg"
                 width={500}
                 height={300}
                 layout="responsive"

@@ -18,8 +18,9 @@ const Component = ({ className, backgroundImage, heading, headingType }) => {
             src={sourceUrl}
             layout="fill"
             objectFit="cover"
+            priority
             placeholder="blur"
-            blurDataURL={sourceUrl}
+            blurDataURL="/images/shimmer.svg"
           />
         </div>
       )}

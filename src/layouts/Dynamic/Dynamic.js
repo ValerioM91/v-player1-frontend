@@ -1,8 +1,10 @@
-import Head from "next/head";
-import Block from "../../utils/Blocks";
+import Head from "../../components/Head";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import IntroAnimation from "../../components/IntroAnimation";
+import dynamic from "next/dynamic";
+
+const Block = dynamic(() => import("../../utils/Blocks", { ssr: false }));
 
 const Component = ({ className, blocks, title, pageFields, header }) => {
   const description = pageFields?.description;

@@ -32,7 +32,7 @@ const Component = ({ className, content, heading, headingType, image }) => {
                 objectFit="cover"
                 alt={altText || "V-Player1"}
                 placeholder="blur"
-                blurDataURL={sourceUrl}
+                blurDataURL="/images/shimmer.svg"
               />
             </figure>
           )}

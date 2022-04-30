@@ -16,12 +16,12 @@ const Component = ({ className, title, slug, excerpt, reviewFields }) => {
               <Image
                 src={imageUrl}
                 alt={altText || "V-Player1"}
-                placeholder="blur"
-                blurDataURL={imageUrl}
                 width={500}
                 height={300}
                 layout="responsive"
                 objectFit="cover"
+                placeholder="blur"
+                blurDataURL="/images/shimmer.svg"
               />
 
               {vote && <span className="vote">V-score {vote.toFixed(1)}</span>}

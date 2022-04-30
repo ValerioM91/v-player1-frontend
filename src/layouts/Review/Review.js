@@ -1,12 +1,14 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Block from "../../utils/Blocks";
 import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Head from "../../components/Head";
 import Heading from "../../components/Heading";
 import IntroAnimation from "../../components/IntroAnimation";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const Block = dynamic(() => import("../../utils/Blocks", { ssr: false }));
 
 const Component = ({ className, blocks, title, excerpt, reviewFields }) => {
   return (
