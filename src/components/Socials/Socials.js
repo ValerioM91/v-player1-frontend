@@ -22,7 +22,7 @@ const Component = ({ className }) => {
       {psn && (
         <li>
           <Link href={psn}>
-            <a>
+            <a aria-label="psn">
               <FaPlaystation className="social psn" />
             </a>
           </Link>
@@ -31,7 +31,7 @@ const Component = ({ className }) => {
       {steam && (
         <li>
           <Link href={steam}>
-            <a>
+            <a aria-label="steam">
               <FaSteamSquare className="social steam" />
             </a>
           </Link>
@@ -40,7 +40,7 @@ const Component = ({ className }) => {
       {facebook && (
         <li>
           <Link href={facebook}>
-            <a>
+            <a aria-label="facebook">
               <FaFacebookF className="social facebook" />
             </a>
           </Link>
@@ -49,7 +49,7 @@ const Component = ({ className }) => {
       {instagram && (
         <li>
           <Link href={instagram}>
-            <a>
+            <a aria-label="instagram">
               <FaInstagram className="social instagram" />
             </a>
           </Link>
