@@ -4,11 +4,9 @@ import Container from "../Container";
 import ThemeToggler from "../ThemeToggler";
 
 const Component = ({ className }) => {
-  const { mainMenu, globals } = useStore();
+  const { mainMenu } = useStore();
 
-  const logo = globals?.logos?.logoBlue;
-
-  if (!logo && !mainMenu) return null;
+  if (!mainMenu) return null;
 
   return (
     <header className={className}>
@@ -16,14 +14,12 @@ const Component = ({ className }) => {
         <nav className="nav">
           <Link href="/">
             <a className="logo">
-              {logo && (
-                <img
-                  alt="V-Player1"
-                  src={logo}
-                  layout="fixed"
-                  className="logo-image"
-                />
-              )}
+              <img
+                alt="V-Player1"
+                src="/images/logo-blue.svg"
+                layout="fixed"
+                className="logo-image"
+              />
             </a>
           </Link>
           <ThemeToggler className="toggler" />

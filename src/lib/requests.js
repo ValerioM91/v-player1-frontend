@@ -41,15 +41,5 @@ globals {
     psn
     steam
   }
-  logos {
-    logo
-    logoBlue
-  }
-  contactDetails {
-    contactAddress
-    contactEmail
-    contactPhone
-    contactPostcode
-  }
 }
 `;
