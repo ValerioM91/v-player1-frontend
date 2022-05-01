@@ -15,8 +15,8 @@ const Component = ({ className, image }) => {
         placeholder="blur"
         blurDataURL="/images/shimmer.svg"
         layout="responsive"
-        width="16"
-        height="9"
+        width="160"
+        height="90"
         objectFit="cover"
       />
     </figure>

@@ -29,11 +29,13 @@ const Component = ({ className, heading, headingType, contents }) => {
                   <Image
                     src={imageUrl}
                     layout="responsive"
-                    width="16"
-                    height="9"
+                    width="160"
+                    height="90"
                     objectFit="cover"
                     className="Img"
                     alt={altText || "V-Player1"}
+                    placeholder="blur"
+                    blurDataURL="/images/shimmer.svg"
                   />
                 </span>
               )}

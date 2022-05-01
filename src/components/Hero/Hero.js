@@ -10,10 +10,9 @@ const Component = ({ className, backgroundImage, heading, headingType }) => {
   return (
     <div className={className}>
       <TopMenu className="hero__topmenu" />
-      {sourceUrl && (
-        <div className="hero__image">
+      <div className="hero__image">
+        {sourceUrl && (
           <Image
-            className="hero-image"
             alt={altText || "V-Player1"}
             src={sourceUrl}
             layout="fill"
@@ -22,19 +21,20 @@ const Component = ({ className, backgroundImage, heading, headingType }) => {
             placeholder="blur"
             blurDataURL="/images/shimmer.svg"
           />
-        </div>
-      )}
-      <Container>
-        {heading && (
-          <Heading
-            headingType={headingType}
-            heading={heading}
-            alignment="center"
-            color="white"
-            size="headingLarge"
-          />
         )}
-      </Container>
+        <Container>
+          {heading && (
+            <Heading
+              headingType={headingType}
+              heading={heading}
+              alignment="center"
+              color="white"
+              size="headingLarge"
+              className="hero__heading"
+            />
+          )}
+        </Container>
+      </div>
     </div>
   );
 };

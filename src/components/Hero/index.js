@@ -22,7 +22,7 @@ const Hero = styled(Component)`
   background-color: ${({ theme }) => theme.colors.primaryBlue};
 
   .hero__image {
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
 
@@ -32,6 +32,10 @@ const Hero = styled(Component)`
       inset: 0;
       background-color: rgba(0, 0, 0, 0.75);
     }
+  }
+
+  .hero__heading {
+    z-index: 1;
   }
 
   ${Container} {
