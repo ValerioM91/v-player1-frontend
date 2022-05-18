@@ -39,7 +39,15 @@ const Component = ({
       />
       <IntroAnimation />
       <Header />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={() => {
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0 });
+          }
+        }}
+      >
         <motion.div
           key={title}
           initial={{ opacity: 0 }}

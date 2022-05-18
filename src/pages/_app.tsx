@@ -34,7 +34,15 @@ export default function App({ Component, pageProps, router }) {
           className="starter"
           style={loaded ? { display: "none" } : {}}
         ></div>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => {
+            if (typeof window !== "undefined") {
+              window.scrollTo({ top: 0 });
+            }
+          }}
+        >
           <motion.div
             key={router.route}
             initial={{ opacity: 0 }}

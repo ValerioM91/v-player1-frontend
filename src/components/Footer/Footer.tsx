@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useStore from "../../store";
 import Container from "../Container";
 import Socials from "../Socials";
 
@@ -14,7 +13,7 @@ const Component = ({ className }) => {
     <footer className={className}>
       <Container className="heading-font">
         <div className="wrapper">
-          <Link href="/">
+          <Link href="/" scroll={false}>
             <a>
               <Image
                 src="/images/logo-white.svg"

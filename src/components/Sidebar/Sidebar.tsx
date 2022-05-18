@@ -30,7 +30,7 @@ const Component = ({ className, title }: Props) => {
 
           return (
             <article key={i}>
-              <Link href={`/reviews/${slug}`}>
+              <Link href={`/reviews/${slug}`} scroll={false}>
                 <a className="link">
                   {featuredImage?.node?.sourceUrl && (
                     <img

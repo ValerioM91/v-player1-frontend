@@ -17,7 +17,7 @@ const Component = ({ className, label, url, onClick }: Props) => {
     );
 
   return (
-    <Link href={url}>
+    <Link href={url} scroll={false}>
       <a className={className}>{label}</a>
     </Link>
   );
