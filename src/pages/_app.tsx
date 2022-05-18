@@ -4,7 +4,7 @@ import { client } from "../lib/apolloClient";
 import { ThemeProvider } from "styled-components";
 import theme from "../utils/theme";
 import "../utils/global.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../store";
 
 export default function App({ Component, pageProps, router }) {
@@ -34,14 +34,17 @@ export default function App({ Component, pageProps, router }) {
           className="starter"
           style={loaded ? { display: "none" } : {}}
         ></div>
-        <motion.div
-          key={router.route}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2, ease: "easeIn" }}
-        >
-          <Component {...pageProps} />
-        </motion.div>
+        <AnimatePresence exitBeforeEnter>
+          <motion.div
+            key={router.route}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeIn" }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
       </ThemeProvider>
     </ApolloProvider>
   );
