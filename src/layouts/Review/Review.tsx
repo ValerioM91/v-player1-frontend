@@ -41,7 +41,6 @@ const Component = ({
       <Header />
       <AnimatePresence
         exitBeforeEnter
-        initial={false}
         onExitComplete={() => {
           if (typeof window !== "undefined") {
             window.scrollTo({ top: 0 });

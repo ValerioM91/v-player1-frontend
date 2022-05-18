@@ -36,7 +36,6 @@ export default function App({ Component, pageProps, router }) {
         ></div>
         <AnimatePresence
           exitBeforeEnter
-          initial={false}
           onExitComplete={() => {
             if (typeof window !== "undefined") {
               window.scrollTo({ top: 0 });
