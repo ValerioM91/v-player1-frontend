@@ -16,7 +16,7 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
   return (
     <article className={className}>
       <div className="inner">
-        <Link href={uri}>
+        <Link href={uri} scroll={false}>
           <a>
             {imageUrl && (
               <Image

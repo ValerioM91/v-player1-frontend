@@ -28,7 +28,7 @@ const Component = ({
   return (
     <article className={className}>
       {imageUrl && (
-        <Link href={`/reviews/${slug}`}>
+        <Link href={`/reviews/${slug}`} scroll={false}>
           <a className="col-left">
             <figure>
               <Image
@@ -50,7 +50,7 @@ const Component = ({
       <div className="col-right">
         {title && (
           <div className="title h3">
-            <Link href={`/reviews/${slug}`}>
+            <Link href={`/reviews/${slug}`} scroll={false}>
               <a className="underline">{title}</a>
             </Link>
           </div>

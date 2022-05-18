@@ -5,7 +5,7 @@ import Sidebar from "../../components/Sidebar";
 import Head from "../../components/Head";
 import Heading from "../../components/Heading";
 import IntroAnimation from "../../components/IntroAnimation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { TBlock, TImage } from "../../types";
 
@@ -38,37 +38,51 @@ const Component = ({
         image={reviewFields?.hero?.sourceUrl ? reviewFields.hero.sourceUrl : ""}
       />
       <IntroAnimation />
-      <motion.div
-        key={title}
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <Header />
+      <AnimatePresence
+        exitBeforeEnter
+        onExitComplete={() => {
+          if (typeof window !== "undefined") {
+            window.scrollTo({ top: 0 });
+          }
+        }}
       >
-        <Header />
-        <main className={className}>
-          <Container className="container">
-            <div className="col-left">
-              <Heading
-                heading={title}
-                headingType="h1"
-                size="headingMedium"
-                alignment="center"
-                className="review-heading"
-                borderBottom
-                afterLine
-              />
-              {blocks &&
-                blocks.map((block, index) => (
-                  <Block block={block} key={index} vote={reviewFields?.vote} />
-                ))}
-            </div>
-            <div className="col-right">
-              <Sidebar title={title} />
-            </div>
-          </Container>
-        </main>
-        <Footer />
-      </motion.div>
+        <motion.div
+          key={title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeIn" }}
+        >
+          <main className={className}>
+            <Container className="container">
+              <div className="col-left">
+                <Heading
+                  heading={title}
+                  headingType="h1"
+                  size="headingMedium"
+                  alignment="center"
+                  className="review-heading"
+                  borderBottom
+                  afterLine
+                />
+                {blocks &&
+                  blocks.map((block, index) => (
+                    <Block
+                      block={block}
+                      key={index}
+                      vote={reviewFields?.vote}
+                    />
+                  ))}
+              </div>
+              <div className="col-right">
+                <Sidebar title={title} />
+              </div>
+            </Container>
+          </main>
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };

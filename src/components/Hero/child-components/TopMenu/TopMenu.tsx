@@ -17,7 +17,7 @@ const Component = ({ className }: Props) => {
   return (
     <div className={className}>
       <nav className="nav-center container heading-font">
-        <Link href="/">
+        <Link href="/" scroll={false}>
           <a className="logo">
             <Image
               src="/images/logo-white.svg"
@@ -35,7 +35,7 @@ const Component = ({ className }: Props) => {
             const { label, path, cssClasses } = link;
             return (
               <li key={index}>
-                <Link href={path}>
+                <Link href={path} scroll={false}>
                   <a
                     className={`link underline${
                       cssClasses && cssClasses.length ? ` ${cssClasses}` : ""
