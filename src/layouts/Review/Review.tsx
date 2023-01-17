@@ -8,11 +8,13 @@ import IntroAnimation from "../../components/IntroAnimation";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { TBlock, TImage } from "../../types";
+import SocialsShare from "../../components/SocialShare";
 
 const Block = dynamic(() => import("../../utils/Blocks"), { ssr: false });
 
 export type TReviewProps = {
   className?: string;
+  slug: string;
   title?: string;
   excerpt?: string;
   reviewFields?: {
@@ -23,13 +25,7 @@ export type TReviewProps = {
   blocks?: TBlock[];
 };
 
-const Component = ({
-  className,
-  blocks,
-  title,
-  excerpt,
-  reviewFields,
-}: TReviewProps) => {
+const Component = ({ className, slug, blocks, title, excerpt, reviewFields }: TReviewProps) => {
   return (
     <>
       <Head
@@ -68,12 +64,9 @@ const Component = ({
                 />
                 {blocks &&
                   blocks.map((block, index) => (
-                    <Block
-                      block={block}
-                      key={index}
-                      vote={reviewFields?.vote}
-                    />
+                    <Block block={block} key={index} vote={reviewFields?.vote} />
                   ))}
+                <SocialsShare url={`https://v-player1-frontend.vercel.app/reviews/${slug}`} />
               </div>
               <div className="col-right">
                 <Sidebar title={title} />

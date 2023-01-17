@@ -44,17 +44,13 @@ const Component = ({
         )}
         {reviews && (
           <div className="list">
-            {reviews
-              .slice(0, latest ? 3 : reviews.length)
-              .map((post, index) => {
-                return (
-                  <ReviewRow {...post} key={index} className="review-row" />
-                );
-              })}
+            {reviews.slice(0, latest ? 3 : reviews.length).map((post, index) => {
+              return <ReviewRow {...post} key={index} className="review-row" />;
+            })}
           </div>
         )}
         <div className="btn-container">
-          {linkUrl && <Button label={label} url={linkUrl} type={buttonType} />}
+          {linkUrl && <Button label={label} url={linkUrl} variant={buttonType} />}
         </div>
       </Container>
     </section>

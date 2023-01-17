@@ -1,18 +1,21 @@
 import Link from "next/link";
+import { ButtonHTMLAttributes } from "react";
 
 export type Props = {
   className?: string;
   label?: string;
   url?: string;
-  type?: "primary" | "secondary" | "tertiary" | "quaternary";
+  variant?: "primary" | "secondary" | "tertiary" | "quaternary" | "transparent";
+  type?: "button" | "submit" | "reset";
   onClick?: (any: any) => any;
+  children?: React.ReactNode;
 };
 
-const Component = ({ className, label, url, onClick }: Props) => {
+const Component = ({ className, label, url, onClick, type, children }: Props) => {
   if (!url)
     return (
-      <button className={className} onClick={onClick}>
-        {label}
+      <button className={className} onClick={onClick} type={type}>
+        {label || children}
       </button>
     );
 

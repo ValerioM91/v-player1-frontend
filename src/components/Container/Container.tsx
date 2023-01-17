@@ -1,6 +1,6 @@
 export type Props = {
   className?: string;
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
 };
 
 const Component = ({ className, children }: Props) => {

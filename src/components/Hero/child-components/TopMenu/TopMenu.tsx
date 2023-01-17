@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import useStore from "../../../../store";
 import ThemeToggler from "../../../ThemeToggler";
+import UserNav from "../../../Header/UserNav";
 
 export type Props = {
   className?: string;
@@ -47,6 +48,7 @@ const Component = ({ className }: Props) => {
               </li>
             );
           })}
+          <UserNav />
         </ul>
       </nav>
       <ThemeToggler className="toggler" />

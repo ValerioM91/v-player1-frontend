@@ -15,15 +15,10 @@ export type TDynamicProps = {
     description?: string;
   };
   blocks?: TBlock[];
+  children?: React.ReactNode;
 };
 
-const Component = ({
-  className,
-  blocks,
-  title,
-  pageFields,
-  header,
-}: TDynamicProps) => {
+const Component = ({ className, blocks, title, pageFields, header, children }: TDynamicProps) => {
   const description = pageFields?.description;
 
   return (
@@ -32,8 +27,8 @@ const Component = ({
       <IntroAnimation />
       {header && <Header />}
       <main className={className}>
-        {blocks &&
-          blocks.map((block, index) => <Block block={block} key={index} />)}
+        {blocks && blocks.map((block, index) => <Block block={block} key={index} />)}
+        {children}
       </main>
       <Footer />
     </>

@@ -2,12 +2,12 @@ import styled from "styled-components";
 import Component, { Props } from "./Button";
 
 const Button: React.FunctionComponent<Props> = styled(Component)`
-  background-color: ${({ theme, type }) =>
-    type === "secondary"
+  background-color: ${({ theme, variant }) =>
+    variant === "secondary"
       ? theme.colors.primaryGreen
-      : type === "tertiary"
+      : variant === "tertiary"
       ? theme.colors.primaryYellow
-      : type === "quaternary"
+      : variant === "quaternary"
       ? theme.colors.primaryRed
       : theme.colors.primaryBlue};
   color: ${({ theme }) => theme.colors.white};
@@ -20,6 +20,7 @@ const Button: React.FunctionComponent<Props> = styled(Component)`
   text-transform: capitalize;
   cursor: pointer;
   transition: all 0.3s;
+  border: none;
 
   &:hover {
     filter: brightness(90%);

@@ -16,7 +16,9 @@ type Props = TReviewProps & {
 };
 
 const Review = (props: Props) => {
-  const { setGlobals, setMainMenu, setReviews } = useStore();
+  const setReviews = useStore((state) => state.setReviews);
+  const setGlobals = useStore((state) => state.setGlobals);
+  const setMainMenu = useStore((state) => state.setMainMenu);
 
   useEffect(() => {
     setGlobals(props.globals);
@@ -72,6 +74,7 @@ const GET_REVIEW = gql`
     review(id: $slug, idType: SLUG) {
       title
       excerpt
+      slug
       reviewFields {
         vote
         hero {

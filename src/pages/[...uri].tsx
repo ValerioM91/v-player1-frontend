@@ -16,7 +16,9 @@ type Props = TDynamicProps & {
 };
 
 export default function page(props: Props) {
-  const { setReviews, setGlobals, setMainMenu } = useStore((state) => state);
+  const setReviews = useStore((state) => state.setReviews);
+  const setGlobals = useStore((state) => state.setGlobals);
+  const setMainMenu = useStore((state) => state.setMainMenu);
 
   useEffect(() => {
     setGlobals(props.globals);

@@ -89,3 +89,52 @@ a {
   background-color: white;
   z-index: 9999;
 }
+
+.container.container--small {
+  max-width: 600px;
+}
+
+.form-control {
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.form-control:last-of-type {
+  margin-bottom: 3rem;
+}
+
+.form-label {
+  display: block;
+  text-align: start;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.form-input {
+  width: 100%;
+  min-width: 0px;
+  position: relative;
+  appearance: none;
+  font-size: 2rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-color: inherit;
+  background: inherit;
+  color: #393939;
+}
+
+.dark-theme .form-control {
+  color: #ddd;
+}
+
+.dark-theme .form-input {
+  color: #ddd;
+}
