@@ -6,6 +6,11 @@ import theme from "../utils/theme";
 import "../utils/global.css";
 import { motion, AnimatePresence } from "framer-motion";
 import useStore from "../store";
+import mixpanel from "mixpanel-browser";
+import { HistoryProvider } from "../store/HistoryProvider";
+
+// PROD
+mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_PROD, { debug: false });
 
 export default function App({ Component, pageProps, router }) {
   const [loaded, setLoaded] = useState(false);
@@ -43,27 +48,29 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <div className="starter" style={loaded ? { display: "none" } : {}}></div>
-        <AnimatePresence
-          exitBeforeEnter
-          onExitComplete={() => {
-            if (typeof window !== "undefined") {
-              window.scrollTo({ top: 0 });
-            }
-          }}
-        >
-          <motion.div
-            key={router.route}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeIn" }}
+      <HistoryProvider>
+        <ThemeProvider theme={theme}>
+          <div className="starter" style={loaded ? { display: "none" } : {}}></div>
+          <AnimatePresence
+            exitBeforeEnter
+            onExitComplete={() => {
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0 });
+              }
+            }}
           >
-            <Component {...pageProps} />
-          </motion.div>
-        </AnimatePresence>
-      </ThemeProvider>
+            <motion.div
+              key={router.route}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeIn" }}
+            >
+              <Component {...pageProps} />
+            </motion.div>
+          </AnimatePresence>
+        </ThemeProvider>
+      </HistoryProvider>
     </ApolloProvider>
   );
 }

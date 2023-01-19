@@ -8,7 +8,7 @@ type TStore = {
   introCompleted: boolean;
   darkTheme: boolean;
   isLoggedIn: boolean;
-  premiumMember: boolean;
+  planType: "Premium" | "Free";
   setReviews: (reviews: TReview[]) => void;
   setGlobals: (globals: TGlobals) => void;
   setMainMenu: (mainMenu: TMenuItem[]) => void;
@@ -16,7 +16,7 @@ type TStore = {
   setDarkTheme: (bool: boolean) => void;
   toggleTheme: () => void;
   setIsLoggedIn: (bool: boolean) => void;
-  setPremiumMember: (bool: boolean) => void;
+  setPlanType: (plan: "Premium" | "Free") => void;
 };
 
 const useStore = create<TStore>((set) => ({
@@ -26,7 +26,7 @@ const useStore = create<TStore>((set) => ({
   introCompleted: false,
   darkTheme: false,
   isLoggedIn: false,
-  premiumMember: false,
+  planType: "Free",
   setReviews: (reviews) => set((state) => ({ ...state, reviews })),
   setGlobals: (globals) => set((state) => ({ ...state, globals })),
   setMainMenu: (mainMenu) => set((state) => ({ ...state, mainMenu })),
@@ -34,7 +34,7 @@ const useStore = create<TStore>((set) => ({
   setDarkTheme: (bool) => set((state) => ({ ...state, darkTheme: bool })),
   setIsLoggedIn: (bool) => set((state) => ({ ...state, isLoggedIn: bool })),
   toggleTheme: () => set((state) => ({ ...state, darkTheme: !state.darkTheme })),
-  setPremiumMember: (bool) => set((state) => ({ ...state, premiumMember: bool })),
+  setPlanType: (plan) => set((state) => ({ ...state, planType: plan })),
 }));
 
 export default useStore;

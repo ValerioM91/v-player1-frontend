@@ -72,6 +72,7 @@ export const getStaticProps = async (context) => {
 const GET_REVIEW = gql`
   query getReview($slug: ID!) {
     review(id: $slug, idType: SLUG) {
+      id
       title
       excerpt
       slug

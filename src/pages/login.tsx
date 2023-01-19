@@ -9,13 +9,14 @@ import Container from "../components/Container";
 import Heading from "../components/Heading";
 import Button from "../components/Button";
 import { useRouter } from "next/router";
+import { trackLogin } from "../utils/MixPanel";
 
 export default function Login({ menuItems }) {
   const setMainMenu = useStore((state) => state.setMainMenu);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const { setIsLoggedIn } = useStore();
+  const { setIsLoggedIn, planType } = useStore();
 
   useEffect(() => {
     setMainMenu(menuItems);
@@ -27,6 +28,7 @@ export default function Login({ menuItems }) {
       alert("Please insert valid credentials");
     } else {
       alert("You are now logged in");
+      trackLogin(email, planType);
       setIsLoggedIn(true);
       router.push("/");
     }

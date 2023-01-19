@@ -1,16 +1,22 @@
+import mixpanel from "mixpanel-browser";
 import Link from "next/link";
 import useStore from "../../store";
+import { trackDowngradePlan, trackUpgradePlan } from "../../utils/MixPanel";
+
 const UserNav = () => {
-  const { isLoggedIn, setIsLoggedIn, premiumMember, setPremiumMember } = useStore();
+  const { isLoggedIn, setIsLoggedIn, planType, setPlanType } = useStore();
 
   const logoutHandler = () => {
     alert("You are now logged out");
     setIsLoggedIn(false);
   };
 
+  const premiumMember = planType === "Premium";
+
   const membershipHandler = () => {
     alert(premiumMember ? "You are now a free user" : "You are now a Premium Member");
-    setPremiumMember(premiumMember ? false : true);
+    setPlanType(premiumMember ? "Free" : "Premium");
+    premiumMember ? trackDowngradePlan() : trackUpgradePlan();
   };
 
   if (isLoggedIn) {
