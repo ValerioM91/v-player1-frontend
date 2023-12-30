@@ -1,6 +1,7 @@
 import Link from "next/link"
 import useStore from "@/store"
 import Heading from "../Heading"
+import Image from "next/image"
 
 type Props = {
   className?: string
@@ -17,7 +18,7 @@ const Component = ({ className, title }: Props) => {
       <Heading
         color="textColor"
         heading="read also"
-        headingType="h5"
+        headingType="h3"
         size="headingMedium"
         className="review-heading"
         alignment="center"
@@ -33,8 +34,10 @@ const Component = ({ className, title }: Props) => {
               <Link href={`/reviews/${slug}`} scroll={false}>
                 <a className="link">
                   {featuredImage?.node?.sourceUrl && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
+                      width={80}
+                      height={80}
+                      objectFit="cover"
                       className="thumbnail"
                       src={featuredImage.node.sourceUrl}
                       alt={featuredImage.node.altText || "V-Player1"}

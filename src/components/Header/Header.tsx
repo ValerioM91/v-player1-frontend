@@ -17,8 +17,8 @@ const Component = ({ className }: Props) => {
     <header className={className}>
       <Container className="container">
         <nav className="nav">
-          <Link href="/" scroll={false}>
-            <a className="logo">
+          <Link href="/" scroll={false} aria-label="home">
+            <a className="logo" aria-label="home">
               <LogoSVG className="logo" />
             </a>
           </Link>

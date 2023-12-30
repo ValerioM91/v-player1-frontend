@@ -1,4 +1,3 @@
-import { createElement } from "react"
 import type { THeadingType } from "@/types"
 
 export type Props = {
@@ -17,7 +16,9 @@ const Component = ({ headingType = "h2", heading, className }: Props) => {
     return null
   }
 
-  return createElement(headingType, { className }, heading)
+  const Element = headingType
+
+  return <Element className={className}>{heading}</Element>
 }
 
 export default Component

@@ -18,7 +18,7 @@ function ThemeToggler({ className }) {
   const { darkTheme, toggleTheme } = useStore()
 
   return (
-    <Wrapper darkTheme={darkTheme} onClick={toggleTheme} className={className}>
+    <Wrapper data-darktheme={darkTheme} onClick={toggleTheme} className={className}>
       <BsFillMoonFill className="icon moon" />
       <BsFillSunFill className="icon sun" />
       <motion.div className="handle" layout transition={spring} />
@@ -27,7 +27,7 @@ function ThemeToggler({ className }) {
 }
 
 type WrapperProps = {
-  darkTheme?: boolean
+  "data-darktheme"?: boolean
   onClick: () => void
   className?: string
 }
@@ -35,9 +35,10 @@ type WrapperProps = {
 const Wrapper = styled.div<WrapperProps>`
   width: 5.6rem;
   height: 3rem;
-  background-color: ${({ darkTheme, theme }) => (darkTheme ? theme.colors.primaryBlue : theme.colors.primaryYellow)};
+  background-color: ${({ "data-darktheme": darkTheme, theme }) =>
+    darkTheme ? theme.colors.primaryBlue : theme.colors.primaryYellow};
   display: flex;
-  justify-content: ${({ darkTheme }) => (darkTheme ? "flex-end" : "flex-start")};
+  justify-content: ${({ "data-darktheme": darkTheme }) => (darkTheme ? "flex-end" : "flex-start")};
   border-radius: 5rem;
   padding: 0.5rem;
   cursor: pointer;

@@ -17,8 +17,8 @@ const Component = ({ className }: Props) => {
   return (
     <div className={className}>
       <nav className="nav-center container heading-font">
-        <Link href="/" scroll={false}>
-          <a className="logo">
+        <Link href="/" scroll={false} aria-label="home">
+          <a className="logo" aria-label="home">
             <LogoSVG variant="white" width={100} height={50} style={{ objectFit: "contain" }} />
           </a>
         </Link>

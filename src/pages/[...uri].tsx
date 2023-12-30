@@ -40,6 +40,7 @@ export const getStaticProps = async context => {
 
   return {
     props,
+    revalidate: false,
   }
 }
 

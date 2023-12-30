@@ -13,11 +13,13 @@ const Component = ({ className }: Props) => {
     <footer className={className}>
       <Container className="heading-font">
         <div className="wrapper">
-          <Link href="/" scroll={false}>
-            <a>
-              <LogoSVG variant="white" width={70} height={50} style={{ objectFit: "contain" }} />
-            </a>
-          </Link>
+          <div>
+            <Link href="/" scroll={false} aria-label="home">
+              <a aria-label="home">
+                <LogoSVG variant="white" width={70} height={50} style={{ objectFit: "contain" }} />
+              </a>
+            </Link>
+          </div>
           <p className="copy">{new Date().getFullYear()} &copy; Valerio Mattera</p>
           <Socials className="socials" />
         </div>

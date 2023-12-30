@@ -83,7 +83,7 @@ function IntroAnimation() {
   )
 
   return (
-    <Wrapper hide={introCompleted ? true : undefined} darkTheme={darkTheme}>
+    <Wrapper data-hide={introCompleted ? true : undefined} data-darktheme={darkTheme}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="200"
@@ -145,8 +145,8 @@ function IntroAnimation() {
 }
 
 type Props = {
-  hide?: boolean
-  darkTheme?: boolean
+  "data-hide"?: boolean
+  "data-darktheme"?: boolean
 }
 
 const Wrapper = styled.div<Props>`
@@ -170,7 +170,8 @@ const Wrapper = styled.div<Props>`
   &::before {
     content: "";
     position: absolute;
-    background-color: ${({ darkTheme, theme }) => (darkTheme ? theme.colors.grey600 : theme.colors.white)};
+    background-color: ${({ "data-darktheme": darkTheme, theme }) =>
+      darkTheme ? theme.colors.grey600 : theme.colors.white};
     border-radius: 50%;
     transition: transform 1s;
     z-index: -1;
@@ -202,7 +203,7 @@ const Wrapper = styled.div<Props>`
     }
   }
 
-  ${({ hide }) =>
+  ${({ "data-hide": hide }) =>
     hide &&
     css`
       visibility: hidden;
