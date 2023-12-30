@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Component, { Props } from "./FinalComment";
+import styled from "styled-components"
+import Component, { Props } from "./FinalComment"
 
 export const FinalCommentQuery = `
 ... on AcfFinalComment1Block {
@@ -8,7 +8,7 @@ export const FinalCommentQuery = `
       headingType
       content
     }
-  }`;
+  }`
 
 const FinalComment: React.FunctionComponent<Props> = styled(Component)`
   background-color: ${({ theme }) => theme.colors.primaryBlue};
@@ -44,6 +44,6 @@ const FinalComment: React.FunctionComponent<Props> = styled(Component)`
     border-radius: 0.5rem;
     padding: 0.2rem 2rem 0;
   }
-`;
+`
 
-export default FinalComment;
+export default FinalComment

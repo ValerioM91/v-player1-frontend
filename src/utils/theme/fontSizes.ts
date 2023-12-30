@@ -1,5 +1,5 @@
-import { TTextSize } from "../../types";
-import { getFontSize } from "../getFontSize";
+import { TTextSize } from "../../types"
+import { getFontSize } from "../getFontSize"
 
 export const fontSizesMap = {
   headingExtraLarge: {
@@ -50,13 +50,13 @@ export const fontSizesMap = {
     null: "1.4rem",
     md: "1.8rem",
   },
-};
+}
 
-const fontSizes = {};
+const fontSizes = {}
 
 for (const key in fontSizesMap) {
   if (fontSizesMap.hasOwnProperty(key)) {
-    fontSizes[key] = getFontSize(key);
+    fontSizes[key] = getFontSize(key)
   }
 }
-export default fontSizes;
+export default fontSizes

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Component, { Props } from "./HeadingContent";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component, { Props } from "./HeadingContent"
+import { isDarkTheme } from "../../store"
 
 export const HeadingContentQuery = `
 ... on AcfHeadingContent1Block {
@@ -15,11 +15,10 @@ export const HeadingContentQuery = `
             }
         }
     }
-}`;
+}`
 
 const HeadingContent: React.FunctionComponent<Props> = styled(Component)`
-  background-color: ${({ theme }) =>
-    isDarkTheme() ? theme.colors.grey600 : theme.colors.white};
+  background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
   padding: 2rem;
   color: ${({ theme }) => isDarkTheme() && theme.colors.white};
 
@@ -62,6 +61,6 @@ const HeadingContent: React.FunctionComponent<Props> = styled(Component)`
       margin: 0.5rem 2rem 0.5rem 0;
     }
   }
-`;
+`
 
-export default HeadingContent;
+export default HeadingContent

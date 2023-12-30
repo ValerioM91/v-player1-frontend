@@ -1,21 +1,21 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
-import useStore from "../../store";
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { motion } from "framer-motion"
+import styled from "styled-components"
+import useStore from "../../store"
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
 
 const spring = {
   type: "spring",
   stiffness: 500,
   damping: 30,
   duration: 0.2,
-};
+}
 
 export type Props = {
-  className?: string;
-};
+  className?: string
+}
 
 function ThemeToggler({ className }) {
-  const { darkTheme, toggleTheme } = useStore();
+  const { darkTheme, toggleTheme } = useStore()
 
   return (
     <Wrapper darkTheme={darkTheme} onClick={toggleTheme} className={className}>
@@ -23,23 +23,21 @@ function ThemeToggler({ className }) {
       <BsFillSunFill className="icon sun" />
       <motion.div className="handle" layout transition={spring} />
     </Wrapper>
-  );
+  )
 }
 
 type WrapperProps = {
-  darkTheme?: boolean;
-  onClick: () => void;
-  className?: string;
-};
+  darkTheme?: boolean
+  onClick: () => void
+  className?: string
+}
 
 const Wrapper = styled.div<WrapperProps>`
   width: 5.6rem;
   height: 3rem;
-  background-color: ${({ darkTheme, theme }) =>
-    darkTheme ? theme.colors.primaryBlue : theme.colors.primaryYellow};
+  background-color: ${({ darkTheme, theme }) => (darkTheme ? theme.colors.primaryBlue : theme.colors.primaryYellow)};
   display: flex;
-  justify-content: ${({ darkTheme }) =>
-    darkTheme ? "flex-end" : "flex-start"};
+  justify-content: ${({ darkTheme }) => (darkTheme ? "flex-end" : "flex-start")};
   border-radius: 5rem;
   padding: 0.5rem;
   cursor: pointer;
@@ -93,6 +91,6 @@ const Wrapper = styled.div<WrapperProps>`
       height: 1.6rem;
     }
   }
-`;
+`
 
-export default ThemeToggler;
+export default ThemeToggler

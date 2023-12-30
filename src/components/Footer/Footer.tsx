@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Container from "../Container";
-import Socials from "../Socials";
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+import Container from "../Container"
+import Socials from "../Socials"
 
 export type Props = {
-  className?: string;
-};
+  className?: string
+}
 
 const Component = ({ className }) => {
   return (
@@ -26,14 +26,12 @@ const Component = ({ className }) => {
               />
             </a>
           </Link>
-          <p className="copy">
-            {new Date().getFullYear()} &copy; Valerio Mattera
-          </p>
+          <p className="copy">{new Date().getFullYear()} &copy; Valerio Mattera</p>
           <Socials className="socials" />
         </div>
       </Container>
     </footer>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

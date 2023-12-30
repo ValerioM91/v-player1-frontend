@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Component, { Props } from "./PostCard";
+import styled from "styled-components"
+import Component, { Props } from "./PostCard"
 
 const PostCard: React.FunctionComponent<Props> = styled(Component)`
   text-align: center;
@@ -10,6 +10,6 @@ const PostCard: React.FunctionComponent<Props> = styled(Component)`
     ${({ theme }) => theme.fontSizes.headingExtraSmall};
     margin-top: 1rem;
   }
-`;
+`
 
-export default PostCard;
+export default PostCard

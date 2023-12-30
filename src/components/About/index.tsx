@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Component, { Props } from "./About";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component, { Props } from "./About"
+import { isDarkTheme } from "../../store"
 
 export const AboutQuery = `
 ... on AcfAbout001Block {
@@ -13,7 +13,7 @@ export const AboutQuery = `
       altText
     }
   }
-}`;
+}`
 
 const StyledAbout: React.FunctionComponent<Props> = styled(Component)`
   padding-top: 3rem;
@@ -63,6 +63,6 @@ const StyledAbout: React.FunctionComponent<Props> = styled(Component)`
       border-radius: 50%;
     }
   }
-`;
+`
 
-export default StyledAbout;
+export default StyledAbout

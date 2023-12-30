@@ -1,16 +1,16 @@
-import Link from "next/link";
-import useStore from "../../store";
-import Heading from "../Heading";
+import Link from "next/link"
+import useStore from "../../store"
+import Heading from "../Heading"
 
 export type Props = {
-  className?: string;
-  title?: string;
-};
+  className?: string
+  title?: string
+}
 
 const Component = ({ className, title }: Props) => {
-  const { reviews } = useStore();
+  const { reviews } = useStore()
 
-  const latest = reviews.filter((rev) => rev.title !== title).slice(0, 3);
+  const latest = reviews.filter(rev => rev.title !== title).slice(0, 3)
 
   return (
     <div className={className}>
@@ -26,7 +26,7 @@ const Component = ({ className, title }: Props) => {
       />
       <div className="articles">
         {latest.map((review, i) => {
-          const { title, slug, featuredImage } = review;
+          const { title, slug, featuredImage } = review
 
           return (
             <article key={i}>
@@ -43,11 +43,11 @@ const Component = ({ className, title }: Props) => {
                 </a>
               </Link>
             </article>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Component, { Props } from "./Socials";
+import styled from "styled-components"
+import Component, { Props } from "./Socials"
 
 const Socials: React.FunctionComponent<Props> = styled(Component)`
   list-style: none;
@@ -36,6 +36,6 @@ const Socials: React.FunctionComponent<Props> = styled(Component)`
   .instagram:hover {
     color: #c13584;
   }
-`;
+`
 
-export default Socials;
+export default Socials

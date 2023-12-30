@@ -1,24 +1,18 @@
-import parse from "html-react-parser";
+import parse from "html-react-parser"
 
-import Heading from "../Heading";
-import { THeadingType } from "../../types";
+import Heading from "../Heading"
+import { THeadingType } from "../../types"
 
 export type Props = {
-  className?: string;
-  heading?: string;
-  headingType?: THeadingType;
-  content?: string;
-  vote?: number;
-  onClick: (any: any) => any;
-};
+  className?: string
+  heading?: string
+  headingType?: THeadingType
+  content?: string
+  vote?: number
+  onClick: (any: any) => any
+}
 
-const Component = ({
-  className,
-  heading,
-  headingType,
-  content,
-  vote,
-}: Props) => {
+const Component = ({ className, heading, headingType, content, vote }: Props) => {
   return (
     <div className={className}>
       {heading && (
@@ -40,7 +34,7 @@ const Component = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

@@ -1,25 +1,20 @@
-import Link from "next/link";
-import {
-  FaFacebookF,
-  FaPlaystation,
-  FaSteamSquare,
-  FaInstagram,
-} from "react-icons/fa";
+import Link from "next/link"
+import { FaFacebookF, FaPlaystation, FaSteamSquare, FaInstagram } from "react-icons/fa"
 
-import useStore from "../../store";
+import useStore from "../../store"
 
 export type Props = {
-  className?: string;
-};
+  className?: string
+}
 
 const Component = ({ className }) => {
-  const { globals } = useStore();
-  const socials = globals?.socials;
+  const { globals } = useStore()
+  const socials = globals?.socials
 
-  const psn = socials?.psn;
-  const steam = socials?.steam;
-  const facebook = socials?.facebook;
-  const instagram = socials?.instagram;
+  const psn = socials?.psn
+  const steam = socials?.steam
+  const facebook = socials?.facebook
+  const instagram = socials?.instagram
 
   return (
     <ul className={className}>
@@ -60,7 +55,7 @@ const Component = ({ className }) => {
         </li>
       )}
     </ul>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

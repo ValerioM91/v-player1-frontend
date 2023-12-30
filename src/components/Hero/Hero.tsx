@@ -1,24 +1,19 @@
-import Image from "next/image";
-import Heading from "../Heading";
-import Container from "../Container";
-import TopMenu from "./child-components/TopMenu";
-import { THeadingType, TImage } from "../../types";
+import Image from "next/image"
+import Heading from "../Heading"
+import Container from "../Container"
+import TopMenu from "./child-components/TopMenu"
+import { THeadingType, TImage } from "../../types"
 
 export type Props = {
-  className?: string;
-  backgroundImage?: TImage;
-  heading?: string;
-  headingType?: THeadingType;
-};
+  className?: string
+  backgroundImage?: TImage
+  heading?: string
+  headingType?: THeadingType
+}
 
-const Component = ({
-  className,
-  backgroundImage,
-  heading,
-  headingType,
-}: Props) => {
-  const sourceUrl = backgroundImage?.sourceUrl;
-  const altText = backgroundImage?.altText;
+const Component = ({ className, backgroundImage, heading, headingType }: Props) => {
+  const sourceUrl = backgroundImage?.sourceUrl
+  const altText = backgroundImage?.altText
 
   return (
     <div className={className}>
@@ -49,7 +44,7 @@ const Component = ({
         </Container>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

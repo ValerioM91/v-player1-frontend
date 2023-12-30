@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Spinner = styled.div`
   width: 6rem;
@@ -10,6 +10,6 @@ const Spinner = styled.div`
   border: 4px solid ${({ theme }) => theme.colors.primaryYellow};
   border-top-color: ${({ theme }) => theme.colors.primaryBlue};
   animation: ${({ theme }) => theme.animations.loading} 0.6s linear infinite;
-`;
+`
 
-export default Spinner;
+export default Spinner

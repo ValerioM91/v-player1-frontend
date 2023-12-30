@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Component, { Props } from "./Reviews";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component, { Props } from "./Reviews"
+import { isDarkTheme } from "../../store"
 
 export const ReviewsQuery = `
 ... on AcfReviews001Block {
@@ -13,11 +13,10 @@ export const ReviewsQuery = `
     label
     linkUrl
   }
-}`;
+}`
 
 const Reviews: React.FunctionComponent<Props> = styled(Component)`
-  background: ${({ theme }) =>
-    isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100};
+  background: ${({ theme }) => (isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};
   @media ${({ theme }) => theme.device.mdUp} {
     padding-top: ${({ first }) => (first ? "12rem" : "5rem")};
@@ -40,6 +39,6 @@ const Reviews: React.FunctionComponent<Props> = styled(Component)`
     text-align: center;
     margin: auto;
   }
-`;
+`
 
-export default Reviews;
+export default Reviews

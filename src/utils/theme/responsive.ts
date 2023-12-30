@@ -1,4 +1,4 @@
-import breakpoints from "./breakpoints";
+import breakpoints from "./breakpoints"
 
 export const device = {
   smUp: `(min-width: ${breakpoints.sm}px)`,
@@ -9,4 +9,4 @@ export const device = {
   mdDown: `(max-width: ${breakpoints.md - 1}px)`,
   lgDown: `(max-width: ${breakpoints.lg - 1}px)`,
   xlDown: `(max-width: ${breakpoints.xl - 1}px)`,
-};
+}

@@ -1,29 +1,23 @@
-import parse from "html-react-parser";
-import Image from "next/image";
-import Link from "next/link";
-import { TImage } from "../../types";
+import parse from "html-react-parser"
+import Image from "next/image"
+import Link from "next/link"
+import { TImage } from "../../types"
 
 export type Props = {
-  className?: string;
-  title?: string;
-  slug?: string;
-  excerpt?: string;
+  className?: string
+  title?: string
+  slug?: string
+  excerpt?: string
   reviewFields?: {
-    hero?: TImage;
-    vote?: number;
-  };
-};
+    hero?: TImage
+    vote?: number
+  }
+}
 
-const Component = ({
-  className,
-  title,
-  slug,
-  excerpt,
-  reviewFields,
-}: Props) => {
-  const imageUrl = reviewFields?.hero?.sourceUrl;
-  const altText = reviewFields?.hero?.altText;
-  const vote = reviewFields?.vote;
+const Component = ({ className, title, slug, excerpt, reviewFields }: Props) => {
+  const imageUrl = reviewFields?.hero?.sourceUrl
+  const altText = reviewFields?.hero?.altText
+  const vote = reviewFields?.vote
 
   return (
     <article className={className}>
@@ -58,7 +52,7 @@ const Component = ({
         {excerpt && <div className="content content--md">{parse(excerpt)}</div>}
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

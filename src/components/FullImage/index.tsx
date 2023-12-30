@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Component, { Props } from "./FullImage";
+import styled from "styled-components"
+import Component, { Props } from "./FullImage"
 
 export const FullImageQuery = `
 ... on AcfFullImage1Block {
@@ -9,7 +9,7 @@ export const FullImageQuery = `
       sourceUrl
     }
   }
-}`;
+}`
 
 const FullImage: React.FunctionComponent<Props> = styled(Component)`
   + .final-comment {
@@ -18,6 +18,6 @@ const FullImage: React.FunctionComponent<Props> = styled(Component)`
   .image {
     width: 100%;
   }
-`;
+`
 
-export default FullImage;
+export default FullImage

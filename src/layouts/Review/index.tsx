@@ -1,10 +1,9 @@
-import styled from "styled-components";
-import Component, { TReviewProps } from "./Review";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component, { TReviewProps } from "./Review"
+import { isDarkTheme } from "../../store"
 
 const Review: React.FunctionComponent<TReviewProps> = styled(Component)`
-  background-color: ${({ theme }) =>
-    isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100};
+  background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
 
   .container {
     padding-top: 9rem;
@@ -38,6 +37,6 @@ const Review: React.FunctionComponent<TReviewProps> = styled(Component)`
       padding-left: 2rem;
     }
   }
-`;
+`
 
-export default Review;
+export default Review

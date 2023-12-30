@@ -1,17 +1,17 @@
-import Link from "next/link";
-import Image from "next/image";
-import useStore from "../../../../store";
-import ThemeToggler from "../../../ThemeToggler";
+import Link from "next/link"
+import Image from "next/image"
+import useStore from "../../../../store"
+import ThemeToggler from "../../../ThemeToggler"
 
 export type Props = {
-  className?: string;
-};
+  className?: string
+}
 
 const Component = ({ className }: Props) => {
-  const { mainMenu } = useStore();
+  const { mainMenu } = useStore()
 
   if (!mainMenu) {
-    return null;
+    return null
   }
 
   return (
@@ -32,26 +32,20 @@ const Component = ({ className }: Props) => {
         </Link>
         <ul className="links">
           {mainMenu.map((link, index) => {
-            const { label, path, cssClasses } = link;
+            const { label, path, cssClasses } = link
             return (
               <li key={index}>
                 <Link href={path} scroll={false}>
-                  <a
-                    className={`link underline${
-                      cssClasses && cssClasses.length ? ` ${cssClasses}` : ""
-                    }`}
-                  >
-                    {label}
-                  </a>
+                  <a className={`link underline${cssClasses && cssClasses.length ? ` ${cssClasses}` : ""}`}>{label}</a>
                 </Link>
               </li>
-            );
+            )
           })}
         </ul>
       </nav>
       <ThemeToggler className="toggler" />
     </div>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

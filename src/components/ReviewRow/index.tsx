@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import Component, { Props } from "./ReviewRow";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component, { Props } from "./ReviewRow"
+import { isDarkTheme } from "../../store"
 
 const Review: React.FunctionComponent<Props> = styled(Component)`
   display: flex;
@@ -104,6 +104,6 @@ const Review: React.FunctionComponent<Props> = styled(Component)`
       max-width: 50%;
     }
   }
-`;
+`
 
-export default Review;
+export default Review
