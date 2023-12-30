@@ -31,4 +31,4 @@ const useStore = create<TStore>(set => ({
 
 export default useStore
 
-export const isDarkTheme = () => useStore().darkTheme
+export const useIsDarkTheme = () => useStore().darkTheme

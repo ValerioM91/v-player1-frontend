@@ -1,7 +1,7 @@
 import Link from "next/link"
-import Image from "next/image"
-import useStore from "../../../../store"
-import ThemeToggler from "../../../ThemeToggler"
+import useStore from "@/store"
+import ThemeToggler from "@/components/ThemeToggler"
+import LogoSVG from "@/components/Logo"
 
 type Props = {
   className?: string
@@ -19,15 +19,7 @@ const Component = ({ className }: Props) => {
       <nav className="nav-center container heading-font">
         <Link href="/" scroll={false}>
           <a className="logo">
-            <Image
-              src="/images/logo-white.svg"
-              alt="V-Player1"
-              width={100}
-              height={50}
-              layout="fixed"
-              objectFit="contain"
-              placeholder="empty"
-            />
+            <LogoSVG variant="white" width={100} height={50} style={{ objectFit: "contain" }} />
           </a>
         </Link>
         <ul className="links">

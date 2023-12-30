@@ -1,13 +1,13 @@
 import styled from "styled-components"
-import Component, { Props } from "./Button"
+import Component from "./Button"
 
 const Button = styled(Component)`
-  background-color: ${({ theme, type }) =>
-    type === "secondary"
+  background-color: ${({ theme, variant }) =>
+    variant === "secondary"
       ? theme.colors.primaryGreen
-      : type === "tertiary"
+      : variant === "tertiary"
         ? theme.colors.primaryYellow
-        : type === "quaternary"
+        : variant === "quaternary"
           ? theme.colors.primaryRed
           : theme.colors.primaryBlue};
   color: ${({ theme }) => theme.colors.white};

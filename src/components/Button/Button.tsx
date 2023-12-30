@@ -1,25 +1,30 @@
-import Link from "next/link"
+import Link, { type LinkProps } from "next/link"
 
-export type Props = {
+type ButtonProps = (
+  | (React.ComponentPropsWithoutRef<"button"> & { asLink?: false })
+  | (LinkProps & { asLink: true; external?: boolean })
+) & {
+  children?: React.ReactNode
   className?: string
   label?: string
-  url?: string
-  type?: "primary" | "secondary" | "tertiary" | "quaternary"
-  onClick?: (any: any) => any
+  variant?: "primary" | "secondary" | "tertiary" | "quaternary"
 }
 
-const Component = ({ className, label, url, onClick }: Props) => {
-  if (!url)
+const Component = ({ className, label, ...rest }: ButtonProps) => {
+  if (rest.asLink) {
+    const { asLink: _, external, ...props } = rest
+
     return (
-      <button className={className} onClick={onClick}>
-        {label}
-      </button>
+      <Link scroll={false} {...props} rel={external ? "noopener noreferrer" : ""} target={external ? "_blank" : ""}>
+        <a className={className}>{label}</a>
+      </Link>
     )
+  }
 
   return (
-    <Link href={url} scroll={false}>
-      <a className={className}>{label}</a>
-    </Link>
+    <button className={className} {...rest}>
+      {label}
+    </button>
   )
 }
 

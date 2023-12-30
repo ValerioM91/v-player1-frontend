@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
 import styled, { css } from "styled-components"
-import useStore from "../../store"
+import useStore from "@/store"
 
 const externalPathVariants = {
   initial: {
@@ -83,7 +83,7 @@ function IntroAnimation() {
   )
 
   return (
-    <Wrapper hide={introCompleted} darkTheme={darkTheme}>
+    <Wrapper hide={introCompleted ? true : undefined} darkTheme={darkTheme}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="200"

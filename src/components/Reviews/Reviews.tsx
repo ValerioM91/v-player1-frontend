@@ -2,7 +2,7 @@ import ReviewRow from "../ReviewRow"
 import Heading from "../Heading"
 import Container from "../Container"
 import Button from "../Button"
-import useStore from "../../store"
+import useStore from "@/store"
 import type { THeadingType } from "@/types"
 
 export type Props = {
@@ -41,7 +41,9 @@ const Component = ({ className, buttonType, heading, headingType, label, linkUrl
             })}
           </div>
         )}
-        <div className="btn-container">{linkUrl && <Button label={label} url={linkUrl} type={buttonType} />}</div>
+        <div className="btn-container">
+          {linkUrl && <Button asLink label={label} href={linkUrl} variant={buttonType} />}
+        </div>
       </Container>
     </section>
   )

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { FaFacebookF, FaPlaystation, FaSteamSquare, FaInstagram } from "react-icons/fa"
 
-import useStore from "../../store"
+import useStore from "@/store"
 
 export type Props = {
   className?: string

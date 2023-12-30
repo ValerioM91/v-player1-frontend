@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components"
 import Component from "./Heading"
-import { isDarkTheme } from "../../store"
+import { useIsDarkTheme } from "@/store"
 
 const Heading = styled(Component)`
   color: ${({ color, theme }) =>
-    (isDarkTheme() && color === "textColor" ? theme.colors.white : theme.colors[color]) || theme.colors.primaryBlue};
+    (useIsDarkTheme() && color === "textColor" ? theme.colors.white : theme.colors[color]) || theme.colors.primaryBlue};
   text-align: ${({ alignment }) => alignment || "left"};
   text-transform: uppercase;
   font-family: "Electrolize";

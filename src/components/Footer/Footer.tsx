@@ -1,8 +1,8 @@
 import React from "react"
-import Image from "next/image"
 import Link from "next/link"
 import Container from "../Container"
 import Socials from "../Socials"
+import LogoSVG from "../Logo"
 
 type Props = {
   className?: string
@@ -15,15 +15,7 @@ const Component = ({ className }: Props) => {
         <div className="wrapper">
           <Link href="/" scroll={false}>
             <a>
-              <Image
-                src="/images/logo-white.svg"
-                alt={"V-Player1"}
-                width={70}
-                height={50}
-                layout="fixed"
-                objectFit="contain"
-                placeholder="empty"
-              />
+              <LogoSVG variant="white" width={70} height={50} style={{ objectFit: "contain" }} />
             </a>
           </Link>
           <p className="copy">{new Date().getFullYear()} &copy; Valerio Mattera</p>

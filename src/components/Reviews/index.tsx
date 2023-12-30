@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import Component from "./Reviews"
-import { isDarkTheme } from "../../store"
+import { useIsDarkTheme } from "@/store"
 
 const Reviews = styled(Component)`
-  background: ${({ theme }) => (isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
+  background: ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};
   @media ${({ theme }) => theme.device.mdUp} {
     padding-top: ${({ first }) => (first ? "12rem" : "5rem")};

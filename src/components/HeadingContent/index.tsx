@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import Component from "./HeadingContent"
-import { isDarkTheme } from "../../store"
+import { useIsDarkTheme } from "@/store"
 
 const HeadingContent = styled(Component)`
-  background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
+  background-color: ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
   padding: 2rem;
-  color: ${({ theme }) => isDarkTheme() && theme.colors.white};
+  color: ${({ theme }) => useIsDarkTheme() && theme.colors.white};
 
   .heading {
     padding-bottom: 1rem;

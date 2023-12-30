@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Component from "./Sidebar"
-import { isDarkTheme } from "../../store"
+import { useIsDarkTheme } from "@/store"
 
 const Sidebar = styled(Component)`
   position: sticky;
@@ -32,10 +32,10 @@ const Sidebar = styled(Component)`
 
   article {
     display: flex;
-    background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
+    background-color: ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
     padding: 0.5rem;
     &:not(:last-of-type) {
-      border-bottom: 2px solid ${({ theme }) => (isDarkTheme() ? theme.colors.grey400 : theme.colors.grey200)};
+      border-bottom: 2px solid ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey400 : theme.colors.grey200)};
     }
 
     .link {
