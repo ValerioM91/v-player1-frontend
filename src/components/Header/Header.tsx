@@ -2,6 +2,7 @@ import Link from "next/link"
 import useStore from "../../store"
 import Container from "../Container"
 import ThemeToggler from "../ThemeToggler"
+import LogoBlue from "../Logo"
 
 export type Props = {
   className?: string
@@ -18,7 +19,7 @@ const Component = ({ className }: Props) => {
         <nav className="nav">
           <Link href="/" scroll={false}>
             <a className="logo">
-              <img alt="V-Player1" src="/images/logo-blue.svg" className="logo-image" />
+              <LogoBlue className="logo" />
             </a>
           </Link>
           <ThemeToggler className="toggler" />

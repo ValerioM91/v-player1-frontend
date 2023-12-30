@@ -1,5 +1,5 @@
 import { createElement } from "react"
-import { THeadingType } from "../../types"
+import type { THeadingType } from "@/types"
 
 export type Props = {
   heading: string

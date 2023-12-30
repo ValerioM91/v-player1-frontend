@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./Container"
+import Component from "./Container"
 
-const Container: React.FunctionComponent<Props> = styled(Component)`
+const Container = styled(Component)`
   margin-left: auto;
   margin-right: auto;
   padding-left: 2rem;

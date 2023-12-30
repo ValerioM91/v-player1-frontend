@@ -4,11 +4,11 @@ import Link from "next/link"
 import Container from "../Container"
 import Socials from "../Socials"
 
-export type Props = {
+type Props = {
   className?: string
 }
 
-const Component = ({ className }) => {
+const Component = ({ className }: Props) => {
   return (
     <footer className={className}>
       <Container className="heading-font">

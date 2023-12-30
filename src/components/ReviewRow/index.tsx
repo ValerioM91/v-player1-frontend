@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Component, { Props } from "./ReviewRow"
+import Component from "./ReviewRow"
 import { isDarkTheme } from "../../store"
 
-const Review: React.FunctionComponent<Props> = styled(Component)`
+const Review = styled(Component)`
   display: flex;
   flex-wrap: wrap;
   align-items: center;

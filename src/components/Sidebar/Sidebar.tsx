@@ -1,8 +1,9 @@
 import Link from "next/link"
 import useStore from "../../store"
 import Heading from "../Heading"
+import Image from "next/image"
 
-export type Props = {
+type Props = {
   className?: string
   title?: string
 }
@@ -33,7 +34,7 @@ const Component = ({ className, title }: Props) => {
               <Link href={`/reviews/${slug}`} scroll={false}>
                 <a className="link">
                   {featuredImage?.node?.sourceUrl && (
-                    <img
+                    <Image
                       className="thumbnail"
                       src={featuredImage.node.sourceUrl}
                       alt={featuredImage.node.altText || "V-Player1"}

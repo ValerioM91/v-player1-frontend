@@ -50,6 +50,8 @@ export type TGlobals = {
 }
 
 export type TBlock = {
+  // TODO - Refactor all queries (possibly using codegen to generate types) and remove this any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fields?: any
   name?: string
 }

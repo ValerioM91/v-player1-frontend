@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Component, { TReviewProps } from "./Review"
+import Component from "./Review"
 import { isDarkTheme } from "../../store"
 
-const Review: React.FunctionComponent<TReviewProps> = styled(Component)`
+const Review = styled(Component)`
   background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
 
   .container {

@@ -1,6 +1,6 @@
-import { default as NextHead } from "next/head"
+import NextHead from "next/head"
 
-export type Props = {
+type Props = {
   title?: string
   description?: string
   image?: string
@@ -8,13 +8,11 @@ export type Props = {
 
 const Head = ({ title, description, image }: Props) => {
   return (
-    <>
-      <NextHead>
-        <title>{title || "V-Player 1"}</title>
-        <meta name="description" content={description || "Reviews about Video-Games"} />
-        {image && <meta property="og:image" content={image} />}
-      </NextHead>
-    </>
+    <NextHead>
+      <title>{title || "V-Player 1"}</title>
+      <meta name="description" content={description || "Reviews about Video-Games"} />
+      {image && <meta property="og:image" content={image} />}
+    </NextHead>
   )
 }
 

@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 
 import Heading from "../Heading"
-import { THeadingType } from "../../types"
+import type { THeadingType } from "@/types"
 
 export type Props = {
   className?: string
@@ -9,7 +9,6 @@ export type Props = {
   headingType?: THeadingType
   content?: string
   vote?: number
-  onClick: (any: any) => any
 }
 
 const Component = ({ className, heading, headingType, content, vote }: Props) => {

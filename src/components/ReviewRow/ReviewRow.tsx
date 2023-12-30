@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
-import { TImage } from "../../types"
+import type { TImage } from "@/types"
 
 export type Props = {
   className?: string

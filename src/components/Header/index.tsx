@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Component, { Props } from "./Header"
+import Component from "./Header"
 import { isDarkTheme } from "../../store"
 
-const Header: React.FunctionComponent<Props> = styled(Component)`
+const Header = styled(Component)`
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
   z-index: 5;

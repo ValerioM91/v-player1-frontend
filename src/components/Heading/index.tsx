@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components"
-import Component, { Props } from "./Heading"
+import Component from "./Heading"
 import { isDarkTheme } from "../../store"
 
-const Heading: React.FunctionComponent<Props> = styled(Component)`
+const Heading = styled(Component)`
   color: ${({ color, theme }) =>
     (isDarkTheme() && color === "textColor" ? theme.colors.white : theme.colors[color]) || theme.colors.primaryBlue};
   text-align: ${({ alignment }) => alignment || "left"};

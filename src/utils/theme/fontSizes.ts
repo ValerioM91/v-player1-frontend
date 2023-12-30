@@ -1,4 +1,3 @@
-import { TTextSize } from "../../types"
 import { getFontSize } from "../getFontSize"
 
 export const fontSizesMap = {

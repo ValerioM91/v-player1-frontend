@@ -3,7 +3,7 @@ import Heading from "../Heading"
 import Container from "../Container"
 import Button from "../Button"
 import useStore from "../../store"
-import { THeadingType } from "../../types"
+import type { THeadingType } from "@/types"
 
 export type Props = {
   className?: string

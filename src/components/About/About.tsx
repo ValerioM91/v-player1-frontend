@@ -3,17 +3,14 @@ import Image from "next/image"
 
 import Heading from "../Heading"
 import Container from "../Container"
-import { THeadingType } from "../../types"
+import type { THeadingType, TImage } from "@/types"
 
 export type Props = {
   className?: string
   content?: string
   heading?: string
   headingType?: THeadingType
-  image?: {
-    sourceUrl: string
-    altText: string
-  }
+  image?: TImage
 }
 
 const Component = ({ className, content, heading, headingType, image }: Props) => {

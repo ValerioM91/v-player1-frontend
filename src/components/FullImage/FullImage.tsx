@@ -1,19 +1,18 @@
 import Image from "next/image"
-import { TImage } from "../../types"
+import type { TImage } from "@/types"
 
-export type Props = {
-  className?: string
+export type Props = React.ComponentPropsWithoutRef<"figure"> & {
   image?: TImage
 }
 
-const Component = ({ className, image }: Props) => {
+const Component = ({ className, image, ...rest }: Props) => {
   const url = image?.sourceUrl
   const altText = image?.altText
 
   if (!url) return null
 
   return (
-    <figure className={className}>
+    <figure className={className} {...rest}>
       <Image
         className="image"
         src={url}

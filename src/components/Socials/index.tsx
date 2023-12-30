@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./Socials"
+import Component from "./Socials"
 
-const Socials: React.FunctionComponent<Props> = styled(Component)`
+const Socials = styled(Component)`
   list-style: none;
   margin: auto;
   padding: 0;

@@ -1,12 +1,12 @@
 import { gql } from "@apollo/client"
-import { HeroQuery } from "../components/Hero"
-import { ReviewsQuery } from "../components/Reviews"
-import { AboutQuery } from "../components/About"
-import { FullImageQuery } from "../components/FullImage"
-import { HeadingContentQuery } from "../components/HeadingContent"
-import { FinalCommentQuery } from "../components/FinalComment"
+import { HeroQuery } from "../components/Hero/query"
+import { ReviewsQuery } from "../components/Reviews/query"
+import { AboutQuery } from "../components/About/query"
+import { FullImageQuery } from "../components/FullImage/query"
+import { HeadingContentQuery } from "../components/HeadingContent/query"
+import { FinalCommentQuery } from "../components/FinalComment/query"
 import dynamic from "next/dynamic"
-import { TBlock } from "../types"
+import type { TBlock } from "../types"
 
 const Hero = dynamic(() => import("../components/Hero"), { ssr: false })
 const Reviews = dynamic(() => import("../components/Reviews"), { ssr: false })

@@ -1,21 +1,8 @@
 import styled from "styled-components"
-import Component, { Props } from "./Reviews"
+import Component from "./Reviews"
 import { isDarkTheme } from "../../store"
 
-export const ReviewsQuery = `
-... on AcfReviews001Block {
-  fields: reviews001 {
-    first
-    latest
-    headingType
-    heading
-    buttonType
-    label
-    linkUrl
-  }
-}`
-
-const Reviews: React.FunctionComponent<Props> = styled(Component)`
+const Reviews = styled(Component)`
   background: ${({ theme }) => (isDarkTheme() ? theme.colors.grey700 : theme.colors.grey100)};
   padding-top: ${({ first }) => (first ? "9rem" : "5rem")};
   @media ${({ theme }) => theme.device.mdUp} {

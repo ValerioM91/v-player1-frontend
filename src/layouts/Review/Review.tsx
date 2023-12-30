@@ -7,7 +7,7 @@ import Heading from "../../components/Heading"
 import IntroAnimation from "../../components/IntroAnimation"
 import { motion, AnimatePresence } from "framer-motion"
 import dynamic from "next/dynamic"
-import { TBlock, TImage } from "../../types"
+import type { TBlock, TImage } from "@/types"
 
 const Block = dynamic(() => import("../../utils/Blocks"), { ssr: false })
 

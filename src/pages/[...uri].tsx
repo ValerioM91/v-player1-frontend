@@ -1,13 +1,12 @@
-import { useEffect } from "react"
 import { gql } from "@apollo/client"
 import { client } from "../lib/apolloClient"
 import { BLOCKS_FRAGMENT } from "../utils/Blocks"
 import Dynamic from "../layouts/Dynamic"
 import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests"
 import createMenuItemArray from "../utils/createMenuItemArray"
-import useStore from "../store"
-import { TReview, TMenuItem, TGlobals } from "../types"
-import { TDynamicProps } from "../layouts/Dynamic/Dynamic"
+import type { TReview, TMenuItem, TGlobals } from "../types"
+import type { TDynamicProps } from "@/layouts/Dynamic/Dynamic"
+import usePageStore from "@/utils/usePageStore"
 
 type Props = TDynamicProps & {
   reviews?: TReview[]
@@ -15,14 +14,8 @@ type Props = TDynamicProps & {
   globals?: TGlobals
 }
 
-export default function page(props: Props) {
-  const { setReviews, setGlobals, setMainMenu } = useStore(state => state)
-
-  useEffect(() => {
-    setGlobals(props.globals)
-    setMainMenu(props.menuItems)
-    setReviews(props.reviews)
-  }, [])
+export default function Page(props: Props) {
+  usePageStore(props)
 
   return <Dynamic {...props} header />
 }

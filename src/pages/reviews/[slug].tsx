@@ -1,13 +1,12 @@
-import { useEffect } from "react"
 import { gql } from "@apollo/client"
 import { client } from "../../lib/apolloClient"
 import ReviewLayout from "../../layouts/Review"
 import { REVIEWS_BLOCKS_FRAGMENT } from "../../utils/Blocks"
 import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../../lib/requests"
 import createMenuItemArray from "../../utils/createMenuItemArray"
-import useStore from "../../store"
-import { TReview, TMenuItem, TGlobals } from "../../types"
-import { TReviewProps } from "../../layouts/Review/Review"
+import type { TReview, TMenuItem, TGlobals } from "@/types"
+import type { TReviewProps } from "@/layouts/Review/Review"
+import usePageStore from "@/utils/usePageStore"
 
 type Props = TReviewProps & {
   reviews?: TReview[]
@@ -16,13 +15,7 @@ type Props = TReviewProps & {
 }
 
 const Review = (props: Props) => {
-  const { setGlobals, setMainMenu, setReviews } = useStore()
-
-  useEffect(() => {
-    setGlobals(props.globals)
-    setMainMenu(props.menuItems)
-    setReviews(props.reviews)
-  }, [])
+  usePageStore(props)
 
   return <ReviewLayout {...props} />
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Component, { Props } from "./Button"
 
-const Button: React.FunctionComponent<Props> = styled(Component)`
+const Button = styled(Component)`
   background-color: ${({ theme, type }) =>
     type === "secondary"
       ? theme.colors.primaryGreen

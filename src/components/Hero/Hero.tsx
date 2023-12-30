@@ -2,9 +2,9 @@ import Image from "next/image"
 import Heading from "../Heading"
 import Container from "../Container"
 import TopMenu from "./child-components/TopMenu"
-import { THeadingType, TImage } from "../../types"
+import type { THeadingType, TImage } from "@/types"
 
-export type Props = {
+type Props = {
   className?: string
   backgroundImage?: TImage
   heading?: string

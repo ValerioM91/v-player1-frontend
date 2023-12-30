@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./PostCard"
+import Component from "./PostCard"
 
-const PostCard: React.FunctionComponent<Props> = styled(Component)`
+const PostCard = styled(Component)`
   text-align: center;
   padding: 3rem;
   border-radius: 1rem;

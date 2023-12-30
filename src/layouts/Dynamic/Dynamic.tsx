@@ -3,7 +3,7 @@ import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 import IntroAnimation from "../../components/IntroAnimation"
 import dynamic from "next/dynamic"
-import { TBlock } from "../../types"
+import type { TBlock } from "@/types"
 
 const Block = dynamic(() => import("../../utils/Blocks"), { ssr: false })
 

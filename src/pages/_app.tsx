@@ -15,7 +15,7 @@ export default function App({ Component, pageProps, router }) {
     setLoaded(true)
     const darkInitialTheme = window.localStorage.getItem("darkTheme")
     setDarkTheme(darkInitialTheme === "true")
-  }, [])
+  }, [setDarkTheme])
 
   useEffect(() => {
     if (darkTheme) {

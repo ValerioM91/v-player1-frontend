@@ -1,4 +1,4 @@
-import { TMenuItem } from "../types"
+import type { TMenuItem } from "@/types"
 
 const createMenuItemArray = (itemsNodes: TMenuItem[]) => {
   if (!itemsNodes || !itemsNodes.length) return []

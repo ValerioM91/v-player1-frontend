@@ -3,7 +3,7 @@ import Image from "next/image"
 import useStore from "../../../../store"
 import ThemeToggler from "../../../ThemeToggler"
 
-export type Props = {
+type Props = {
   className?: string
 }
 

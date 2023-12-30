@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./Footer"
+import Component from "./Footer"
 
-const Footer: React.FunctionComponent<Props> = styled(Component)`
+const Footer = styled(Component)`
   background: ${({ theme }) => theme.colors.grey500};
   .wrapper {
     display: grid;

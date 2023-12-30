@@ -2,7 +2,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 
 import Heading from "../Heading"
-import { THeadingType, TImage } from "../../types"
+import type { THeadingType, TImage } from "@/types"
 
 export type Props = {
   className?: string

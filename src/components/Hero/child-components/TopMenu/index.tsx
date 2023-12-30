@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./TopMenu"
+import Component from "./TopMenu"
 
-const TopMenu: React.FunctionComponent<Props> = styled(Component)`
+const TopMenu = styled(Component)`
   z-index: 10;
   position: absolute;
   width: 100%;

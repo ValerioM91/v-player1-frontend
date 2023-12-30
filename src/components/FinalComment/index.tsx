@@ -1,16 +1,7 @@
 import styled from "styled-components"
-import Component, { Props } from "./FinalComment"
+import Component from "./FinalComment"
 
-export const FinalCommentQuery = `
-... on AcfFinalComment1Block {
-    fields: finalComment1 {
-      heading
-      headingType
-      content
-    }
-  }`
-
-const FinalComment: React.FunctionComponent<Props> = styled(Component)`
+const FinalComment = styled(Component)`
   background-color: ${({ theme }) => theme.colors.primaryBlue};
   color: ${({ theme }) => theme.colors.white};
   padding: 3rem;

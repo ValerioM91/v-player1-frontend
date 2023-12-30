@@ -1,23 +1,8 @@
 import styled from "styled-components"
-import Component, { Props } from "./HeadingContent"
+import Component from "./HeadingContent"
 import { isDarkTheme } from "../../store"
 
-export const HeadingContentQuery = `
-... on AcfHeadingContent1Block {
-    fields: headingContent1 {
-        heading
-        headingType
-        contents {
-            content
-            image {
-              altText
-              sourceUrl
-            }
-        }
-    }
-}`
-
-const HeadingContent: React.FunctionComponent<Props> = styled(Component)`
+const HeadingContent = styled(Component)`
   background-color: ${({ theme }) => (isDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
   padding: 2rem;
   color: ${({ theme }) => isDarkTheme() && theme.colors.white};

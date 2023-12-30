@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import Component, { Props } from "./Sidebar"
+import Component from "./Sidebar"
 import { isDarkTheme } from "../../store"
 
-const Sidebar: React.FunctionComponent<Props> = styled(Component)`
+const Sidebar = styled(Component)`
   position: sticky;
   top: 9rem;
 

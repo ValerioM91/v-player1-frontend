@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { TImage } from "../../types"
+import type { TImage } from "@/types"
 
 export type Props = {
   className?: string
