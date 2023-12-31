@@ -13,11 +13,14 @@ export default function App({ Component, pageProps, router }) {
 
   useEffect(() => {
     setLoaded(true)
-    const darkInitialTheme = window.localStorage.getItem("darkTheme")
-    setDarkTheme(darkInitialTheme === "true")
+    if (typeof window === "undefined") return
+    const darkInitialTheme = window.localStorage.getItem("darkTheme") === "true"
+    setDarkTheme(darkInitialTheme)
   }, [setDarkTheme])
 
   useEffect(() => {
+    if (typeof window === "undefined" || !loaded) return
+
     if (darkTheme) {
       document.body.style.backgroundColor = "#393939"
       localStorage.setItem("darkTheme", "true")
@@ -25,7 +28,7 @@ export default function App({ Component, pageProps, router }) {
       document.body.style.backgroundColor = "#fff"
       localStorage.setItem("darkTheme", "false")
     }
-  }, [darkTheme])
+  }, [darkTheme, loaded])
 
   return (
     <ApolloProvider client={client}>
