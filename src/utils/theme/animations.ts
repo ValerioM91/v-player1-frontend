@@ -1,4 +1,4 @@
-import { keyframes } from "styled-components";
+import { keyframes } from "styled-components"
 
 const fadeIn = keyframes`
   from {
@@ -8,7 +8,7 @@ const fadeIn = keyframes`
   to {
 	  opacity: 1;
   }
-`;
+`
 
 const grow = keyframes`
   from {
@@ -18,7 +18,7 @@ const grow = keyframes`
   to {
 	  transform: scale(1);
   }
-`;
+`
 
 const menuIn = keyframes`
   from {
@@ -30,7 +30,7 @@ const menuIn = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
 const spring = keyframes`
   from {
@@ -40,7 +40,7 @@ const spring = keyframes`
   to {
     transform: scale(1.2);
   }
-`;
+`
 
 const dash = keyframes`
   from {
@@ -50,7 +50,7 @@ const dash = keyframes`
   to {
     stroke-dashoffset: 0;
   }
-`;
+`
 
 const fadeTop = keyframes`
   from {
@@ -62,7 +62,7 @@ const fadeTop = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
 const fadeBottom = keyframes`
   from {
@@ -74,7 +74,7 @@ const fadeBottom = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`;
+`
 
 const fadeLeft = keyframes`
   from {
@@ -86,7 +86,7 @@ const fadeLeft = keyframes`
     opacity: 1;
     transform: translateX(0);
   }
-`;
+`
 
 const fadeRight = keyframes`
   from {
@@ -98,13 +98,13 @@ const fadeRight = keyframes`
     opacity: 1;
     transform: translateX(0);
   }
-`;
+`
 
 const loading = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
 const animations = {
   fadeIn,
@@ -117,6 +117,6 @@ const animations = {
   spring,
   dash,
   loading,
-};
+}
 
-export default animations;
+export default animations

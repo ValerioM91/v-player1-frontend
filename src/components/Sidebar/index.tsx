@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Component, { Props } from "./Sidebar";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component from "./Sidebar"
+import { useIsDarkTheme } from "@/store"
 
-const Sidebar: React.FunctionComponent<Props> = styled(Component)`
+const Sidebar = styled(Component)`
   position: sticky;
   top: 9rem;
 
@@ -32,13 +32,10 @@ const Sidebar: React.FunctionComponent<Props> = styled(Component)`
 
   article {
     display: flex;
-    background-color: ${({ theme }) =>
-      isDarkTheme() ? theme.colors.grey600 : theme.colors.white};
+    background-color: ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey600 : theme.colors.white)};
     padding: 0.5rem;
     &:not(:last-of-type) {
-      border-bottom: 2px solid
-        ${({ theme }) =>
-          isDarkTheme() ? theme.colors.grey400 : theme.colors.grey200};
+      border-bottom: 2px solid ${({ theme }) => (useIsDarkTheme() ? theme.colors.grey400 : theme.colors.grey200)};
     }
 
     .link {
@@ -58,6 +55,6 @@ const Sidebar: React.FunctionComponent<Props> = styled(Component)`
       object-fit: cover;
     }
   }
-`;
+`
 
-export default Sidebar;
+export default Sidebar

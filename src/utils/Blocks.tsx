@@ -1,26 +1,26 @@
-import { gql } from "@apollo/client";
-import { HeroQuery } from "../components/Hero";
-import { ReviewsQuery } from "../components/Reviews";
-import { AboutQuery } from "../components/About";
-import { FullImageQuery } from "../components/FullImage";
-import { HeadingContentQuery } from "../components/HeadingContent";
-import { FinalCommentQuery } from "../components/FinalComment";
-import dynamic from "next/dynamic";
-import { TBlock } from "../types";
+import { gql } from "@apollo/client"
+import { HeroQuery } from "../components/Hero/query"
+import { ReviewsQuery } from "../components/Reviews/query"
+import { AboutQuery } from "../components/About/query"
+import { FullImageQuery } from "../components/FullImage/query"
+import { HeadingContentQuery } from "../components/HeadingContent/query"
+import { FinalCommentQuery } from "../components/FinalComment/query"
+import dynamic from "next/dynamic"
+import type { TBlock } from "../types"
 
-const Hero = dynamic(() => import("../components/Hero"), { ssr: false });
-const Reviews = dynamic(() => import("../components/Reviews"), { ssr: false });
-const About = dynamic(() => import("../components/About"), { ssr: false });
+const Hero = dynamic(() => import("../components/Hero"), { ssr: false })
+const Reviews = dynamic(() => import("../components/Reviews"), { ssr: false })
+const About = dynamic(() => import("../components/About"), { ssr: false })
 const FullImage = dynamic(() => import("../components/FullImage"), {
   ssr: false,
-});
+})
 
 const HeadingContent = dynamic(() => import("../components/HeadingContent"), {
   ssr: false,
-});
+})
 const FinalComment = dynamic(() => import("../components/FinalComment"), {
   ssr: false,
-});
+})
 const BlocksQuery = `
   ${HeroQuery}
   ${AboutQuery}
@@ -28,7 +28,7 @@ const BlocksQuery = `
   ${FullImageQuery}
   ${HeadingContentQuery}
   ${FinalCommentQuery}
-`;
+`
 
 export const BLOCKS_FRAGMENT = gql`
   fragment PageBlocksFields on Page {
@@ -37,7 +37,7 @@ export const BLOCKS_FRAGMENT = gql`
       ${BlocksQuery}
     }
   }
-`;
+`
 
 export const REVIEWS_BLOCKS_FRAGMENT = gql`
   fragment ReviewBlocksFields on Review {
@@ -46,38 +46,38 @@ export const REVIEWS_BLOCKS_FRAGMENT = gql`
       ${BlocksQuery}
     }
   }
-`;
+`
 
 type Props = {
-  block?: TBlock;
-  vote?: number;
-};
+  block?: TBlock
+  vote?: number
+}
 
 const Block = ({ block, vote }: Props) => {
-  const { fields, name } = block;
+  const { fields, name } = block
 
   switch (name) {
     case "acf/hero-image-001":
-      return <Hero {...fields} />;
+      return <Hero {...fields} />
 
     case "acf/reviews-001":
-      return <Reviews {...fields} />;
+      return <Reviews {...fields} />
 
     case "acf/about-001":
-      return <About {...fields} />;
+      return <About {...fields} />
 
     case "acf/full-image-1":
-      return <FullImage {...fields} />;
+      return <FullImage {...fields} />
 
     case "acf/heading-content-1":
-      return <HeadingContent {...fields} />;
+      return <HeadingContent {...fields} />
 
     case "acf/final-comment-1":
-      return <FinalComment {...fields} vote={vote} />;
+      return <FinalComment {...fields} vote={vote} />
 
     default:
-      return null;
+      return null
   }
-};
+}
 
-export default Block;
+export default Block

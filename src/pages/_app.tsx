@@ -1,44 +1,44 @@
-import { useState, useEffect } from "react";
-import { ApolloProvider } from "@apollo/client";
-import { client } from "../lib/apolloClient";
-import { ThemeProvider } from "styled-components";
-import theme from "../utils/theme";
-import "../utils/global.css";
-import { motion, AnimatePresence } from "framer-motion";
-import useStore from "../store";
+import { useState, useEffect } from "react"
+import { ApolloProvider } from "@apollo/client"
+import { client } from "../lib/apolloClient"
+import { ThemeProvider } from "styled-components"
+import theme from "../utils/theme"
+import "../utils/global.css"
+import { motion, AnimatePresence } from "framer-motion"
+import useStore from "../store"
 
 export default function App({ Component, pageProps, router }) {
-  const [loaded, setLoaded] = useState(false);
-  const { darkTheme, setDarkTheme } = useStore();
+  const [loaded, setLoaded] = useState(false)
+  const { darkTheme, setDarkTheme } = useStore()
 
   useEffect(() => {
-    setLoaded(true);
-    const darkInitialTheme = window.localStorage.getItem("darkTheme");
-    setDarkTheme(darkInitialTheme === "true");
-  }, []);
+    setLoaded(true)
+    if (typeof window === "undefined") return
+    const darkInitialTheme = window.localStorage.getItem("darkTheme") === "true"
+    setDarkTheme(darkInitialTheme)
+  }, [setDarkTheme])
 
   useEffect(() => {
+    if (typeof window === "undefined" || !loaded) return
+
     if (darkTheme) {
-      document.body.style.backgroundColor = "#393939";
-      localStorage.setItem("darkTheme", "true");
+      document.body.style.backgroundColor = "#393939"
+      localStorage.setItem("darkTheme", "true")
     } else {
-      document.body.style.backgroundColor = "#fff";
-      localStorage.setItem("darkTheme", "false");
+      document.body.style.backgroundColor = "#fff"
+      localStorage.setItem("darkTheme", "false")
     }
-  }, [darkTheme]);
+  }, [darkTheme, loaded])
 
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <div
-          className="starter"
-          style={loaded ? { display: "none" } : {}}
-        ></div>
+        <div className="starter" style={loaded ? { display: "none" } : {}}></div>
         <AnimatePresence
           exitBeforeEnter
           onExitComplete={() => {
             if (typeof window !== "undefined") {
-              window.scrollTo({ top: 0 });
+              window.scrollTo({ top: 0 })
             }
           }}
         >
@@ -54,5 +54,5 @@ export default function App({ Component, pageProps, router }) {
         </AnimatePresence>
       </ThemeProvider>
     </ApolloProvider>
-  );
+  )
 }

@@ -1,10 +1,11 @@
-export type Props = {
-  className?: string;
-  children?: JSX.Element | JSX.Element[];
-};
+export type Props = React.ComponentPropsWithoutRef<"div">
 
-const Component = ({ className, children }: Props) => {
-  return <div className={className}>{children}</div>;
-};
+const Component = ({ className, children, ...rest }: Props) => {
+  return (
+    <div className={className} {...rest}>
+      {children}
+    </div>
+  )
+}
 
-export default Component;
+export default Component

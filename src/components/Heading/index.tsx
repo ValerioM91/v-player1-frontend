@@ -1,18 +1,15 @@
-import styled, { css } from "styled-components";
-import Component, { Props } from "./Heading";
-import { isDarkTheme } from "../../store";
+import styled, { css } from "styled-components"
+import Component from "./Heading"
+import { useIsDarkTheme } from "@/store"
 
-const Heading: React.FunctionComponent<Props> = styled(Component)`
+const Heading = styled(Component)`
   color: ${({ color, theme }) =>
-    (isDarkTheme() && color === "textColor"
-      ? theme.colors.white
-      : theme.colors[color]) || theme.colors.primaryBlue};
+    (useIsDarkTheme() && color === "textColor" ? theme.colors.white : theme.colors[color]) || theme.colors.primaryBlue};
   text-align: ${({ alignment }) => alignment || "left"};
   text-transform: uppercase;
   font-family: "Electrolize";
   font-weight: 300;
-  ${({ theme, size }) =>
-    theme.fontSizes[size] || theme.fontSizes.headingMedium};
+  ${({ theme, size }) => theme.fontSizes[size] || theme.fontSizes.headingMedium};
 
   ${({ borderBottom }) =>
     borderBottom &&
@@ -35,6 +32,6 @@ const Heading: React.FunctionComponent<Props> = styled(Component)`
         margin: 2rem auto 0;
       }
     `}
-`;
+`
 
-export default Heading;
+export default Heading

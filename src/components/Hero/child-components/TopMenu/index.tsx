@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import Component, { Props } from "./TopMenu";
+import styled from "styled-components"
+import Component from "./TopMenu"
 
-const TopMenu: React.FunctionComponent<Props> = styled(Component)`
+const TopMenu = styled(Component)`
   z-index: 10;
   position: absolute;
   width: 100%;
@@ -51,6 +51,6 @@ const TopMenu: React.FunctionComponent<Props> = styled(Component)`
       padding: 1rem 2rem;
     }
   }
-`;
+`
 
-export default TopMenu;
+export default TopMenu

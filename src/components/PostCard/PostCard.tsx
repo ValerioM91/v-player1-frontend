@@ -1,17 +1,17 @@
-import Link from "next/link";
-import Image from "next/image";
-import { TImage } from "../../types";
+import Link from "next/link"
+import Image from "next/image"
+import type { TImage } from "@/types"
 
 export type Props = {
-  className?: string;
-  title?: string;
-  uri?: string;
-  featuredImage?: { node?: TImage };
-};
+  className?: string
+  title?: string
+  uri?: string
+  featuredImage?: { node?: TImage }
+}
 
 const Component = ({ className, title, uri, featuredImage }: Props) => {
-  const imageUrl = featuredImage?.node?.sourceUrl;
-  const altText = featuredImage?.node?.altText;
+  const imageUrl = featuredImage?.node?.sourceUrl
+  const altText = featuredImage?.node?.altText
 
   return (
     <article className={className}>
@@ -35,7 +35,7 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
         </Link>
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default Component;
+export default Component

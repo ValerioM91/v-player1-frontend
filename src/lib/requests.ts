@@ -19,7 +19,7 @@ export const GET_REVIEWS = `
         }
       }
     }
-`;
+`
 
 export const GET_MAIN_MENU = `
    menu(id: "Main Menu", idType: NAME) {
@@ -31,7 +31,7 @@ export const GET_MAIN_MENU = `
        }
      }
    }
-`;
+`
 
 export const GET_GLOBALS = `
 globals {
@@ -42,4 +42,4 @@ globals {
     steam
   }
 }
-`;
+`

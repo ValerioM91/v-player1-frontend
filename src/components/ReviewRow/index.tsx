@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import Component, { Props } from "./ReviewRow";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component from "./ReviewRow"
+import { useIsDarkTheme } from "@/store"
 
-const Review: React.FunctionComponent<Props> = styled(Component)`
+const Review = styled(Component)`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -10,7 +10,7 @@ const Review: React.FunctionComponent<Props> = styled(Component)`
   padding-top: 4rem;
   padding-bottom: 4rem;
   position: relative;
-  color: ${({ theme }) => isDarkTheme() && theme.colors.white};
+  color: ${({ theme }) => useIsDarkTheme() && theme.colors.white};
 
   .col-left,
   .col-right {
@@ -104,6 +104,6 @@ const Review: React.FunctionComponent<Props> = styled(Component)`
       max-width: 50%;
     }
   }
-`;
+`
 
-export default Review;
+export default Review

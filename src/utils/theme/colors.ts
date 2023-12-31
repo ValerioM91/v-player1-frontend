@@ -12,6 +12,6 @@ const colors = {
   grey500: "#414141",
   grey600: "#393939",
   grey700: "#333333",
-};
+}
 
-export default colors;
+export default colors

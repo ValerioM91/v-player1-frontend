@@ -1,21 +1,7 @@
-import styled from "styled-components";
-import Component, { Props } from "./Hero";
-import Container from "../Container";
-import Heading from "../Heading";
+import styled from "styled-components"
+import Component from "./Hero"
 
-export const HeroQuery = `
-... on AcfHeroImage001Block {
-  fields: heroImage001 {
-    headingType
-    heading
-    backgroundImage {
-      sourceUrl
-      altText 
-    }
-  }
-}`;
-
-const Hero: React.FunctionComponent<Props> = styled(Component)`
+const Hero = styled(Component)`
   position: relative;
   height: 100vh;
   min-height: 60rem;
@@ -52,6 +38,6 @@ const Hero: React.FunctionComponent<Props> = styled(Component)`
     line-height: 1.4;
     max-width: 100rem;
   }
-`;
+`
 
-export default Hero;
+export default Hero

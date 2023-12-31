@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
-import styled, { css } from "styled-components";
-import useStore from "../../store";
+import { useState, useEffect, useCallback } from "react"
+import { motion } from "framer-motion"
+import styled, { css } from "styled-components"
+import useStore from "@/store"
 
 const externalPathVariants = {
   initial: {
@@ -16,7 +16,7 @@ const externalPathVariants = {
       fill: { duration: 0.75, delay: 1 },
     },
   },
-};
+}
 
 const buttonVariants = (delay: number) => ({
   initial: {
@@ -41,51 +41,49 @@ const buttonVariants = (delay: number) => ({
       ease: "easeInOut",
     },
   },
-});
+})
 
 function IntroAnimation() {
-  const { introCompleted, setIntroCompleted } = useStore();
-  const { darkTheme } = useStore();
+  const { introCompleted, setIntroCompleted } = useStore()
+  const { darkTheme } = useStore()
 
-  const [firstAnimationCompleted, setFirstAnimationCompleted] = useState(false);
+  const [firstAnimationCompleted, setFirstAnimationCompleted] = useState(false)
 
-  const [windowHeight, setWindowHeight] = useState(null);
-
-  useEffect(() => {
-    setWindowHeight(window.innerHeight);
-  }, []);
+  const [windowHeight, setWindowHeight] = useState(null)
 
   useEffect(() => {
-    if (!windowHeight) return;
-    const vh = windowHeight * 0.01;
-    document.documentElement.style.setProperty("--viewHeight", `${vh}px`);
-  }, [windowHeight]);
+    setWindowHeight(window.innerHeight)
+  }, [])
+
+  useEffect(() => {
+    if (!windowHeight) return
+    const vh = windowHeight * 0.01
+    document.documentElement.style.setProperty("--viewHeight", `${vh}px`)
+  }, [windowHeight])
 
   useEffect(() => {
     const onResize = () => {
-      setWindowHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", onResize);
+      setWindowHeight(window.innerHeight)
+    }
+    window.addEventListener("resize", onResize)
     return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  });
+      window.removeEventListener("resize", onResize)
+    }
+  })
 
   const buttonProps = useCallback(
     (delay: number, increment: number) => {
       return {
-        variants: firstAnimationCompleted
-          ? buttonVariants(increment)
-          : buttonVariants(delay + increment),
+        variants: firstAnimationCompleted ? buttonVariants(increment) : buttonVariants(delay + increment),
         initial: firstAnimationCompleted ? "bounceInitial" : "initial",
         animate: firstAnimationCompleted ? "bounceAnimate" : "animate",
-      };
+      }
     },
-    [firstAnimationCompleted]
-  );
+    [firstAnimationCompleted],
+  )
 
   return (
-    <Wrapper hide={introCompleted} darkTheme={darkTheme}>
+    <Wrapper data-hide={introCompleted ? true : undefined} data-darktheme={darkTheme}>
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="200"
@@ -116,8 +114,8 @@ function IntroAnimation() {
                 fill="#0071BC"
                 {...buttonProps(1.7, 0.6)}
                 onAnimationComplete={() => {
-                  if (firstAnimationCompleted) return setIntroCompleted(true);
-                  setTimeout(() => setFirstAnimationCompleted(true), 300);
+                  if (firstAnimationCompleted) return setIntroCompleted(true)
+                  setTimeout(() => setFirstAnimationCompleted(true), 300)
                 }}
                 d="M176.766 376.453c9.839 0 17.815-7.977 17.815-17.816 0-9.84-7.976-17.815-17.815-17.815-9.84 0-17.816 7.976-17.816 17.815 0 9.84 7.976 17.816 17.816 17.816"
               ></motion.path>
@@ -143,13 +141,13 @@ function IntroAnimation() {
         </g>
       </motion.svg>
     </Wrapper>
-  );
+  )
 }
 
 type Props = {
-  hide?: boolean;
-  darkTheme?: boolean;
-};
+  "data-hide"?: boolean
+  "data-darktheme"?: boolean
+}
 
 const Wrapper = styled.div<Props>`
   position: fixed;
@@ -162,7 +160,9 @@ const Wrapper = styled.div<Props>`
   height: 100vh;
   height: calc(var(--viewHeight, 1vh) * 100);
   z-index: 15;
-  transition: visibility 1s ease-in-out, transform 1s;
+  transition:
+    visibility 1s ease-in-out,
+    transform 1s;
   opacity: 1;
   visibility: visible;
   overflow: visible;
@@ -170,7 +170,7 @@ const Wrapper = styled.div<Props>`
   &::before {
     content: "";
     position: absolute;
-    background-color: ${({ darkTheme, theme }) =>
+    background-color: ${({ "data-darktheme": darkTheme, theme }) =>
       darkTheme ? theme.colors.grey600 : theme.colors.white};
     border-radius: 50%;
     transition: transform 1s;
@@ -203,7 +203,7 @@ const Wrapper = styled.div<Props>`
     }
   }
 
-  ${({ hide }) =>
+  ${({ "data-hide": hide }) =>
     hide &&
     css`
       visibility: hidden;
@@ -214,6 +214,6 @@ const Wrapper = styled.div<Props>`
         transform: scale(0);
       }
     `}
-`;
+`
 
-export default IntroAnimation;
+export default IntroAnimation

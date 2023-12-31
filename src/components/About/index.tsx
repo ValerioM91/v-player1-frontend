@@ -1,26 +1,13 @@
-import styled from "styled-components";
-import Component, { Props } from "./About";
-import { isDarkTheme } from "../../store";
+import styled from "styled-components"
+import Component from "./About"
+import { useIsDarkTheme } from "@/store"
 
-export const AboutQuery = `
-... on AcfAbout001Block {
-  fields: aboutMe {
-    content
-    heading
-    headingType
-    image {
-      sourceUrl
-      altText
-    }
-  }
-}`;
-
-const StyledAbout: React.FunctionComponent<Props> = styled(Component)`
+const StyledAbout = styled(Component)`
   padding-top: 3rem;
   padding-bottom: 5rem;
   ${({ theme }) => theme.fontSizes.contentLarge};
-  background-color: ${({ theme }) => isDarkTheme() && theme.colors.grey600};
-  color: ${({ theme }) => isDarkTheme() && theme.colors.white};
+  background-color: ${({ theme }) => useIsDarkTheme() && theme.colors.grey600};
+  color: ${({ theme }) => useIsDarkTheme() && theme.colors.white};
 
   .row {
     display: flex;
@@ -63,6 +50,6 @@ const StyledAbout: React.FunctionComponent<Props> = styled(Component)`
       border-radius: 50%;
     }
   }
-`;
+`
 
-export default StyledAbout;
+export default StyledAbout
