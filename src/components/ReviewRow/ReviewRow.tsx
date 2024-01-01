@@ -2,6 +2,7 @@ import parse from "html-react-parser"
 import Image from "next/image"
 import Link from "next/link"
 import type { TImage } from "@/types"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 export type Props = {
   className?: string
@@ -31,7 +32,7 @@ const Component = ({ className, title, slug, excerpt, reviewFields }: Props) => 
               height={300}
               className="image"
               placeholder="blur"
-              blurDataURL="./images/shimmer.svg"
+              blurDataURL={imageShimmerPlaceholder}
             />
             {vote && <span className="vote">V-score {vote.toFixed(1)}</span>}
           </figure>

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import type { FullImageSectionQueryFragment } from "@/gql/graphql"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 type Props = FullImageSectionQueryFragment["fields"] & {
   className?: string
@@ -19,7 +20,7 @@ const Component = ({ className, image }: Props) => {
         src={url}
         alt={altText || `V-Player1`}
         placeholder="blur"
-        blurDataURL="./images/shimmer.svg"
+        blurDataURL={imageShimmerPlaceholder}
         width={900}
         height={500}
       />

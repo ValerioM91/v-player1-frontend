@@ -1,10 +1,12 @@
-import About from "@/sections/About"
-import FinalComment from "@/sections/FinalComment"
-import FullImage from "@/sections/FullImage"
-import HeadingContent from "@/sections/HeadingContent"
-import Hero from "@/sections/Hero"
-import Reviews from "@/sections/Reviews"
+import dynamic from "next/dynamic"
 import type { TBlock } from "@/types"
+
+const Hero = dynamic(() => import("@/sections/Hero").then(mod => mod.default))
+const Reviews = dynamic(() => import("@/sections/Reviews").then(mod => mod.default))
+const HeadingContent = dynamic(() => import("@/sections/HeadingContent").then(mod => mod.default))
+const FullImage = dynamic(() => import("@/sections/FullImage").then(mod => mod.default))
+const FinalComment = dynamic(() => import("@/sections/FinalComment").then(mod => mod.default))
+const About = dynamic(() => import("@/sections/About").then(mod => mod.default))
 
 type Props = {
   block?: TBlock

@@ -5,6 +5,7 @@ import Heading from "@/components/Heading"
 import Container from "@/components/Container"
 import type { AboutSectionQueryFragment } from "@/gql/graphql"
 import getHeadingType from "@/utils/getHeadingType"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 type Props = AboutSectionQueryFragment["fields"] & {
   className?: string
@@ -37,7 +38,7 @@ const Component = ({ className, content, heading, headingType, image }: Props) =
                 className="image"
                 alt={altText || "V-Player1"}
                 placeholder="blur"
-                blurDataURL="./images/shimmer.svg"
+                blurDataURL={imageShimmerPlaceholder}
               />
             </figure>
           )}
