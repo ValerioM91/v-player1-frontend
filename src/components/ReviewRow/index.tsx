@@ -39,7 +39,7 @@ const Review = styled(Component)`
   }
 
   .title {
-    font-family: "Electrolize";
+    font-family: var(--electrolize);
     text-align: center;
     color: ${({ theme }) => theme.colors.primaryBlue};
     margin-bottom: 2rem;

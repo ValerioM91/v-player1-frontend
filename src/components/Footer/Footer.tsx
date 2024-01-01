@@ -15,9 +15,7 @@ const Component = ({ className }: Props) => {
         <div className="wrapper">
           <div>
             <Link href="/" scroll={false} aria-label="home">
-              <a aria-label="home">
-                <LogoSVG variant="white" width={70} height={50} style={{ objectFit: "contain" }} />
-              </a>
+              <LogoSVG variant="white" width={70} height={50} style={{ objectFit: "contain" }} />
             </Link>
           </div>
           <p className="copy">{new Date().getFullYear()} &copy; Valerio Mattera</p>

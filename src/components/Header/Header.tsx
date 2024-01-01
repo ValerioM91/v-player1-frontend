@@ -17,10 +17,8 @@ const Component = ({ className }: Props) => {
     <header className={className}>
       <Container className="container">
         <nav className="nav">
-          <Link href="/" scroll={false} aria-label="home">
-            <a className="logo" aria-label="home">
-              <LogoSVG className="logo" />
-            </a>
+          <Link href="/" scroll={false} aria-label="home" className="logo">
+            <LogoSVG className="logo" />
           </Link>
           <ThemeToggler className="toggler" />
           <ul className="links">
@@ -28,10 +26,12 @@ const Component = ({ className }: Props) => {
               const { label, path, cssClasses } = link
               return (
                 <li key={index}>
-                  <Link href={path} scroll={false}>
-                    <a className={`link underline${cssClasses && cssClasses.length ? ` ${cssClasses}` : ""}`}>
-                      {label}
-                    </a>
+                  <Link
+                    href={path}
+                    scroll={false}
+                    className={`link underline${cssClasses && cssClasses.length ? ` ${cssClasses}` : ""}`}
+                  >
+                    {label}
                   </Link>
                 </li>
               )

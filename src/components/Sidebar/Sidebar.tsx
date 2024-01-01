@@ -31,20 +31,18 @@ const Component = ({ className, title }: Props) => {
 
           return (
             <article key={i}>
-              <Link href={`/reviews/${slug}`} scroll={false}>
-                <a className="link">
-                  {featuredImage?.node?.sourceUrl && (
-                    <Image
-                      width={80}
-                      height={80}
-                      objectFit="cover"
-                      className="thumbnail"
-                      src={featuredImage.node.sourceUrl}
-                      alt={featuredImage.node.altText || "V-Player1"}
-                    />
-                  )}
-                  <div className="title heading-font">{title}</div>
-                </a>
+              <Link href={`/reviews/${slug}`} scroll={false} className="link">
+                {featuredImage?.node?.sourceUrl && (
+                  <Image
+                    width={80}
+                    height={80}
+                    style={{ objectFit: "cover" }}
+                    className="thumbnail"
+                    src={featuredImage.node.sourceUrl}
+                    alt={featuredImage.node.altText || "V-Player1"}
+                  />
+                )}
+                <div className="title heading-font">{title}</div>
               </Link>
             </article>
           )

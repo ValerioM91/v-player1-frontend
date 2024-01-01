@@ -16,14 +16,18 @@ const About = styled(Component)`
     align-items: center;
   }
 
-  .image,
+  .figure,
   .content {
     max-width: 100%;
     flex: 0 0 100%;
   }
 
+  .image {
+    aspect-ratio: 1;
+  }
+
   @media ${({ theme }) => theme.device.mdUp} {
-    .image {
+    .figure {
       max-width: calc(100% / 3);
       flex: 0 0 calc(100% / 3);
       padding-right: 2rem;
@@ -41,7 +45,7 @@ const About = styled(Component)`
     margin: auto;
   }
 
-  .image {
+  .figure {
     max-width: 25rem;
     margin: auto;
     padding-top: 2rem;

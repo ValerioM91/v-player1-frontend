@@ -39,7 +39,7 @@ const Component = ({ className, buttonType, heading, headingType, label, linkUrl
           </div>
         )}
         <div className="btn-container">
-          {linkUrl && <Button asLink label={label} href={linkUrl} variant={buttonVariant} />}
+          {linkUrl && <Button asElement="link" label={label} href={linkUrl} variant={buttonVariant} />}
         </div>
       </Container>
     </section>

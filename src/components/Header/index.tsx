@@ -46,7 +46,7 @@ const Header = styled(Component)`
     .link {
       margin-left: 1rem;
       ${({ theme }) => theme.fontSizes.contentMedium};
-      font-family: "Electrolize";
+      font-family: var(--electrolize);
       color: ${({ theme }) => theme.colors.primaryBlue};
       cursor: pointer;
       @media ${({ theme }) => theme.device.mdUp} {

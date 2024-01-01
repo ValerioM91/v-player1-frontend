@@ -6,6 +6,15 @@ import theme from "../utils/theme"
 import "../utils/global.css"
 import { motion, AnimatePresence } from "framer-motion"
 import useStore from "../store"
+import { Roboto_Slab, Electrolize } from "next/font/google"
+
+const roboto = Roboto_Slab({ subsets: ["latin"], weight: ["300", "400", "700"], display: "swap" })
+
+const electrolize = Electrolize({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--electrolize",
+})
 
 export default function App({ Component, pageProps, router }) {
   const [loaded, setLoaded] = useState(false)
@@ -43,6 +52,7 @@ export default function App({ Component, pageProps, router }) {
           }}
         >
           <motion.div
+            className={`${roboto.className} ${electrolize.variable}`}
             key={router.route}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

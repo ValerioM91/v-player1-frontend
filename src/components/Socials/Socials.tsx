@@ -20,37 +20,29 @@ const Component = ({ className }) => {
     <ul className={className}>
       {psn && (
         <li>
-          <Link href={psn}>
-            <a aria-label="psn">
-              <FaPlaystation className="social psn" />
-            </a>
+          <Link href={psn} aria-label="psn">
+            <FaPlaystation className="social psn" />
           </Link>
         </li>
       )}
       {steam && (
         <li>
-          <Link href={steam}>
-            <a aria-label="steam">
-              <FaSteamSquare className="social steam" />
-            </a>
+          <Link href={steam} aria-label="steam">
+            <FaSteamSquare className="social steam" />
           </Link>
         </li>
       )}
       {facebook && (
         <li>
-          <Link href={facebook}>
-            <a aria-label="facebook">
-              <FaFacebookF className="social facebook" />
-            </a>
+          <Link href={facebook} aria-label="facebook">
+            <FaFacebookF className="social facebook" />
           </Link>
         </li>
       )}
       {instagram && (
         <li>
-          <Link href={instagram}>
-            <a aria-label="instagram">
-              <FaInstagram className="social instagram" />
-            </a>
+          <Link href={instagram} aria-label="instagram">
+            <FaInstagram className="social instagram" />
           </Link>
         </li>
       )}

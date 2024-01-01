@@ -1,8 +1,8 @@
 import Link, { type LinkProps } from "next/link"
 
 type ButtonProps = (
-  | (React.ComponentPropsWithoutRef<"button"> & { asLink?: false })
-  | (LinkProps & { asLink: true; external?: boolean })
+  | (React.ButtonHTMLAttributes<HTMLButtonElement> & { asElement?: "button" })
+  | (LinkProps & { asElement: "link"; external?: boolean })
 ) & {
   children?: React.ReactNode
   className?: string
@@ -11,18 +11,26 @@ type ButtonProps = (
 }
 
 const Component = ({ className, label, ...rest }: ButtonProps) => {
-  if (rest.asLink) {
-    const { asLink: _, external, ...props } = rest
+  if (rest.asElement === "link") {
+    const { asElement: _, variant: __, external, ...props } = rest
 
     return (
-      <Link scroll={false} {...props} rel={external ? "noopener noreferrer" : ""} target={external ? "_blank" : ""}>
-        <a className={className}>{label}</a>
+      <Link
+        {...props}
+        scroll={false}
+        rel={external ? "noopener noreferrer" : ""}
+        target={external ? "_blank" : ""}
+        className={className}
+      >
+        {label}
       </Link>
     )
   }
 
+  const { asElement: _, variant: __, ...props } = rest
+
   return (
-    <button className={className} {...rest}>
+    <button className={className} {...props}>
       {label}
     </button>
   )

@@ -17,21 +17,18 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
     <article className={className}>
       <div className="inner">
         <Link href={uri} scroll={false}>
-          <a>
-            {imageUrl && (
-              <Image
-                src={imageUrl}
-                alt={altText || "V-Player1"}
-                placeholder="blur"
-                blurDataURL="/images/shimmer.svg"
-                width={500}
-                height={300}
-                layout="responsive"
-                objectFit="cover"
-              />
-            )}
-            <h5 className="title">{title}</h5>
-          </a>
+          {imageUrl && (
+            <Image
+              src={imageUrl}
+              alt={altText || "V-Player1"}
+              placeholder="blur"
+              blurDataURL="/images/shimmer.svg"
+              width={500}
+              height={300}
+              className="image"
+            />
+          )}
+          <h5 className="title">{title}</h5>
         </Link>
       </div>
     </article>
