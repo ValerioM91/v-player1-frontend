@@ -99,3 +99,20 @@ a {
   background-color: white;
   z-index: 9999;
 }
+
+.progress-bar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0071bc;
+  transform-origin: 0%;
+  z-index: 10;
+}
+
+@media (min-width: 600px) {
+  .progress-bar {
+    top: 60px;
+  }
+}

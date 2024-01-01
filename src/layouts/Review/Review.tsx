@@ -5,9 +5,10 @@ import Sidebar from "@/components/Sidebar"
 import Head from "@/components/Head"
 import Heading from "@/components/Heading"
 import IntroAnimation from "@/components/IntroAnimation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useScroll } from "framer-motion"
 import type { TBlock, TImage } from "@/types"
 import BlockRenderer from "@/sections/BlockRenderer"
+import { useRef } from "react"
 
 export type TReviewProps = {
   className?: string
@@ -22,6 +23,9 @@ export type TReviewProps = {
 }
 
 const Component = ({ className, blocks, title, excerpt, reviewFields }: TReviewProps) => {
+  const ref = useRef()
+  const { scrollYProgress } = useScroll({ target: ref })
+
   return (
     <>
       <Head
@@ -48,6 +52,7 @@ const Component = ({ className, blocks, title, excerpt, reviewFields }: TReviewP
         >
           <main className={className}>
             <Container className="container">
+              <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} key={`progress-bar-${title}`} />
               <div className="col-left">
                 <Heading
                   heading={title}
