@@ -3,6 +3,7 @@ import Image from "next/image"
 import Heading from "@/components/Heading"
 import type { HeadingContentSectionQueryFragment } from "@/gql/graphql"
 import getHeadingType from "@/utils/getHeadingType"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 type Props = HeadingContentSectionQueryFragment["fields"] & {
   className?: string
@@ -39,7 +40,7 @@ const Component = ({ className, heading, headingType, contents }: Props) => {
                     className="img"
                     alt={altText || "V-Player1"}
                     placeholder="blur"
-                    blurDataURL="/images/shimmer.svg"
+                    blurDataURL={imageShimmerPlaceholder}
                   />
                 </span>
               )}

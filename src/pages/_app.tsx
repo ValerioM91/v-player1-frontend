@@ -44,7 +44,7 @@ export default function App({ Component, pageProps, router }) {
       <ThemeProvider theme={theme}>
         <div className="starter" style={loaded ? { display: "none" } : {}}></div>
         <AnimatePresence
-          exitBeforeEnter
+          mode="wait"
           onExitComplete={() => {
             if (typeof window !== "undefined") {
               window.scrollTo({ top: 0 })

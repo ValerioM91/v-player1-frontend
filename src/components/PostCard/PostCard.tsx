@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import type { TImage } from "@/types"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 export type Props = {
   className?: string
@@ -22,7 +23,7 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
               src={imageUrl}
               alt={altText || "V-Player1"}
               placeholder="blur"
-              blurDataURL="/images/shimmer.svg"
+              blurDataURL={imageShimmerPlaceholder}
               width={500}
               height={300}
               className="image"

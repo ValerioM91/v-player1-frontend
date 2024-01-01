@@ -32,7 +32,7 @@ const Component = ({ className, blocks, title, excerpt, reviewFields }: TReviewP
       <IntroAnimation />
       <Header />
       <AnimatePresence
-        exitBeforeEnter
+        mode="wait"
         onExitComplete={() => {
           if (typeof window !== "undefined") {
             window.scrollTo({ top: 0 })

@@ -4,6 +4,7 @@ import Container from "@/components/Container"
 import TopMenu from "@/components/TopMenu"
 import type { HeroSectionQueryFragment } from "@/gql/graphql"
 import getHeadingType from "@/utils/getHeadingType"
+import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
 type Props = HeroSectionQueryFragment["fields"] & {
   className?: string
@@ -25,7 +26,7 @@ const Component = ({ className, backgroundImage, heading, headingType }: Props) 
             className="image"
             priority
             placeholder="blur"
-            blurDataURL="/images/shimmer.svg"
+            blurDataURL={imageShimmerPlaceholder}
           />
         )}
         <Container className="container">
