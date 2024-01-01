@@ -21,8 +21,8 @@ const Component = ({ className, backgroundImage, heading, headingType }: Props) 
           <Image
             alt={altText || "V-Player1"}
             src={sourceUrl}
-            layout="fill"
-            objectFit="cover"
+            fill
+            className="image"
             priority
             placeholder="blur"
             blurDataURL="/images/shimmer.svg"

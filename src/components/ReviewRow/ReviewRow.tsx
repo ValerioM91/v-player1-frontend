@@ -22,30 +22,26 @@ const Component = ({ className, title, slug, excerpt, reviewFields }: Props) => 
   return (
     <article className={className}>
       {imageUrl && (
-        <Link href={`/reviews/${slug}`} scroll={false}>
-          <a className="col-left">
-            <figure>
-              <Image
-                src={imageUrl}
-                alt={altText || "V-Player1"}
-                width={500}
-                height={300}
-                layout="responsive"
-                objectFit="cover"
-                placeholder="blur"
-                blurDataURL="/images/shimmer.svg"
-              />
-
-              {vote && <span className="vote">V-score {vote.toFixed(1)}</span>}
-            </figure>
-          </a>
+        <Link href={`/reviews/${slug}`} scroll={false} className="col-left">
+          <figure>
+            <Image
+              src={imageUrl}
+              alt={altText || "V-Player1"}
+              width={500}
+              height={300}
+              className="image"
+              placeholder="blur"
+              blurDataURL="/images/shimmer.svg"
+            />
+            {vote && <span className="vote">V-score {vote.toFixed(1)}</span>}
+          </figure>
         </Link>
       )}
       <div className="col-right">
         {title && (
           <div className="title h3">
-            <Link href={`/reviews/${slug}`} scroll={false}>
-              <a className="underline">{title}</a>
+            <Link href={`/reviews/${slug}`} scroll={false} className="underline">
+              {title}
             </Link>
           </div>
         )}

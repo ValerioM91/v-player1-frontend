@@ -33,11 +33,10 @@ const Component = ({ className, heading, headingType, contents }: Props) => {
                 <span className="image">
                   <Image
                     src={imageUrl}
-                    layout="responsive"
-                    width="160"
-                    height="90"
-                    objectFit="cover"
-                    className="Img"
+                    width={400}
+                    height={225}
+                    style={{ objectFit: "cover" }}
+                    className="img"
                     alt={altText || "V-Player1"}
                     placeholder="blur"
                     blurDataURL="/images/shimmer.svg"

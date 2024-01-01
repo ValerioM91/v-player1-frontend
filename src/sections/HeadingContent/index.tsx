@@ -24,6 +24,10 @@ const HeadingContent = styled(Component)`
     margin-bottom: 2rem;
   }
 
+  .img {
+    width: 100%;
+  }
+
   @media ${({ theme }) => theme.device.mdDown} {
     .image {
       display: block;

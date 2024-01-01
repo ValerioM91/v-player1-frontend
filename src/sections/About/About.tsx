@@ -29,13 +29,12 @@ const Component = ({ className, content, heading, headingType, image }: Props) =
         )}
         <div className="row">
           {sourceUrl && (
-            <figure className="image">
+            <figure className="figure">
               <Image
                 src={sourceUrl}
                 width={250}
                 height={250}
-                layout="responsive"
-                objectFit="cover"
+                className="image"
                 alt={altText || "V-Player1"}
                 placeholder="blur"
                 blurDataURL="/images/shimmer.svg"

@@ -7,7 +7,7 @@ const Heading = styled(Component)`
     (useIsDarkTheme() && color === "textColor" ? theme.colors.white : theme.colors[color]) || theme.colors.primaryBlue};
   text-align: ${({ alignment }) => alignment || "left"};
   text-transform: uppercase;
-  font-family: "Electrolize";
+  font-family: var(--electrolize);
   font-weight: 300;
   ${({ theme, size }) => theme.fontSizes[size] || theme.fontSizes.headingMedium};
 

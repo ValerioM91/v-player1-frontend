@@ -56,6 +56,14 @@ h6 {
 figure {
   margin: 0;
   position: relative;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 a {

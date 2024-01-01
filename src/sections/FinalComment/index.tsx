@@ -23,7 +23,7 @@ const FinalComment = styled(Component)`
     grid-column-gap: 2rem;
     grid-row-gap: 1rem;
     text-align: center;
-    font-family: "Electrolize";
+    font-family: var(--electrolize);
     font-size: 3.2rem;
     @media ${({ theme }) => theme.device.mdUp} {
       font-size: 4.6rem;

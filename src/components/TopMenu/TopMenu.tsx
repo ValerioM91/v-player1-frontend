@@ -17,18 +17,20 @@ const Component = ({ className }: Props) => {
   return (
     <div className={className}>
       <nav className="nav-center container heading-font">
-        <Link href="/" scroll={false} aria-label="home">
-          <a className="logo" aria-label="home">
-            <LogoSVG variant="white" width={100} height={50} style={{ objectFit: "contain" }} />
-          </a>
+        <Link href="/" scroll={false} className="logo" aria-label="home">
+          <LogoSVG variant="white" width={100} height={50} style={{ objectFit: "contain" }} />
         </Link>
         <ul className="links">
           {mainMenu.map((link, index) => {
             const { label, path, cssClasses } = link
             return (
               <li key={index}>
-                <Link href={path} scroll={false}>
-                  <a className={`link underline${cssClasses && cssClasses.length ? ` ${cssClasses}` : ""}`}>{label}</a>
+                <Link
+                  href={path}
+                  scroll={false}
+                  className={`link underline${cssClasses && cssClasses.length ? ` ${cssClasses}` : ""}`}
+                >
+                  {label}
                 </Link>
               </li>
             )
