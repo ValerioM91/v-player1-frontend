@@ -37,7 +37,7 @@ const Component = ({ className, content, heading, headingType, image }: Props) =
                 className="image"
                 alt={altText || "V-Player1"}
                 placeholder="blur"
-                blurDataURL="/images/shimmer.svg"
+                blurDataURL="./images/shimmer.svg"
               />
             </figure>
           )}

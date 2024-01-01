@@ -22,7 +22,7 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
               src={imageUrl}
               alt={altText || "V-Player1"}
               placeholder="blur"
-              blurDataURL="/images/shimmer.svg"
+              blurDataURL="./images/shimmer.svg"
               width={500}
               height={300}
               className="image"

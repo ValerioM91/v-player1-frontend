@@ -31,7 +31,7 @@ const Component = ({ className, title, slug, excerpt, reviewFields }: Props) => 
               height={300}
               className="image"
               placeholder="blur"
-              blurDataURL="/images/shimmer.svg"
+              blurDataURL="./images/shimmer.svg"
             />
             {vote && <span className="vote">V-score {vote.toFixed(1)}</span>}
           </figure>

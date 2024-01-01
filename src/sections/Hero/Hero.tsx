@@ -25,7 +25,7 @@ const Component = ({ className, backgroundImage, heading, headingType }: Props) 
             className="image"
             priority
             placeholder="blur"
-            blurDataURL="/images/shimmer.svg"
+            blurDataURL="./images/shimmer.svg"
           />
         )}
         <Container className="container">
