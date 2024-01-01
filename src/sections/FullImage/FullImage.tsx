@@ -1,18 +1,19 @@
 import Image from "next/image"
-import type { TImage } from "@/types"
+import type { FullImageSectionQueryFragment } from "@/gql/graphql"
 
-export type Props = React.ComponentPropsWithoutRef<"figure"> & {
-  image?: TImage
+type Props = FullImageSectionQueryFragment["fields"] & {
+  className?: string
+  buttonType?: string
 }
 
-const Component = ({ className, image, ...rest }: Props) => {
+const Component = ({ className, image }: Props) => {
   const url = image?.sourceUrl
   const altText = image?.altText
 
   if (!url) return null
 
   return (
-    <figure className={className} {...rest}>
+    <figure className={className}>
       <Image
         className="image"
         src={url}

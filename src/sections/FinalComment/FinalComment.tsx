@@ -1,13 +1,11 @@
 import parse from "html-react-parser"
 
-import Heading from "../Heading"
-import type { THeadingType } from "@/types"
+import Heading from "@/components/Heading"
+import type { FinalCommentSectionQueryFragment } from "@/gql/graphql"
+import getHeadingType from "@/utils/getHeadingType"
 
-export type Props = {
+type Props = FinalCommentSectionQueryFragment["fields"] & {
   className?: string
-  heading?: string
-  headingType?: THeadingType
-  content?: string
   vote?: number
 }
 
@@ -16,7 +14,7 @@ const Component = ({ className, heading, headingType, content, vote }: Props) =>
     <div className={className}>
       {heading && (
         <Heading
-          headingType={headingType}
+          headingType={getHeadingType(headingType)}
           heading={heading}
           size="headingSmall"
           className="heading"

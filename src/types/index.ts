@@ -1,3 +1,5 @@
+import type { GlobalsQueryFragment, PageBlocksFieldsFragment, ReviewQueryFragment } from "@/gql/graphql"
+
 export type THeadingType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 
 export type TTextSize =
@@ -49,9 +51,10 @@ export type TGlobals = {
   }
 }
 
-export type TBlock = {
-  // TODO - Refactor all queries (possibly using codegen to generate types) and remove this any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  fields?: any
-  name?: string
+export type TBlock = PageBlocksFieldsFragment["blocks"][number]
+
+export type TAllPagesProps = {
+  reviews?: ReviewQueryFragment[]
+  menuItems?: TMenuItem[]
+  globals?: GlobalsQueryFragment
 }

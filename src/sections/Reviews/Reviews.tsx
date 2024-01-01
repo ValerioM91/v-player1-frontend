@@ -1,19 +1,14 @@
-import ReviewRow from "../ReviewRow"
-import Heading from "../Heading"
-import Container from "../Container"
-import Button from "../Button"
+import ReviewRow from "@/components/ReviewRow"
+import Heading from "@/components/Heading"
+import Container from "@/components/Container"
+import Button from "@/components/Button"
 import useStore from "@/store"
-import type { THeadingType } from "@/types"
+import type { ReviewsSectionQueryFragment } from "@/gql/graphql"
+import getButtonVariant from "@/utils/getButtonVariant"
+import getHeadingType from "@/utils/getHeadingType"
 
-export type Props = {
+type Props = ReviewsSectionQueryFragment["fields"] & {
   className?: string
-  heading?: string
-  headingType?: THeadingType
-  buttonType?: "primary" | "secondary" | "tertiary" | "quaternary"
-  label?: string
-  linkUrl?: string
-  latest?: boolean
-  first?: boolean
 }
 
 const Component = ({ className, buttonType, heading, headingType, label, linkUrl, latest }: Props) => {
@@ -21,13 +16,15 @@ const Component = ({ className, buttonType, heading, headingType, label, linkUrl
 
   if (!reviews) return null
 
+  const buttonVariant = getButtonVariant(buttonType)
+
   return (
     <section id="reviews" className={className}>
       <Container>
         {heading && (
           <Heading
             heading={heading}
-            headingType={headingType}
+            headingType={getHeadingType(headingType)}
             size="headingMedium"
             color="textColor"
             alignment="center"
@@ -42,7 +39,7 @@ const Component = ({ className, buttonType, heading, headingType, label, linkUrl
           </div>
         )}
         <div className="btn-container">
-          {linkUrl && <Button asLink label={label} href={linkUrl} variant={buttonType} />}
+          {linkUrl && <Button asLink label={label} href={linkUrl} variant={buttonVariant} />}
         </div>
       </Container>
     </section>

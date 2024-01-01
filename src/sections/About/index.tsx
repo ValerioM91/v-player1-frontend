@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Component from "./About"
 import { useIsDarkTheme } from "@/store"
 
-const StyledAbout = styled(Component)`
+const About = styled(Component)`
   padding-top: 3rem;
   padding-bottom: 5rem;
   ${({ theme }) => theme.fontSizes.contentLarge};
@@ -52,4 +52,4 @@ const StyledAbout = styled(Component)`
   }
 `
 
-export default StyledAbout
+export default About
