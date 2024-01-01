@@ -1,14 +1,8 @@
 import useStore from "@/store"
-import type { TGlobals, TMenuItem, TReview } from "@/types"
+import type { TAllPagesProps } from "@/types"
 import { useEffect } from "react"
 
-type Props = {
-  reviews?: TReview[]
-  menuItems?: TMenuItem[]
-  globals?: TGlobals
-}
-
-const usePageStore = ({ globals, menuItems, reviews }: Props) => {
+const usePageStore = ({ globals, menuItems, reviews }: TAllPagesProps) => {
   const { setReviews, setGlobals, setMainMenu } = useStore(state => state)
 
   useEffect(() => {

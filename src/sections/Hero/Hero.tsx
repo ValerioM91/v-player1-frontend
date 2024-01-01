@@ -1,14 +1,12 @@
 import Image from "next/image"
-import Heading from "../Heading"
-import Container from "../Container"
-import TopMenu from "./child-components/TopMenu"
-import type { THeadingType, TImage } from "@/types"
+import Heading from "@/components/Heading"
+import Container from "@/components/Container"
+import TopMenu from "@/components/TopMenu"
+import type { HeroSectionQueryFragment } from "@/gql/graphql"
+import getHeadingType from "@/utils/getHeadingType"
 
-type Props = {
+type Props = HeroSectionQueryFragment["fields"] & {
   className?: string
-  backgroundImage?: TImage
-  heading?: string
-  headingType?: THeadingType
 }
 
 const Component = ({ className, backgroundImage, heading, headingType }: Props) => {
@@ -33,7 +31,7 @@ const Component = ({ className, backgroundImage, heading, headingType }: Props) 
         <Container className="container">
           {heading && (
             <Heading
-              headingType={headingType}
+              headingType={getHeadingType(headingType)}
               heading={heading}
               alignment="center"
               color="white"

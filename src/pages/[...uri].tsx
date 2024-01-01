@@ -1,18 +1,13 @@
-import { gql } from "@apollo/client"
 import { client } from "../lib/apolloClient"
-import { BLOCKS_FRAGMENT } from "../utils/Blocks"
 import Dynamic from "../layouts/Dynamic"
-import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests"
 import createMenuItemArray from "../utils/createMenuItemArray"
-import type { TReview, TMenuItem, TGlobals } from "../types"
-import type { TDynamicProps } from "@/layouts/Dynamic/Dynamic"
-import usePageStore from "@/utils/usePageStore"
 
-type Props = TDynamicProps & {
-  reviews?: TReview[]
-  menuItems?: TMenuItem[]
-  globals?: TGlobals
-}
+import type { TDynamicProps } from "@/layouts/Dynamic/Dynamic"
+import type { TAllPagesProps } from "@/types"
+import usePageStore from "@/utils/usePageStore"
+import { PagePathsQuery, PageQuery } from "@/lib/queries"
+
+type Props = TDynamicProps & TAllPagesProps
 
 export default function Page(props: Props) {
   usePageStore(props)
@@ -23,13 +18,14 @@ export default function Page(props: Props) {
 export const getStaticProps = async context => {
   const uri = context.params.uri.join("/")
   const response = await client.query({
-    query: GET_PAGE,
+    query: PageQuery,
     variables: { uri },
+    fetchPolicy: "no-cache",
   })
 
-  const reviews: TReview[] = response?.data?.reviews?.nodes
+  const reviews = response?.data?.reviews?.nodes
   const menuItems = createMenuItemArray(response?.data?.menu?.menuItems?.nodes)
-  const globals: TGlobals = response?.data?.globals
+  const globals = response?.data?.globals
 
   const props: Props = {
     ...response?.data?.page,
@@ -46,10 +42,10 @@ export const getStaticProps = async context => {
 
 export const getStaticPaths = async () => {
   const response = await client.query({
-    query: GET_PAGES,
+    query: PagePathsQuery,
   })
 
-  const pages: { uri: string }[] = response?.data?.pages?.nodes
+  const pages: { uri: string }[] = response?.data?.pages?.nodes.map(page => ({ uri: page.uri }))
 
   const uris = pages.map(page => page.uri.split("/").filter(Boolean)).filter(uri => uri.length)
   const paths = uris.map(uri => ({ params: { uri } }))
@@ -59,30 +55,3 @@ export const getStaticPaths = async () => {
     fallback: false,
   }
 }
-
-const GET_PAGES = gql`
-  query allPages {
-    pages {
-      nodes {
-        uri
-      }
-    }
-  }
-`
-
-const GET_PAGE = gql`
-  query getPage($uri: ID!) {
-    page(id: $uri, idType: URI) {
-      slug
-      title
-      pageFields {
-        description
-      }
-      ...PageBlocksFields
-    }
-    ${GET_REVIEWS}
-    ${GET_MAIN_MENU}
-    ${GET_GLOBALS}
-  }
-  ${BLOCKS_FRAGMENT}
-`

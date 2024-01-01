@@ -1,24 +1,24 @@
 import parse from "html-react-parser"
 import Image from "next/image"
+import Heading from "@/components/Heading"
+import type { HeadingContentSectionQueryFragment } from "@/gql/graphql"
+import getHeadingType from "@/utils/getHeadingType"
 
-import Heading from "../Heading"
-import type { THeadingType, TImage } from "@/types"
-
-export type Props = {
+type Props = HeadingContentSectionQueryFragment["fields"] & {
   className?: string
-  heading?: string
-  headingType?: THeadingType
-  contents: {
-    content?: string
-    image?: TImage
-  }[]
 }
 
 const Component = ({ className, heading, headingType, contents }: Props) => {
   return (
     <div className={className}>
       {heading && (
-        <Heading headingType={headingType} heading={heading} borderBottom size="headingSmall" className="heading" />
+        <Heading
+          headingType={getHeadingType(headingType)}
+          heading={heading}
+          borderBottom
+          size="headingSmall"
+          className="heading"
+        />
       )}
       {contents &&
         contents.map((item, i) => {

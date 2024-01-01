@@ -1,14 +1,15 @@
 import { create } from "zustand"
-import type { TReview, TGlobals, TMenuItem } from "../types"
+import type { TMenuItem } from "../types"
+import type { GlobalsQueryFragment, ReviewQueryFragment } from "@/gql/graphql"
 
 type TStore = {
-  reviews: TReview[]
-  globals: TGlobals
+  reviews: ReviewQueryFragment[]
+  globals: GlobalsQueryFragment
   mainMenu: TMenuItem[]
   introCompleted: boolean
   darkTheme: boolean
-  setReviews: (reviews: TReview[]) => void
-  setGlobals: (globals: TGlobals) => void
+  setReviews: (reviews: ReviewQueryFragment[]) => void
+  setGlobals: (globals: GlobalsQueryFragment) => void
   setMainMenu: (mainMenu: TMenuItem[]) => void
   setIntroCompleted: (bool: boolean) => void
   setDarkTheme: (bool: boolean) => void

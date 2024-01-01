@@ -1,15 +1,14 @@
+import { type MenuItem } from "@/gql/graphql"
 import type { TMenuItem } from "@/types"
 
-const createMenuItemArray = (itemsNodes: TMenuItem[]) => {
+const createMenuItemArray = (itemsNodes: Omit<MenuItem, "databaseId" | "id">[]) => {
   if (!itemsNodes || !itemsNodes.length) return []
-  const menuItemsPaths: TMenuItem[] = []
-  itemsNodes.forEach(item => {
-    if (!item.path.includes("/v-player1")) return menuItemsPaths.push(item)
-    const newPath = item.path.replace("/v-player1", "")
-    const newItem = { ...item }
-    newItem.path = newPath
-    return menuItemsPaths.push(newItem)
+
+  const menuItemsPaths: TMenuItem[] = itemsNodes.map(item => {
+    const path = item.path.replace("/v-player1", "")
+    return { label: item.label, cssClasses: item.cssClasses.join(" "), path }
   })
+
   return menuItemsPaths
 }
 

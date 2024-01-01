@@ -1,18 +1,12 @@
-import { gql } from "@apollo/client"
 import { client } from "../lib/apolloClient"
-import { BLOCKS_FRAGMENT } from "../utils/Blocks"
 import Dynamic from "../layouts/Dynamic"
-import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../lib/requests"
 import createMenuItemArray from "../utils/createMenuItemArray"
-import type { TReview, TMenuItem, TGlobals } from "@/types"
-import type { TDynamicProps } from "@/layouts/Dynamic/Dynamic"
+import type { TAllPagesProps } from "@/types"
 import usePageStore from "@/utils/usePageStore"
+import { HomePageQuery } from "@/lib/queries"
+import type { TDynamicProps } from "@/layouts/Dynamic/Dynamic"
 
-type Props = TDynamicProps & {
-  reviews?: TReview[]
-  menuItems?: TMenuItem[]
-  globals?: TGlobals
-}
+type Props = TDynamicProps & TAllPagesProps
 
 export default function Home(props: Props) {
   usePageStore(props)
@@ -22,12 +16,13 @@ export default function Home(props: Props) {
 
 export const getStaticProps = async () => {
   const response = await client.query({
-    query: HOMEPAGE_QUERY,
+    query: HomePageQuery,
+    fetchPolicy: "no-cache",
   })
 
-  const reviews: TReview[] = response?.data?.reviews?.nodes
-  const menuItems = createMenuItemArray(response?.data?.menu?.menuItems?.nodes)
-  const globals: TGlobals = response?.data?.globals
+  const reviews = response?.data?.reviews?.nodes
+  const menuItems = createMenuItemArray(response?.data?.menu.menuItems.nodes)
+  const globals = response?.data?.globals
 
   const props: Props = {
     ...response?.data?.page,
@@ -41,16 +36,3 @@ export const getStaticProps = async () => {
     revalidate: false,
   }
 }
-
-const HOMEPAGE_QUERY = gql`
-  {
-    page(id: "/", idType: URI) {
-      title
-      ...PageBlocksFields
-    }
-    ${GET_REVIEWS}
-    ${GET_MAIN_MENU}
-    ${GET_GLOBALS}
-  }
-  ${BLOCKS_FRAGMENT}
-`

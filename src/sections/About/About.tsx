@@ -1,16 +1,13 @@
 import parse from "html-react-parser"
 import Image from "next/image"
 
-import Heading from "../Heading"
-import Container from "../Container"
-import type { THeadingType, TImage } from "@/types"
+import Heading from "@/components/Heading"
+import Container from "@/components/Container"
+import type { AboutSectionQueryFragment } from "@/gql/graphql"
+import getHeadingType from "@/utils/getHeadingType"
 
-export type Props = {
+type Props = AboutSectionQueryFragment["fields"] & {
   className?: string
-  content?: string
-  heading?: string
-  headingType?: THeadingType
-  image?: TImage
 }
 
 const Component = ({ className, content, heading, headingType, image }: Props) => {
@@ -23,7 +20,7 @@ const Component = ({ className, content, heading, headingType, image }: Props) =
         {heading && (
           <Heading
             heading={heading}
-            headingType={headingType}
+            headingType={getHeadingType(headingType)}
             size="headingMedium"
             color="textColor"
             alignment="center"

@@ -1,18 +1,12 @@
-import { gql } from "@apollo/client"
 import { client } from "../../lib/apolloClient"
 import ReviewLayout from "../../layouts/Review"
-import { REVIEWS_BLOCKS_FRAGMENT } from "../../utils/Blocks"
-import { GET_REVIEWS, GET_MAIN_MENU, GET_GLOBALS } from "../../lib/requests"
 import createMenuItemArray from "../../utils/createMenuItemArray"
-import type { TReview, TMenuItem, TGlobals } from "@/types"
+import type { TAllPagesProps } from "@/types"
 import type { TReviewProps } from "@/layouts/Review/Review"
 import usePageStore from "@/utils/usePageStore"
+import { ReviewPageQuery, ReviewsPathsQuery } from "@/lib/queries"
 
-type Props = TReviewProps & {
-  reviews?: TReview[]
-  menuItems?: TMenuItem[]
-  globals?: TGlobals
-}
+type Props = TReviewProps & TAllPagesProps
 
 const Review = (props: Props) => {
   usePageStore(props)
@@ -24,9 +18,10 @@ export default Review
 
 export const getStaticPaths = async () => {
   const response = await client.query({
-    query: GET_REVIEWS_PATHS,
+    query: ReviewsPathsQuery,
+    fetchPolicy: "no-cache",
   })
-  const reviews: TReview[] = response?.data?.reviews?.nodes
+  const reviews = response?.data?.reviews?.nodes
   const slugs = reviews.map(review => review.slug)
   const paths = slugs.map(slug => ({ params: { slug } }))
 
@@ -39,14 +34,15 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async context => {
   const slug = context.params.slug
   const response = await client.query({
-    query: GET_REVIEW,
+    query: ReviewPageQuery,
     variables: { slug },
+    fetchPolicy: "no-cache",
   })
 
-  const review: TReviewProps = response?.data?.review
-  const reviews: TReview[] = response?.data?.reviews?.nodes
+  const review = response?.data?.review
+  const reviews = response?.data?.reviews?.nodes
   const menuItems = createMenuItemArray(response?.data?.menu?.menuItems?.nodes)
-  const globals: TGlobals = response?.data?.globals
+  const globals = response?.data?.globals
 
   const props = {
     ...review,
@@ -60,33 +56,3 @@ export const getStaticProps = async context => {
     revalidate: false,
   }
 }
-
-const GET_REVIEW = gql`
-  query getReview($slug: ID!) {
-    review(id: $slug, idType: SLUG) {
-      title
-      excerpt
-      reviewFields {
-        vote
-        hero {
-          sourceUrl
-        }
-      }
-      ...ReviewBlocksFields
-    }
-    ${GET_REVIEWS}
-    ${GET_MAIN_MENU}
-    ${GET_GLOBALS}
-  }
-  ${REVIEWS_BLOCKS_FRAGMENT}
-`
-
-const GET_REVIEWS_PATHS = gql`
-  query allReviews {
-    reviews {
-      nodes {
-        slug
-      }
-    }
-  }
-`
