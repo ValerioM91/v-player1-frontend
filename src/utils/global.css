@@ -5,6 +5,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
   word-wrap: break-word;
@@ -18,9 +19,11 @@ body {
     color 0.05s linear;
   box-sizing: border-box;
 }
+
 *:before {
   box-sizing: inherit;
 }
+
 *:after {
   box-sizing: inherit;
 }
@@ -28,6 +31,7 @@ body {
 * {
   box-sizing: inherit;
 }
+
 p {
   margin-left: 0;
   margin-right: 0;
