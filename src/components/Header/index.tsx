@@ -36,6 +36,10 @@ const Header = styled(Component)`
     height: 100%;
   }
 
+  .toggler {
+    margin-left: auto;
+  }
+
   .links {
     display: flex;
     align-items: center;
@@ -55,12 +59,6 @@ const Header = styled(Component)`
       @media ${({ theme }) => theme.device.smDown} {
         font-size: 1.6rem;
       }
-    }
-  }
-
-  @media ${({ theme }) => theme.device.smUp} {
-    .toggler {
-      margin-left: auto;
     }
   }
 `
