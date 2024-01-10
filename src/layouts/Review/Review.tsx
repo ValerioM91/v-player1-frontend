@@ -8,7 +8,6 @@ import IntroAnimation from "@/components/IntroAnimation"
 import { motion, AnimatePresence, useScroll } from "framer-motion"
 import type { TBlock, TImage } from "@/types"
 import BlockRenderer from "@/sections/BlockRenderer"
-import { useRef } from "react"
 
 export type TReviewProps = {
   className?: string
@@ -23,8 +22,7 @@ export type TReviewProps = {
 }
 
 const Component = ({ className, blocks, title, excerpt, reviewFields }: TReviewProps) => {
-  const ref = useRef()
-  const { scrollYProgress } = useScroll({ target: ref })
+  const { scrollYProgress } = useScroll()
 
   return (
     <>
@@ -52,7 +50,12 @@ const Component = ({ className, blocks, title, excerpt, reviewFields }: TReviewP
         >
           <main className={className}>
             <Container className="container">
-              <motion.div className="progress-bar" style={{ scaleX: scrollYProgress }} key={`progress-bar-${title}`} />
+              <motion.div
+                className="progress-bar"
+                initial={{ scaleX: 0 }}
+                style={{ scaleX: scrollYProgress }}
+                key={`progress-bar-${title}`}
+              />
               <div className="col-left">
                 <Heading
                   heading={title}

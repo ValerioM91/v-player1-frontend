@@ -34,8 +34,8 @@ const Component = ({ className, title }: Props) => {
               <Link href={`/reviews/${slug}`} scroll={false} className="link">
                 {featuredImage?.node?.sourceUrl && (
                   <Image
-                    width={80}
-                    height={80}
+                    width={160}
+                    height={160}
                     style={{ objectFit: "cover" }}
                     className="thumbnail"
                     src={featuredImage.node.sourceUrl}
