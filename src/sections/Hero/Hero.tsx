@@ -1,4 +1,4 @@
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 import Heading from "@/components/Heading"
 import Container from "@/components/Container"
 import TopMenu from "@/components/TopMenu"
@@ -19,7 +19,7 @@ const Component = ({ className, backgroundImage, heading, headingType }: Props) 
       <TopMenu className="hero__topmenu" />
       <div className="hero__image">
         {sourceUrl && (
-          <Image
+          <WpImage
             alt={altText || "V-Player1"}
             src={sourceUrl}
             fill

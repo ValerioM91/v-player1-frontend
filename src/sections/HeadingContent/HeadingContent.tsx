@@ -1,5 +1,5 @@
 import parse from "html-react-parser"
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 import Heading from "@/components/Heading"
 import type { HeadingContentSectionQueryFragment } from "@/gql/graphql"
 import getHeadingType from "@/utils/getHeadingType"
@@ -32,7 +32,7 @@ const Component = ({ className, heading, headingType, contents }: Props) => {
             <div className="content" key={i}>
               {imageUrl && (
                 <span className="image">
-                  <Image
+                  <WpImage
                     src={imageUrl}
                     width={400}
                     height={225}

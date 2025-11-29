@@ -1,4 +1,4 @@
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 import type { FullImageSectionQueryFragment } from "@/gql/graphql"
 import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
@@ -15,7 +15,7 @@ const Component = ({ className, image }: Props) => {
 
   return (
     <figure className={className}>
-      <Image
+      <WpImage
         className="image"
         src={url}
         alt={altText || `V-Player1`}

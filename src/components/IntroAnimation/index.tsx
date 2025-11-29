@@ -178,7 +178,7 @@ const Wrapper = styled.div<Props>`
     width: 100rem;
     height: 100rem;
 
-    @media ${({ theme }) => theme.device.md} {
+    @media ${({ theme }) => theme.device.mdUp} {
       width: 170rem;
       height: 170rem;
     }

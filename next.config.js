@@ -6,7 +6,7 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [{ hostname: process.env.NEXT_PUBLIC_WORDPRESS_URL }],
+    remotePatterns: [{ hostname: "v-player1.co.uk" }],
   },
   compiler: {
     styledComponents: true,

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import useStore from "@/store"
 import Heading from "../Heading"
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 
 type Props = {
   className?: string
@@ -33,7 +33,7 @@ const Component = ({ className, title }: Props) => {
             <article key={i}>
               <Link href={`/reviews/${slug}`} scroll={false} className="link">
                 {featuredImage?.node?.sourceUrl && (
-                  <Image
+                  <WpImage
                     width={160}
                     height={160}
                     style={{ objectFit: "cover" }}

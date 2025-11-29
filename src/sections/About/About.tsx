@@ -1,5 +1,5 @@
 import parse from "html-react-parser"
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 
 import Heading from "@/components/Heading"
 import Container from "@/components/Container"
@@ -31,7 +31,7 @@ const Component = ({ className, content, heading, headingType, image }: Props) =
         <div className="row">
           {sourceUrl && (
             <figure className="figure">
-              <Image
+              <WpImage
                 src={sourceUrl}
                 width={250}
                 height={250}

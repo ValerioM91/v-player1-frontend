@@ -49,9 +49,9 @@ export const fontSizesMap = {
     null: "1.4rem",
     md: "1.8rem",
   },
-}
+} as const
 
-const fontSizes = {}
+const fontSizes = {} as Record<keyof typeof fontSizesMap, string>
 
 for (const key in fontSizesMap) {
   if (fontSizesMap.hasOwnProperty(key)) {

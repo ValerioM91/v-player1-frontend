@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 import type { TImage } from "@/types"
 import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
 
@@ -19,7 +19,7 @@ const Component = ({ className, title, uri, featuredImage }: Props) => {
       <div className="inner">
         <Link href={uri} scroll={false}>
           {imageUrl && (
-            <Image
+            <WpImage
               src={imageUrl}
               alt={altText || "V-Player1"}
               placeholder="blur"

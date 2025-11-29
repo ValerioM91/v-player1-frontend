@@ -1,5 +1,5 @@
 import parse from "html-react-parser"
-import Image from "next/image"
+import WpImage from "@/components/WpImage"
 import Link from "next/link"
 import type { TImage } from "@/types"
 import { imageShimmerPlaceholder } from "@/utils/imageShimmerPlaceholder"
@@ -25,7 +25,7 @@ const Component = ({ className, title, slug, excerpt, reviewFields }: Props) => 
       {imageUrl && (
         <Link href={`/reviews/${slug}`} scroll={false} className="col-left">
           <figure>
-            <Image
+            <WpImage
               src={imageUrl}
               alt={altText || "V-Player1"}
               width={500}
